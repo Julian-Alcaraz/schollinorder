@@ -9,9 +9,10 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'Scholl in order',
       routes: MyRoutes.routes,
-      initialRoute: "/Home", //cambiar por el splash
+      initialRoute: "/Splash", //cambiar por el splash
     );
   }
 }

@@ -4,13 +4,17 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: Colors.yellow.shade100,
+        backgroundColor: Colors.white,
         appBar: AppBar(
-          backgroundColor: Colors.white,
+          backgroundColor: Color(0xFF364562),
+          leading: Image.asset(
+            "assets/logo.jpg",
+            width: 50,
+          ),
           title: Text(
             "Pagina de redireccionamiento",
             style: TextStyle(
-                color: Colors.blue, fontSize: 20, fontWeight: FontWeight.bold),
+                color: Colors.white, fontSize: 20, fontWeight: FontWeight.bold),
           ),
         ),
         body: Center(
@@ -30,33 +34,46 @@ class HomePage extends StatelessWidget {
 
 Widget _botonAlumno(context) {
   return Container(
-    child: FloatingActionButton(
-      child: Icon(Icons.add),
+    child: ElevatedButton(
+      child: Text("Alumnos"),
       onPressed: () {
         Navigator.of(context).pushNamed("/Alumnos");
       },
+      style: ElevatedButton.styleFrom(
+        primary: Color(0xFF364562),
+      ),
     ),
   );
 }
 
 Widget _botonProfesor(context) {
   return Container(
-    child: FloatingActionButton(
-      child: Icon(Icons.pause),
+    decoration: BoxDecoration(),
+    child: ElevatedButton(
+      child: Text(
+        "profesor",
+        style: TextStyle(color: Colors.white),
+      ),
       onPressed: () {
         Navigator.of(context).pushNamed("/Profesor");
       },
+      style: ElevatedButton.styleFrom(
+        primary: Color(0xFF364562),
+      ),
     ),
   );
 }
 
 Widget _botonAdministrativo(context) {
   return Container(
-    child: FloatingActionButton(
-      child: Icon(Icons.remove),
+    child: ElevatedButton(
+      child: Text("Administrativos"),
       onPressed: () {
         Navigator.of(context).pushNamed("/Administrativos");
       },
+      style: ElevatedButton.styleFrom(
+        primary: Color(0xFF364562),
+      ),
     ),
   );
 }
