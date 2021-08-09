@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
+
 import 'package:schollinorder/src/models/bloque.dart';
 import 'package:schollinorder/src/models/curso.dart';
 
 class AlumnoPage extends StatelessWidget {
   final _listaDias = ["Lunes", "Martes", "Miercoles", "Jueves", "Viernes"];
   final _listaTurnos = ["Teoria", "Taller     "];
-  final String a = "";
+
   final GlobalKey<ScaffoldState> _scaffoldKey = new GlobalKey<ScaffoldState>();
   @override
   Widget build(BuildContext context) {
@@ -82,87 +83,15 @@ class AlumnoPage extends StatelessWidget {
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      //primero
-                      Container(
-                        margin: EdgeInsets.symmetric(horizontal: 10),
-                        padding:
-                            EdgeInsets.symmetric(horizontal: 16, vertical: 5),
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.all(Radius.circular(10)),
-                          border: Border.all(
-                            color: Colors.indigo.shade200,
-                            width: 2,
-                          ),
-                          color: Colors.indigo.shade100,
-                        ),
-                        child: DropdownButton(
-                          //PERSONALIZACION
-
-                          dropdownColor: Colors.indigo.shade100,
-                          hint: Text(
-                            "Turno",
-                            style: TextStyle(color: Colors.black),
-                          ),
-                          //FUNCIONALIDAD
-                          items: _listaTurnos
-                              .map((a) =>
-                                  DropdownMenuItem(value: a, child: Text(a)))
-                              .toList(),
-                          onChanged: (a) {
-                            print(a);
-                          },
-                        ),
-                      ),
-                      //segundo
-                      Container(
-                        margin: EdgeInsets.symmetric(horizontal: 10),
-                        padding:
-                            EdgeInsets.symmetric(horizontal: 15, vertical: 5),
-                        decoration: BoxDecoration(
-                            borderRadius: BorderRadius.all(Radius.circular(10)),
-                            border: Border.all(
-                              color: Colors.indigo.shade200,
-                              width: 2,
-                            ),
-                            color: Colors.indigo.shade100),
-                        child: DropdownButton(
-                          //PERSONALIZACION
-                          dropdownColor: Colors.indigo.shade100,
-
-                          hint: Text(
-                            "Dias",
-                            style: TextStyle(color: Colors.black),
-                          ),
-                          //FUNCIONALIDAD
-                          items: _listaDias
-                              .map((String a) =>
-                                  DropdownMenuItem(value: a, child: Text(a)))
-                              .toList(),
-                          onChanged: (a) {
-                            print(a);
-                          },
-                        ),
-                      ),
+                      //primer boton
+                      _primerBotonDesplegable(_listaTurnos),
+                      //segundo boton
+                      _segundoBotonDesplegable(_listaDias),
                     ],
                   ),
                 ),
                 //tabla magica de los horarios
-                Container(
-                  height: 370,
-                  decoration: BoxDecoration(/* color: Colors.amber */),
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    children: [
-                      _hora(),
-                      _hora(),
-                      _hora(),
-                      _hora(),
-                      _hora(),
-                      _hora(),
-                      _hora(),
-                    ],
-                  ),
-                ),
+                _tablaHorario(teoriaTarde),
                 Container(
                   child: Center(
                     child: ElevatedButton(
@@ -179,68 +108,135 @@ class AlumnoPage extends StatelessWidget {
       ),
     );
   }
-}
 
-Widget _hora() {
-  return Row(
-    mainAxisAlignment: MainAxisAlignment.center,
-    children: [
-      Container(
-        alignment: Alignment.center,
-        height: 50,
-        width: 55,
-        decoration: BoxDecoration(
-          color: Colors.indigo.shade100,
-          border: Border.all(color: Colors.black, width: 1),
+  Widget _tablaHorario(List<Bloque> lista) {
+    return Container(
+      height: 370,
+      child: ListView.builder(
+          itemCount: lista.length,
+          itemBuilder: (context, index) => _hora(lista[index])),
+    );
+  }
+
+  Widget _hora(Bloque bloque) {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        Container(
+          alignment: Alignment.center,
+          height: 50,
+          width: 55,
+          decoration: BoxDecoration(
+            color: Colors.indigo.shade100,
+            border: Border.all(color: Colors.black, width: 1),
+          ),
+          child: Text(
+            "${bloque.horaDeCatedra.horas}",
+          ),
         ),
-        child: Text(
-          //"13:30\n14:10",
-          "${bloque.horasCatedra.horas}",
-        ),
-      ),
-      Container(
-        height: 50,
-        width: 100,
-        alignment: Alignment.center,
-        decoration: BoxDecoration(
-          color: Colors.indigo.shade100,
-          border: Border.all(color: Colors.black, width: 1),
-        ),
-        child: Text(
-          //"Apellido\nNombre",
-          "${bloque.profesor.apellido}\n ${bloque.profesor.nombre}",
-        ),
-      ),
-      Container(
-        height: 50,
-        width: 100,
-        alignment: Alignment.center,
-        decoration: BoxDecoration(
-          color: Colors.indigo.shade100,
-          border: Border.all(color: Colors.black, width: 1),
-        ),
-        child: Text(
-          "Materia",
-          //textAlign: TextAlign.center,
-        ),
-      ),
-      Container(
-        padding: EdgeInsets.all(10),
-        height: 50,
-        width: 50,
-        decoration: BoxDecoration(
-          color: Colors.indigo.shade100,
-          border: Border.all(color: Colors.black, width: 1),
-        ),
-        child: Container(
+        Container(
+          height: 50,
+          width: 100,
           alignment: Alignment.center,
           decoration: BoxDecoration(
-            color: Colors.white,
-            border: Border.all(color: Colors.black, width: 0.5),
+            color: Colors.indigo.shade100,
+            border: Border.all(color: Colors.black, width: 1),
           ),
-          child: Text("P"),
+          child: Text(
+            "${bloque.profesor.apellido}\n ${bloque.profesor.nombre}",
+          ),
         ),
+        Container(
+          height: 50,
+          width: 100,
+          alignment: Alignment.center,
+          decoration: BoxDecoration(
+            color: Colors.indigo.shade100,
+            border: Border.all(color: Colors.black, width: 1),
+          ),
+          child: Text(
+            "${bloque.materia}",
+          ),
+        ),
+        Container(
+          padding: EdgeInsets.all(10),
+          height: 50,
+          width: 50,
+          decoration: BoxDecoration(
+            color: Colors.indigo.shade100,
+            border: Border.all(color: Colors.black, width: 1),
+          ),
+          child: Container(
+            alignment: Alignment.center,
+            decoration: BoxDecoration(
+              color: Colors.white,
+              border: Border.all(color: Colors.black, width: 0.5),
+            ),
+            child: Text("${bloque.asistencia}"),
+          ),
+        ),
+      ],
+    );
+  }
+
+  Widget _segundoBotonDesplegable(List<String> _listaDias) {
+    return Container(
+      margin: EdgeInsets.symmetric(horizontal: 10),
+      padding: EdgeInsets.symmetric(horizontal: 15, vertical: 5),
+      decoration: BoxDecoration(
+          borderRadius: BorderRadius.all(Radius.circular(10)),
+          border: Border.all(
+            color: Colors.indigo.shade200,
+            width: 2,
+          ),
+          color: Colors.indigo.shade100),
+      child: DropdownButton(
+        //PERSONALIZACION
+        dropdownColor: Colors.indigo.shade100,
+
+        hint: Text(
+          "Dias",
+          style: TextStyle(color: Colors.black),
+        ),
+        //FUNCIONALIDAD
+        items: _listaDias
+            .map((String a) => DropdownMenuItem(value: a, child: Text(a)))
+            .toList(),
+        onChanged: (a) {
+          print(a);
+        },
       ),
-    ],
-  );
+    );
+  }
+
+  Widget _primerBotonDesplegable(List<String> _listaTurnos) {
+    return Container(
+      margin: EdgeInsets.symmetric(horizontal: 10),
+      padding: EdgeInsets.symmetric(horizontal: 16, vertical: 5),
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.all(Radius.circular(10)),
+        border: Border.all(
+          color: Colors.indigo.shade200,
+          width: 2,
+        ),
+        color: Colors.indigo.shade100,
+      ),
+      child: DropdownButton(
+        //PERSONALIZACION
+
+        dropdownColor: Colors.indigo.shade100,
+        hint: Text(
+          "Turno",
+          style: TextStyle(color: Colors.black),
+        ),
+        //FUNCIONALIDAD
+        items: _listaTurnos
+            .map((a) => DropdownMenuItem(value: a, child: Text(a)))
+            .toList(),
+        onChanged: (a) {
+          print(a);
+        },
+      ),
+    );
+  }
 }
