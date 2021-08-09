@@ -6,6 +6,8 @@ import 'package:schollinorder/src/models/curso.dart';
 class AlumnoPage extends StatelessWidget {
   final _listaDias = ["Lunes", "Martes", "Miercoles", "Jueves", "Viernes"];
   final _listaTurnos = ["Teoria", "Taller     "];
+  final String textoPrimerBoton = "Turno";
+  final String textoSegundoBoton = "Dia";
 
   final GlobalKey<ScaffoldState> _scaffoldKey = new GlobalKey<ScaffoldState>();
   @override
@@ -84,13 +86,13 @@ class AlumnoPage extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       //primer boton
-                      _primerBotonDesplegable(_listaTurnos),
+                      _primerBotonDesplegable(_listaTurnos, textoPrimerBoton),
                       //segundo boton
-                      _segundoBotonDesplegable(_listaDias),
+                      _primerBotonDesplegable(_listaDias, textoSegundoBoton),
                     ],
                   ),
                 ),
-                //tabla magica de los horarios
+                //tabla horarios
                 _tablaHorario(teoriaTarde),
                 Container(
                   child: Center(
@@ -179,37 +181,7 @@ class AlumnoPage extends StatelessWidget {
     );
   }
 
-  Widget _segundoBotonDesplegable(List<String> _listaDias) {
-    return Container(
-      margin: EdgeInsets.symmetric(horizontal: 10),
-      padding: EdgeInsets.symmetric(horizontal: 15, vertical: 5),
-      decoration: BoxDecoration(
-          borderRadius: BorderRadius.all(Radius.circular(10)),
-          border: Border.all(
-            color: Colors.indigo.shade200,
-            width: 2,
-          ),
-          color: Colors.indigo.shade100),
-      child: DropdownButton(
-        //PERSONALIZACION
-        dropdownColor: Colors.indigo.shade100,
-
-        hint: Text(
-          "Dias",
-          style: TextStyle(color: Colors.black),
-        ),
-        //FUNCIONALIDAD
-        items: _listaDias
-            .map((String a) => DropdownMenuItem(value: a, child: Text(a)))
-            .toList(),
-        onChanged: (a) {
-          print(a);
-        },
-      ),
-    );
-  }
-
-  Widget _primerBotonDesplegable(List<String> _listaTurnos) {
+  Widget _primerBotonDesplegable(List<String> _listaTurnos, String texto) {
     return Container(
       margin: EdgeInsets.symmetric(horizontal: 10),
       padding: EdgeInsets.symmetric(horizontal: 16, vertical: 5),
@@ -223,10 +195,9 @@ class AlumnoPage extends StatelessWidget {
       ),
       child: DropdownButton(
         //PERSONALIZACION
-
         dropdownColor: Colors.indigo.shade100,
         hint: Text(
-          "Turno",
+          "$texto",
           style: TextStyle(color: Colors.black),
         ),
         //FUNCIONALIDAD
