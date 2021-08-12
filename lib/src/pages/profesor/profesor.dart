@@ -11,7 +11,7 @@ class ProfesorPage extends StatelessWidget {
          endDrawer: Drawer(
           child: Column(
         children: [
-          DrawerHeader(child: Text("Bienvenido Alumno")),
+          DrawerHeader(child: Text("Bienvenido Profesor")),
           Spacer(),
           ListTile(
             tileColor: Color(0xFF364562),
@@ -19,7 +19,7 @@ class ProfesorPage extends StatelessWidget {
             onTap: () {},
           ),
         ],
-      )),
+      )),    
       appBar: AppBar(
         leading: Container(
           width: 50,
