@@ -26,6 +26,8 @@ class HomePage extends StatelessWidget {
               _botonProfesor(context),
               SizedBox(height: 20),
               _botonAdministrativo(context),
+              SizedBox(height: 20),
+              _botonLogin(context),
             ],
           ),
         ));
@@ -38,6 +40,20 @@ Widget _botonAlumno(context) {
       child: Text("Alumnos"),
       onPressed: () {
         Navigator.of(context).pushNamed("/Alumnos");
+      },
+      style: ElevatedButton.styleFrom(
+        primary: Color(0xFF364562),
+      ),
+    ),
+  );
+}
+
+Widget _botonLogin(context) {
+  return Container(
+    child: ElevatedButton(
+      child: Text("Login"),
+      onPressed: () {
+        Navigator.of(context).pushNamed("/Login");
       },
       style: ElevatedButton.styleFrom(
         primary: Color(0xFF364562),

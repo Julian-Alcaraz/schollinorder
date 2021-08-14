@@ -3,13 +3,19 @@ import 'package:flutter/material.dart';
 import 'package:schollinorder/src/models/bloque.dart';
 import 'package:schollinorder/src/models/curso.dart';
 
-class AlumnoPage extends StatelessWidget {
+class AlumnoPage extends StatefulWidget {
+  @override
+  _AlumnoPageState createState() => _AlumnoPageState();
+}
+
+class _AlumnoPageState extends State<AlumnoPage> {
   final _listaDias = ["Lunes", "Martes", "Miercoles", "Jueves", "Viernes"];
   final _listaTurnos = ["Teoria", "Taller     "];
-  final String textoPrimerBoton = "Turno";
-  final String textoSegundoBoton = "Dia";
+  String textoPrimerBoton = "Teoria";
+  String textoSegundoBoton = "Lunes";
 
   final GlobalKey<ScaffoldState> _scaffoldKey = new GlobalKey<ScaffoldState>();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -57,27 +63,7 @@ class AlumnoPage extends StatelessWidget {
             child: Column(
               children: [
                 // Nombre del Curso
-                Container(
-                  margin: EdgeInsets.only(top: 30, bottom: 30),
-                  padding: EdgeInsets.all(12),
-                  height: 60,
-                  decoration: BoxDecoration(
-                    border: Border.all(
-                      color: Colors.indigo.shade200,
-                      width: 3,
-                    ),
-                    borderRadius: BorderRadius.all(Radius.circular(10)),
-                    color: Colors.indigo.shade100,
-                  ),
-                  child: Text(
-                    "Curso : ${sextoPrimera.ano} ${sextoPrimera.divsion}",
-                    style: TextStyle(
-                      fontSize: 30,
-                      color: Colors.black,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                ),
+                _nombreCurso(),
                 //Botones Desplegables
                 Container(
                   height: 110,
@@ -86,14 +72,15 @@ class AlumnoPage extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       //primer boton
-                      _primerBotonDesplegable(_listaTurnos, textoPrimerBoton),
+                      _botonDesplegable(_listaTurnos, textoPrimerBoton),
                       //segundo boton
-                      _primerBotonDesplegable(_listaDias, textoSegundoBoton),
+                      _botonDesplegable(_listaDias, textoSegundoBoton),
                     ],
                   ),
                 ),
                 //tabla horarios
                 _tablaHorario(teoriaTarde),
+                //Boton Ir a home
                 Container(
                   child: Center(
                     child: ElevatedButton(
@@ -106,6 +93,30 @@ class AlumnoPage extends StatelessWidget {
               ],
             ),
           ),
+        ),
+      ),
+    );
+  }
+
+  Widget _nombreCurso() {
+    return Container(
+      margin: EdgeInsets.only(top: 30, bottom: 30),
+      padding: EdgeInsets.all(12),
+      height: 60,
+      decoration: BoxDecoration(
+        border: Border.all(
+          color: Colors.indigo.shade200,
+          width: 3,
+        ),
+        borderRadius: BorderRadius.all(Radius.circular(10)),
+        color: Colors.indigo.shade100,
+      ),
+      child: Text(
+        "Curso : ${sextoPrimera.ano} ${sextoPrimera.divsion}",
+        style: TextStyle(
+          fontSize: 30,
+          color: Colors.black,
+          fontWeight: FontWeight.bold,
         ),
       ),
     );
@@ -181,7 +192,7 @@ class AlumnoPage extends StatelessWidget {
     );
   }
 
-  Widget _primerBotonDesplegable(List<String> _listaTurnos, String texto) {
+  Widget _botonDesplegable(List<String> _listaTurnos, String texto) {
     return Container(
       margin: EdgeInsets.symmetric(horizontal: 10),
       padding: EdgeInsets.symmetric(horizontal: 16, vertical: 5),
@@ -204,8 +215,10 @@ class AlumnoPage extends StatelessWidget {
         items: _listaTurnos
             .map((a) => DropdownMenuItem(value: a, child: Text(a)))
             .toList(),
-        onChanged: (a) {
-          print(a);
+        onChanged: (selectedOption) {
+          setState(() {
+            texto = selectedOption;
+          });
         },
       ),
     );
