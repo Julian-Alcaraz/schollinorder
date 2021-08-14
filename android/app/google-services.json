@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "586207043251",
+    "project_id": "schollinorder",
+    "storage_bucket": "schollinorder.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:586207043251:android:9974a400bef707aee1dac6",
+        "android_client_info": {
+          "package_name": "com.example.schollinorder"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "586207043251-obj3bi36uv9stg4o5lt8tspfqrit7vtp.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBEL07kaJT6MBagoA5rtvUb3jiVac8xgiw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "586207043251-obj3bi36uv9stg4o5lt8tspfqrit7vtp.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
