@@ -30,9 +30,7 @@ class ProfesorPage extends StatelessWidget {
             ),
           ),
         ),
-        title: Text("profesor"),
-        backgroundColor: Colors.black,
-         // color del appbar fondo
+           backgroundColor: Color (0xFF364562), // color del appbar fondo
         actions: [
           IconButton(
             icon: Icon(Icons.account_circle_rounded, size: 35),
@@ -42,6 +40,7 @@ class ProfesorPage extends StatelessWidget {
           ),
         ],
       ),
+      
       body: Center(
         child: Text(
           "hola profesor",
