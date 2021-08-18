@@ -16,7 +16,7 @@ class _AlumnoPageState extends State<AlumnoPage> {
     "Jueves",
     "Viernes"
   ];
-  List<String> listaTurnos = ["Teoria", "Taller    "];
+  List<String> listaTurnos = ["Teoria", "Taller"];
   List<Bloque> listaDependiendoTurno = [];
   String valorTurno = "";
   String valorDia = "";
@@ -92,7 +92,7 @@ class _AlumnoPageState extends State<AlumnoPage> {
                   ),
                 ),
                 //tabla horarios
-                _tablaHorario(teoriaTarde),
+                _tablaHorario(listaDependiendoTurno),
                 //Boton Ir a home
                 Container(
                   child: Center(
@@ -235,10 +235,21 @@ class _AlumnoPageState extends State<AlumnoPage> {
           setState(() {
             valorTurno = selectedOption;
           });
+          _cambioDeturno(valorTurno);
         },
         value: valorTurno,
       ),
     );
+  }
+
+  void _cambioDeturno(valor) {
+    listaDependiendoTurno = [];
+    if (valor == "Taller") {
+      listaDependiendoTurno = tallerManana;
+    } else {
+      listaDependiendoTurno = teoriaTarde;
+    }
+    setState(() {});
   }
 
   Widget _botonDesplegableDia() {
