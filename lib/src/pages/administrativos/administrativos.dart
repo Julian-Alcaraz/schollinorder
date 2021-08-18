@@ -15,6 +15,15 @@ class AdministrativosPages extends StatelessWidget {
             ),
           ),
         ),
+        actions: [
+          IconButton(
+            icon: Icon(
+              Icons.account_circle_rounded,
+              size: 35,
+            ),
+            onPressed: () {},
+          ),
+        ],
       ),
       body: Center(
         child: Column(
