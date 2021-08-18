@@ -20,7 +20,7 @@ class AdministrativosPages extends StatelessWidget {
         child: Column(
           children: [
             Padding(
-              padding: EdgeInsets.symmetric(vertical: 50, horizontal: 25),
+              padding: EdgeInsets.symmetric(vertical: 20, horizontal: 25),
               child: ElevatedButton(
                 onPressed: () {},
                 style: ElevatedButton.styleFrom(
