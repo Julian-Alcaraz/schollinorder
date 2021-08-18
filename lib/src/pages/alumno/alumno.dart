@@ -103,17 +103,45 @@ class _AlumnoPageState extends State<AlumnoPage> {
 
   Widget drawer() {
     return Drawer(
+      child: Material(
+        color: Colors.indigo.shade100,
         child: Column(
-      children: [
-        DrawerHeader(child: Text("Bienvenido Alumno")),
-        Spacer(),
-        ListTile(
-          tileColor: Color(0xFF364562),
-          title: Text("Cerrar Sesion"),
-          onTap: () {},
+          children: [
+            DrawerHeader(
+              child: Center(
+                child: Column(
+                  children: [
+                    CircleAvatar(maxRadius: 60),
+                    Text("Nombre Alumno"),
+                  ],
+                ),
+              ),
+            ),
+            ListTile(
+              focusColor: Colors.amber,
+              title: Text("Perfil"),
+              tileColor: Colors.indigo.shade400,
+              onTap: () {},
+            ),
+            ListTile(
+              focusColor: Colors.amber,
+              title: Text("Notificaciones"),
+              tileColor: Colors.indigo.shade500,
+              onTap: () {},
+            ),
+            Spacer(),
+            ListTile(
+              focusColor: Colors.amber,
+              title: Text("Cerrar Sesion"),
+              tileColor: Color(0xFF364562),
+              onTap: () {
+                Navigator.of(context).pushReplacementNamed("/Login");
+              },
+            ),
+          ],
         ),
-      ],
-    ));
+      ),
+    );
   }
 
   Widget _nombreCurso() {
