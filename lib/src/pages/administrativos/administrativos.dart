@@ -64,14 +64,18 @@ class AdministrativosPages extends StatelessWidget {
                 ),
               ),
             ),
-            ElevatedButton(
-              onPressed: () {},
-              style: ElevatedButton.styleFrom(primary: Color(0xFF364562)),
-              child: Text(
-                "Modificar \nhorario de curso ",
-                style: TextStyle(
-                  color: Colors.white,
-                  fontSize: (20),
+            Padding(
+              padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 25),
+              child: ElevatedButton(
+                onPressed: () {},
+                style: ElevatedButton.styleFrom(
+                    primary: Color(0xFF364562), minimumSize: Size(200, 95)),
+                child: Text(
+                  "Modificar \nhorario de curso ",
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: (20),
+                  ),
                 ),
               ),
             ),
