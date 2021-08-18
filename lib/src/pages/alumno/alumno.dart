@@ -16,10 +16,8 @@ class _AlumnoPageState extends State<AlumnoPage> {
     "Jueves",
     "Viernes"
   ];
-  List<String> listaTurnos = [
-    "Teoria",
-    "Taller    ",
-  ];
+  List<String> listaTurnos = ["Teoria", "Taller    "];
+  List<Bloque> listaDependiendoTurno = [];
   String valorTurno = "";
   String valorDia = "";
   final GlobalKey<ScaffoldState> _scaffoldKey = new GlobalKey<ScaffoldState>();
@@ -28,6 +26,7 @@ class _AlumnoPageState extends State<AlumnoPage> {
   void initState() {
     valorTurno = listaTurnos.first;
     valorDia = listaDias.first;
+    listaDependiendoTurno = teoriaTarde;
     super.initState();
   }
 

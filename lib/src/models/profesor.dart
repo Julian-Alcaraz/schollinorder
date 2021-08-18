@@ -11,3 +11,5 @@ final profesor2 = Profesor(apellido: "Bottaso", nombre: "Laura");
 final profesor3 = Profesor(apellido: "Calderon", nombre: "Erik");
 final profesor4 = Profesor(apellido: "Gabis", nombre: "Matias");
 final profesor5 = Profesor(apellido: "Wiederman", nombre: "Exequiel");
+//PROFESOR TALLER
+final profesor6 = Profesor(apellido: "Baier", nombre: "Alejandro");

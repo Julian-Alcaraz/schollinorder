@@ -19,10 +19,14 @@ final tercerHoraT = HoraCatedra(horas: "15:00\n15:40");
 final cuartaHoraT = HoraCatedra(horas: "15:40\n16:20");
 final quintaHoraT = HoraCatedra(horas: "16:30\n17:10");
 final sextaHoraT = HoraCatedra(horas: "17:10\n17:50");
-final septimaHoraT = HoraCatedra(horas: "17:50\n18:30");   
+final septimaHoraT = HoraCatedra(horas: "17:50\n18:30");
 
-
-
+// HORA TALLER MAÑANA
+final tallerPrimerHoraM = HoraCatedra(horas: "8:00\n9:20");
+final tallerSegundaHoraM = HoraCatedra(horas: "9:40\n11:20");
+//HORA TALLER TARDE
+final tallerPrimerHoraT = HoraCatedra(horas: "13:30\n14:50");
+final tallerSegundaHoraT = HoraCatedra(horas: "15:10\n16:50");
 
 /* final List<HoraCatedra> horaCatedra = [
   HoraCatedra(horas: "13:30\n14:10");

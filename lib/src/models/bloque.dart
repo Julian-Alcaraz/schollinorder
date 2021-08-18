@@ -103,6 +103,20 @@ final List<Bloque> teoriaManana = [
     materia: "materia",
   ),
 ];
+final List<Bloque> tallerManana = [
+  Bloque(
+    horaDeCatedra: tallerPrimerHoraM,
+    profesor: profesor6,
+    asistencia: "P",
+    materia: "materia",
+  ),
+  Bloque(
+    horaDeCatedra: tallerSegundaHoraM,
+    profesor: profesor6,
+    asistencia: "P",
+    materia: "materia",
+  ),
+];
 final bloque = Bloque(
   horaDeCatedra: primerHoraT,
   profesor: profesor,
