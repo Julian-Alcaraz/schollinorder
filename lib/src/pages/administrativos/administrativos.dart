@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
 
 class AdministrativosPages extends StatelessWidget {
+  final GlobalKey<ScaffoldState> _scaffoldKey = new GlobalKey<ScaffoldState>();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      key: _scaffoldKey,
+      endDrawer: drawer(),
       appBar: AppBar(
         backgroundColor: Color(0xFF364562),
         leading: Container(
@@ -21,7 +24,9 @@ class AdministrativosPages extends StatelessWidget {
               Icons.account_circle_rounded,
               size: 35,
             ),
-            onPressed: () {},
+            onPressed: () {
+              _scaffoldKey.currentState.openEndDrawer();
+            },
           ),
         ],
       ),
@@ -92,5 +97,9 @@ class AdministrativosPages extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  Widget drawer() {
+    return Drawer();
   }
 }
