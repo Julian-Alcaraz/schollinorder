@@ -86,7 +86,7 @@ class _AlumnoPageState extends State<AlumnoPage> {
                     child: ElevatedButton(
                         child: Text("Ir a home"),
                         onPressed: () {
-                          Navigator.of(context).pop("/Home");
+                          Navigator.of(context).pop("/Home"); 
                         }),
                   ),
                 ),

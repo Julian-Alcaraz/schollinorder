@@ -52,4 +52,11 @@ class ProfesorPage extends StatelessWidget {
       ),
     );
   }
+  Widget _horarioclases (){
+   return Container (
+     child: Text(
+       "horario de clases" ), 
+   );
+  }
+  
 }
