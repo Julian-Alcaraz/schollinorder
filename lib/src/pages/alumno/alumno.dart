@@ -9,14 +9,28 @@ class AlumnoPage extends StatefulWidget {
 }
 
 class _AlumnoPageState extends State<AlumnoPage> {
-  final _listaDias = ["Lunes", "Martes", "Miercoles", "Jueves", "Viernes"];
-  final _listaTurnos = ["Teoria", "Taller    "];
-  String textoPrimerBoton = "Teoria";
-  String textoSegundoBoton = "Lunes";
-
+  List<String> listaDias = [
+    "Lunes",
+    "Martes",
+    "Miercoles",
+    "Jueves",
+    "Viernes"
+  ];
+  List<String> listaTurnos = [
+    "Teoria",
+    "Taller    ",
+  ];
+  String valorTurno = "";
+  String valorDia = "";
   final GlobalKey<ScaffoldState> _scaffoldKey = new GlobalKey<ScaffoldState>();
 
   @override
+  void initState() {
+    valorTurno = listaTurnos.first;
+    valorDia = listaDias.first;
+    super.initState();
+  }
+
   Widget build(BuildContext context) {
     return Scaffold(
       key: _scaffoldKey,
@@ -72,9 +86,9 @@ class _AlumnoPageState extends State<AlumnoPage> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       //primer boton
-                      _botonDesplegable(_listaTurnos, textoPrimerBoton),
+                      _botonDesplegableTurno(),
                       //segundo boton
-                      _botonDesplegable(_listaDias, textoSegundoBoton),
+                      _botonDesplegableDia(),
                     ],
                   ),
                 ),
@@ -192,7 +206,43 @@ class _AlumnoPageState extends State<AlumnoPage> {
     );
   }
 
-  Widget _botonDesplegable(List<String> _listaTurnos, String texto) {
+  Widget _botonDesplegableTurno() {
+    return Container(
+      margin: EdgeInsets.symmetric(horizontal: 10),
+      padding: EdgeInsets.symmetric(horizontal: 16, vertical: 5),
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.all(Radius.circular(10)),
+        border: Border.all(
+          color: Colors.indigo.shade200,
+          width: 2,
+        ),
+        color: Colors.indigo.shade100,
+      ),
+      child: DropdownButton<String>(
+        //PERSONALIZACION
+        dropdownColor: Colors.indigo.shade100,
+        hint: Text(
+          "",
+          style: TextStyle(color: Colors.black),
+        ),
+        //FUNCIONALIDAD
+        items: listaTurnos.map((String showedOption) {
+          return DropdownMenuItem(
+            value: showedOption,
+            child: Text(showedOption),
+          );
+        }).toList(),
+        onChanged: (selectedOption) {
+          setState(() {
+            valorTurno = selectedOption;
+          });
+        },
+        value: valorTurno,
+      ),
+    );
+  }
+
+  Widget _botonDesplegableDia() {
     return Container(
       margin: EdgeInsets.symmetric(horizontal: 10),
       padding: EdgeInsets.symmetric(horizontal: 16, vertical: 5),
@@ -208,18 +258,22 @@ class _AlumnoPageState extends State<AlumnoPage> {
         //PERSONALIZACION
         dropdownColor: Colors.indigo.shade100,
         hint: Text(
-          "$texto",
+          "",
           style: TextStyle(color: Colors.black),
         ),
         //FUNCIONALIDAD
-        items: _listaTurnos
-            .map((a) => DropdownMenuItem(value: a, child: Text(a)))
-            .toList(),
+        items: listaDias.map((String showedOption) {
+          return DropdownMenuItem(
+            value: showedOption,
+            child: Text(showedOption),
+          );
+        }).toList(),
         onChanged: (selectedOption) {
           setState(() {
-            texto = selectedOption;
+            valorDia = selectedOption;
           });
         },
+        value: valorDia,
       ),
     );
   }
