@@ -49,14 +49,18 @@ class AdministrativosPages extends StatelessWidget {
                 ),
               ),
             ),
-            ElevatedButton(
-              onPressed: () {},
-              style: ElevatedButton.styleFrom(primary: Color(0xFF364562)),
-              child: Text(
-                "Cargar datos\nde profesores ",
-                style: TextStyle(
-                  color: Colors.white,
-                  fontSize: (20),
+            Padding(
+              padding: EdgeInsets.symmetric(vertical: 20, horizontal: 25),
+              child: ElevatedButton(
+                onPressed: () {},
+                style: ElevatedButton.styleFrom(
+                    primary: Color(0xFF364562), minimumSize: Size(200, 95)),
+                child: Text(
+                  "Cargar datos\nde profesores ",
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: (20),
+                  ),
                 ),
               ),
             ),
