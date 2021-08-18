@@ -33,18 +33,7 @@ class _AlumnoPageState extends State<AlumnoPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       key: _scaffoldKey,
-      endDrawer: Drawer(
-          child: Column(
-        children: [
-          DrawerHeader(child: Text("Bienvenido Alumno")),
-          Spacer(),
-          ListTile(
-            tileColor: Color(0xFF364562),
-            title: Text("Cerrar Sesion"),
-            onTap: () {},
-          ),
-        ],
-      )),
+      endDrawer: drawer(),
       appBar: AppBar(
         leading: Container(
           width: 50,
@@ -55,7 +44,6 @@ class _AlumnoPageState extends State<AlumnoPage> {
             ),
           ),
         ),
-
         backgroundColor: Color(0xFF364562), // color del appbar fondo
         actions: [
           IconButton(
@@ -66,9 +54,11 @@ class _AlumnoPageState extends State<AlumnoPage> {
           ),
         ],
         shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.only(
-                bottomRight: Radius.circular(10),
-                topRight: Radius.circular(10))),
+          borderRadius: BorderRadius.only(
+            bottomRight: Radius.circular(10),
+            topRight: Radius.circular(10),
+          ),
+        ),
       ),
       body: SingleChildScrollView(
         child: Container(
@@ -109,6 +99,21 @@ class _AlumnoPageState extends State<AlumnoPage> {
         ),
       ),
     );
+  }
+
+  Widget drawer() {
+    return Drawer(
+        child: Column(
+      children: [
+        DrawerHeader(child: Text("Bienvenido Alumno")),
+        Spacer(),
+        ListTile(
+          tileColor: Color(0xFF364562),
+          title: Text("Cerrar Sesion"),
+          onTap: () {},
+        ),
+      ],
+    ));
   }
 
   Widget _nombreCurso() {
