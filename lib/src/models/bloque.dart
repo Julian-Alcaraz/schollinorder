@@ -59,6 +59,50 @@ final List<Bloque> teoriaTarde = [
     materia: "materia",
   ),
 ];
+final List<Bloque> teoriaManana = [
+  Bloque(
+    horaDeCatedra: primerHoraM,
+    profesor: profesor1,
+    asistencia: "P",
+    materia: "materia",
+  ),
+  Bloque(
+    horaDeCatedra: segundaHoraM,
+    profesor: profesor1,
+    asistencia: "P",
+    materia: "materia",
+  ),
+  Bloque(
+    horaDeCatedra: tercerHoraM,
+    profesor: profesor4,
+    asistencia: "P",
+    materia: "materia",
+  ),
+  Bloque(
+    horaDeCatedra: cuartaHoraM,
+    profesor: profesor2,
+    asistencia: "P",
+    materia: "materia",
+  ),
+  Bloque(
+    horaDeCatedra: quintaHoraM,
+    profesor: profesor2,
+    asistencia: "P",
+    materia: "materia",
+  ),
+  Bloque(
+    horaDeCatedra: sextaHoraM,
+    profesor: profesor3,
+    asistencia: "P",
+    materia: "materia",
+  ),
+  Bloque(
+    horaDeCatedra: septimaHoraM,
+    profesor: profesor3,
+    asistencia: "P",
+    materia: "materia",
+  ),
+];
 final bloque = Bloque(
   horaDeCatedra: primerHoraT,
   profesor: profesor,

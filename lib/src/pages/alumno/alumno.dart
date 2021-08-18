@@ -10,7 +10,7 @@ class AlumnoPage extends StatefulWidget {
 
 class _AlumnoPageState extends State<AlumnoPage> {
   final _listaDias = ["Lunes", "Martes", "Miercoles", "Jueves", "Viernes"];
-  final _listaTurnos = ["Teoria", "Taller     "];
+  final _listaTurnos = ["Teoria", "Taller    "];
   String textoPrimerBoton = "Teoria";
   String textoSegundoBoton = "Lunes";
 
