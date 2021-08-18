@@ -41,21 +41,40 @@ class ProfesorPage extends StatelessWidget {
         ],
       ),
       
-      body: Center(
-        child: Text(
-          "hola profesor",
-          style: TextStyle(
-            color: Colors.blue,
-            fontSize: 40,
+      body: Container(
+        child: Center(
+          child: Column(
+            children: [
+              _horarioclases(),
+            ],
           ),
+          
         ),
       ),
     );
   }
   Widget _horarioclases (){
    return Container (
+     margin: EdgeInsets.only(top: 30, bottom: 30),
+      padding: EdgeInsets.all(12),
+      height: 60,
+      decoration: BoxDecoration(
+        border: Border.all(
+          color: Colors.indigo.shade200,
+          width: 3,
+        ),
+        borderRadius: BorderRadius.all(Radius.circular(10)),
+        color: Colors.indigo.shade100,
+      ),
+     
      child: Text(
-       "horario de clases" ), 
+       "horario de clases" ,
+       style: TextStyle(
+          fontSize: 30,
+          color: Colors.black,
+          
+        ),
+       ), 
    );
   }
   
