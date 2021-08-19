@@ -45,6 +45,8 @@ class ProfesorPage extends StatelessWidget {
           child: Column(
             children: [
               _horarioclases(),
+              
+              Spacer(),
               botonNotificar(),
               Container(
                 //boton ir home
@@ -65,7 +67,10 @@ class ProfesorPage extends StatelessWidget {
 
   Widget botonNotificar() {
     return Container(
-      decoration: BoxDecoration(border: Border.all(color: Colors.black),borderRadius:BorderRadius.circular(10), ),
+      decoration: BoxDecoration(
+        border: Border.all(color: Colors.black),
+        borderRadius: BorderRadius.circular(10),
+      ),
       //boton notifical faltas
       child: ElevatedButton(
         onPressed: () {},

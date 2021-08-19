@@ -1,17 +1,19 @@
+import 'package:schollinorder/src/models/curso.dart';
 import 'package:schollinorder/src/models/horaCatedra.dart';
 import 'package:schollinorder/src/models/profesor.dart';
-
 class Bloque {
   final HoraCatedra horaDeCatedra;
   final Profesor profesor;
   final String asistencia;
   final String materia;
+  final Curso curso;
 
   Bloque({
     this.horaDeCatedra,
     this.profesor,
     this.asistencia,
     this.materia,
+    this.curso,
   });
 }
 
@@ -65,3 +67,40 @@ final bloque = Bloque(
   asistencia: "P",
   materia: "materia",
 );
+final List<Bloque> teoriaTardeProfesor = [
+  Bloque(
+    horaDeCatedra: primerHoraT,
+    materia: "materia",
+    curso: sextoPrimera,
+  ),
+  Bloque(
+    horaDeCatedra: segundaHoraT,
+   curso: sextoPrimera,
+    materia: "materia",
+  ),
+  Bloque(
+    horaDeCatedra: tercerHoraT,
+    curso: sextoPrimera,
+    materia: "materia",
+  ),
+  Bloque(
+    horaDeCatedra: cuartaHoraT,
+    curso: sextoPrimera,
+    materia: "materia",
+  ),
+  Bloque(
+    horaDeCatedra: quintaHoraT,
+   curso: sextoPrimera,
+    materia: "materia",
+  ),
+  Bloque(
+    horaDeCatedra: sextaHoraT,
+    curso: sextoPrimera,
+    materia: "materia",
+  ),
+  Bloque(
+    horaDeCatedra: septimaHoraT,
+    curso: sextoPrimera,
+    materia: "materia",
+  ),
+];
