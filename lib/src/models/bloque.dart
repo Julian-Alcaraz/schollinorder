@@ -67,6 +67,9 @@ final bloque = Bloque(
   asistencia: "P",
   materia: "materia",
 );
+
+
+
 final List<Bloque> teoriaTardeProfesor = [
   Bloque(
     horaDeCatedra: primerHoraT,
@@ -85,13 +88,13 @@ final List<Bloque> teoriaTardeProfesor = [
   ),
   Bloque(
     horaDeCatedra: cuartaHoraT,
-    curso: sextoPrimera,
-    materia: "materia",
+    curso: libre,
+    materia: "libre",
   ),
   Bloque(
     horaDeCatedra: quintaHoraT,
-   curso: sextoPrimera,
-    materia: "materia",
+   curso: libre,
+    materia: "libre",
   ),
   Bloque(
     horaDeCatedra: sextaHoraT,

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:schollinorder/src/models/bloque.dart';
 
 class ProfesorPage extends StatelessWidget {
   final GlobalKey<ScaffoldState> _scaffoldKey = new GlobalKey<ScaffoldState>();
@@ -46,6 +47,7 @@ class ProfesorPage extends StatelessWidget {
             children: [
               _horarioclases(),
               
+              
               Spacer(),
               botonNotificar(),
               Container(
@@ -64,6 +66,8 @@ class ProfesorPage extends StatelessWidget {
       ),
     );
   }
+  
+  
 
   Widget botonNotificar() {
     return Container(
