@@ -46,6 +46,7 @@ class ProfesorPage extends StatelessWidget {
             children: [
               _horarioclases(),
               Container(
+                //boton notifical faltas
                 child: ElevatedButton(
                   onPressed: () {},
                   child: Text(
@@ -59,10 +60,12 @@ class ProfesorPage extends StatelessWidget {
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(10),
                     ),
-                    
                   ),
                 ),
               ),
+              Container(
+                child: Center(),
+                 ),
             ],
           ),
         ),
