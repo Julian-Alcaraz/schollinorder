@@ -64,7 +64,14 @@ class ProfesorPage extends StatelessWidget {
                 ),
               ),
               Container(
-                child: Center(),
+                 //boton ir home
+                child: Center(
+                  child: ElevatedButton(
+                        child: Text("Ir a home"),
+                        onPressed: () {
+                          Navigator.of(context).pop("/Home"); 
+                        }),
+                ),
                  ),
             ],
           ),
