@@ -53,7 +53,9 @@ class AdministrativosPages extends StatelessWidget {
             Padding(
               padding: EdgeInsets.symmetric(vertical: 20, horizontal: 25),
               child: ElevatedButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.of(context).pushNamed("/VerDatos");
+                },
                 style: ElevatedButton.styleFrom(
                     primary: Color(0xFF364562), minimumSize: Size(200, 95)),
                 child: Text(
