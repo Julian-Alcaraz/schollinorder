@@ -39,7 +39,7 @@ class ProfesorPage extends StatelessWidget {
             },
           ),
         ],
-        title: Text("Notificar faltas"),
+        
       ),
       body: Container(
         child: Center(
