@@ -73,37 +73,37 @@ final bloque = Bloque(
 final List<Bloque> teoriaTardeProfesor = [
   Bloque(
     horaDeCatedra: primerHoraT,
-    materia: "materia",
+    materia: "Redes",
     curso: sextoPrimera,
   ),
   Bloque(
     horaDeCatedra: segundaHoraT,
    curso: sextoPrimera,
-    materia: "materia",
+    materia: "Redes",
   ),
   Bloque(
     horaDeCatedra: tercerHoraT,
     curso: sextoPrimera,
-    materia: "materia",
+    materia: "Redes",
   ),
   Bloque(
     horaDeCatedra: cuartaHoraT,
     curso: libre,
-    materia: "libre",
+    materia: "Libre",
   ),
   Bloque(
     horaDeCatedra: quintaHoraT,
    curso: libre,
-    materia: "libre",
+    materia: "Libre",
   ),
   Bloque(
     horaDeCatedra: sextaHoraT,
-    curso: sextoPrimera,
-    materia: "materia",
+    curso: sextoSegunda,
+    materia: "Redes",
   ),
   Bloque(
     horaDeCatedra: septimaHoraT,
-    curso: sextoPrimera,
-    materia: "materia",
+    curso: sextoSegunda,
+    materia: "Redes",
   ),
 ];
