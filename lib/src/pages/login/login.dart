@@ -37,11 +37,15 @@ class LoginPage extends StatelessWidget {
                     ),
                   ),
                 ),
+                Padding(padding: const EdgeInsets.only(top: 15)),
                 TextButton(
                   onPressed: () {
                     Navigator.of(context).pushNamed("/CrearCuenta");
                   },
                   child: Text('Crear Cuenta'),
+                  style: ElevatedButton.styleFrom(
+                    primary: Color(0xFF364562),
+                  ),
                 )
               ],
             ),
