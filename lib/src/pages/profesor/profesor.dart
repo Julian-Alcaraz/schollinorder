@@ -1,14 +1,13 @@
 import 'package:flutter/material.dart';
 
 class ProfesorPage extends StatelessWidget {
-
   final GlobalKey<ScaffoldState> _scaffoldKey = new GlobalKey<ScaffoldState>();
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       key: _scaffoldKey,
-         endDrawer: Drawer(
+      endDrawer: Drawer(
           child: Column(
         children: [
           DrawerHeader(child: Text("Bienvenido Profesor")),
@@ -19,7 +18,7 @@ class ProfesorPage extends StatelessWidget {
             onTap: () {},
           ),
         ],
-      )),    
+      )),
       appBar: AppBar(
         leading: Container(
           width: 50,
@@ -30,7 +29,7 @@ class ProfesorPage extends StatelessWidget {
             ),
           ),
         ),
-           backgroundColor: Color (0xFF364562), // color del appbar fondo
+        backgroundColor: Color(0xFF364562), // color del appbar fondo
         actions: [
           IconButton(
             icon: Icon(Icons.account_circle_rounded, size: 35),
@@ -39,23 +38,29 @@ class ProfesorPage extends StatelessWidget {
             },
           ),
         ],
+        title: Text("Notificar faltas"),
       ),
-      
       body: Container(
         child: Center(
           child: Column(
             children: [
               _horarioclases(),
+              Container(
+                child: ElevatedButton(
+                  onPressed: () {},
+                  child: Text("hola"),
+                ),
+              ),
             ],
           ),
-          
         ),
       ),
     );
   }
-  Widget _horarioclases (){
-   return Container (
-     margin: EdgeInsets.only(top: 30, bottom: 30),
+
+  Widget _horarioclases() {
+    return Container(
+      margin: EdgeInsets.only(top: 30, bottom: 30),
       padding: EdgeInsets.all(12),
       height: 60,
       decoration: BoxDecoration(
@@ -66,16 +71,13 @@ class ProfesorPage extends StatelessWidget {
         borderRadius: BorderRadius.all(Radius.circular(10)),
         color: Colors.indigo.shade100,
       ),
-     
-     child: Text(
-       "horario de clases" ,
-       style: TextStyle(
+      child: Text(
+        "horario de clases",
+        style: TextStyle(
           fontSize: 30,
           color: Colors.black,
-          
         ),
-       ), 
-   );
+      ),
+    );
   }
-  
 }
