@@ -87,7 +87,9 @@ class AdministrativosPages extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 25),
               child: ElevatedButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.of(context).pushNamed("/ModificarHorario");
+                },
                 style: ElevatedButton.styleFrom(
                     primary: Color(0xFF364562), minimumSize: Size(200, 95)),
                 child: Text(
