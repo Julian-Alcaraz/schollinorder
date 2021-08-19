@@ -38,7 +38,9 @@ class LoginPage extends StatelessWidget {
                   ),
                 ),
                 TextButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.of(context).pushNamed("/CrearCuenta");
+                  },
                   child: Text('Crear Cuenta'),
                 )
               ],
