@@ -70,7 +70,7 @@ class AdministrativosPages extends StatelessWidget {
                 style: ElevatedButton.styleFrom(
                     primary: Color(0xFF364562), minimumSize: Size(200, 95)),
                 child: Text(
-                  "Cargar datos\nde profesores ",
+                  "Cargar faltas\nde profesores ",
                   style: TextStyle(
                     color: Colors.white,
                     fontSize: (20),
