@@ -45,35 +45,40 @@ class ProfesorPage extends StatelessWidget {
           child: Column(
             children: [
               _horarioclases(),
+              botonNotificar(),
               Container(
-                //boton notifical faltas
-                child: ElevatedButton(
-                  onPressed: () {},
-                  child: Text(
-                    "Notificar Faltas",
-                    style: TextStyle(fontSize: 22),
-                  ),
-                  style: ElevatedButton.styleFrom(
-                    primary: Colors.indigo.shade100,
-                    onPrimary: Colors.black,
-                    minimumSize: Size(200, 50),
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(10),
-                    ),
-                  ),
-                ),
-              ),
-              Container(
-                 //boton ir home
+                //boton ir home
                 child: Center(
                   child: ElevatedButton(
-                        child: Text("Ir a home"),
-                        onPressed: () {
-                          Navigator.of(context).pop("/Home"); 
-                        }),
+                      child: Text("Ir a home"),
+                      onPressed: () {
+                        Navigator.of(context).pop("/Home");
+                      }),
                 ),
-                 ),
+              ),
             ],
+          ),
+        ),
+      ),
+    );
+  }
+
+  Widget botonNotificar() {
+    return Container(
+      decoration: BoxDecoration(border: Border.all(color: Colors.black),borderRadius:BorderRadius.circular(10), ),
+      //boton notifical faltas
+      child: ElevatedButton(
+        onPressed: () {},
+        child: Text(
+          "Notificar Faltas",
+          style: TextStyle(fontSize: 22),
+        ),
+        style: ElevatedButton.styleFrom(
+          primary: Colors.indigo.shade100,
+          onPrimary: Colors.black,
+          minimumSize: Size(200, 50),
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(10),
           ),
         ),
       ),
