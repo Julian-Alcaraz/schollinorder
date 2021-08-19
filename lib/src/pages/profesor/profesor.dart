@@ -46,8 +46,7 @@ class ProfesorPage extends StatelessWidget {
           child: Column(
             children: [
               _horarioclases(),
-              
-              
+              _tablaHorarios(teoriaTardeProfesor),
               Spacer(),
               botonNotificar(),
               Container(
@@ -66,8 +65,57 @@ class ProfesorPage extends StatelessWidget {
       ),
     );
   }
-  
-  
+
+  Widget _tablaHorarios(List<Bloque> lista) {
+    return Container(
+      height: 370,
+      child: ListView.builder(
+          itemCount: lista.length,
+          itemBuilder: (context, index) => _hora(lista[index])),
+    );
+  }
+
+  Widget _hora(Bloque bloque) {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        Container(
+          alignment: Alignment.center,
+          height: 50,
+          width: 55,
+          decoration: BoxDecoration(
+            color: Colors.indigo.shade100,
+            border: Border.all(color: Colors.black, width: 1),
+          ),
+          child: Text(
+            " ${bloque.horaDeCatedra.horas}",
+          ),
+        ),
+        Container(
+          height: 50,
+          width: 100,
+          alignment: Alignment.center,
+          decoration: BoxDecoration(
+            color: Colors.indigo.shade100,
+            border: Border.all(color: Colors.black, width: 1),
+          ),
+          child: Text("curso:${bloque.curso.ano} ${bloque.curso.divsion}"),
+        ),
+        Container(
+          height: 50,
+          width: 100,
+          alignment: Alignment.center,
+          decoration: BoxDecoration(
+            color: Colors.indigo.shade100,
+            border: Border.all(color: Colors.black, width: 1),
+          ),
+          child: Text(
+            "materia:${bloque.materia}",
+          ),
+        ),
+      ],
+    );
+  }
 
   Widget botonNotificar() {
     return Container(
