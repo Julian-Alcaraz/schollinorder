@@ -88,7 +88,7 @@ class ProfesorPage extends StatelessWidget {
             border: Border.all(color: Colors.black, width: 1),
           ),
           child: Text(
-            " ${bloque.horaDeCatedra.horas}",
+            "${bloque.horaDeCatedra.horas}",
           ),
         ),
         Container(
@@ -99,18 +99,18 @@ class ProfesorPage extends StatelessWidget {
             color: Colors.indigo.shade100,
             border: Border.all(color: Colors.black, width: 1),
           ),
-          child: Text("curso:${bloque.curso.ano} ${bloque.curso.divsion}"),
+          child: Text("Curso: ${bloque.curso.ano} ${bloque.curso.divsion}"),
         ),
         Container(
           height: 50,
-          width: 100,
+          width: 110,
           alignment: Alignment.center,
           decoration: BoxDecoration(
             color: Colors.indigo.shade100,
             border: Border.all(color: Colors.black, width: 1),
           ),
           child: Text(
-            "materia:${bloque.materia}",
+            "Materia: ${bloque.materia}",
           ),
         ),
       ],

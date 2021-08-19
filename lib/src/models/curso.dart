@@ -7,6 +7,6 @@ class Curso {
 
 final sextoPrimera = Curso(ano: "6to", divsion: "1era");
 
-final sextoSegunda = Curso(ano: "6to", divsion: "segunda");
+final sextoSegunda = Curso(ano: "6to", divsion: "2da");
 
-final libre = Curso(ano: "libre", divsion: "libre");
+final libre = Curso(ano: "Libre", divsion: "");
