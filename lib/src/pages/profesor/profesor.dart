@@ -39,7 +39,6 @@ class ProfesorPage extends StatelessWidget {
             },
           ),
         ],
-        
       ),
       body: Container(
         child: Center(
@@ -48,7 +47,7 @@ class ProfesorPage extends StatelessWidget {
               _horarioclases(),
               _tablaHorarios(teoriaTardeProfesor),
               Spacer(),
-              botonNotificar(),
+              botonNotificar(context),
               Container(
                 //boton ir home
                 child: Center(
@@ -117,7 +116,7 @@ class ProfesorPage extends StatelessWidget {
     );
   }
 
-  Widget botonNotificar() {
+  Widget botonNotificar(context) {
     return Container(
       decoration: BoxDecoration(
         border: Border.all(color: Colors.black),
@@ -125,7 +124,9 @@ class ProfesorPage extends StatelessWidget {
       ),
       //boton notifical faltas
       child: ElevatedButton(
-        onPressed: () {},
+        onPressed: () {
+          Navigator.of(context).pushNamed("/CargarFaltasPage");
+        },
         child: Text(
           "Notificar Faltas",
           style: TextStyle(fontSize: 22),
