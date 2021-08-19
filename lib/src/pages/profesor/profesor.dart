@@ -48,7 +48,19 @@ class ProfesorPage extends StatelessWidget {
               Container(
                 child: ElevatedButton(
                   onPressed: () {},
-                  child: Text("hola"),
+                  child: Text(
+                    "Notificar Faltas",
+                    style: TextStyle(fontSize: 22),
+                  ),
+                  style: ElevatedButton.styleFrom(
+                    primary: Colors.indigo.shade100,
+                    onPrimary: Colors.black,
+                    minimumSize: Size(200, 50),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(10),
+                    ),
+                    
+                  ),
                 ),
               ),
             ],
@@ -72,10 +84,11 @@ class ProfesorPage extends StatelessWidget {
         color: Colors.indigo.shade100,
       ),
       child: Text(
-        "horario de clases",
+        "Horario de Clases",
         style: TextStyle(
           fontSize: 30,
           color: Colors.black,
+          fontWeight: FontWeight.bold,
         ),
       ),
     );
