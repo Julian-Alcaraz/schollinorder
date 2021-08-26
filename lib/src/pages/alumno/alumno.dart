@@ -34,26 +34,7 @@ class _AlumnoPageState extends State<AlumnoPage> {
     return Scaffold(
       key: _scaffoldKey,
       endDrawer: drawer(),
-      appBar: AppBar(
-        leading: Image.asset(
-          "assets/logo.jpg",
-        ),
-        backgroundColor: Color(0xFF364562), // color del appbar fondo
-        actions: [
-          IconButton(
-            icon: Icon(Icons.account_circle_rounded, size: 35),
-            onPressed: () {
-              _scaffoldKey.currentState.openEndDrawer();
-            },
-          ),
-        ],
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.only(
-            bottomRight: Radius.circular(10),
-            topRight: Radius.circular(10),
-          ),
-        ),
-      ),
+      appBar: appBar(),
       body: SingleChildScrollView(
         child: Container(
           child: Center(
@@ -90,6 +71,29 @@ class _AlumnoPageState extends State<AlumnoPage> {
               ],
             ),
           ),
+        ),
+      ),
+    );
+  }
+
+  Widget appBar() {
+    return AppBar(
+      leading: Image.asset(
+        "assets/logo.jpg",
+      ),
+      backgroundColor: Color(0xFF364562), // color del appbar fondo
+      actions: [
+        IconButton(
+          icon: Icon(Icons.account_circle_rounded, size: 35),
+          onPressed: () {
+            _scaffoldKey.currentState.openEndDrawer();
+          },
+        ),
+      ],
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.only(
+          bottomRight: Radius.circular(10),
+          topRight: Radius.circular(10),
         ),
       ),
     );
