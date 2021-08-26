@@ -9,7 +9,6 @@ class HomePage extends StatelessWidget {
           backgroundColor: Color(0xFF364562),
           leading: Image.asset(
             "assets/logo.jpg",
-            width: 50,
           ),
           title: Text(
             "Pagina de redireccionamiento",

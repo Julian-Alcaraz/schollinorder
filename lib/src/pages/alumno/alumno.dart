@@ -35,14 +35,8 @@ class _AlumnoPageState extends State<AlumnoPage> {
       key: _scaffoldKey,
       endDrawer: drawer(),
       appBar: AppBar(
-        leading: Container(
-          width: 50,
-          child: FittedBox(
-            fit: BoxFit.contain,
-            child: Image.asset(
-              "assets/logo.jpg",
-            ),
-          ),
+        leading: Image.asset(
+          "assets/logo.jpg",
         ),
         backgroundColor: Color(0xFF364562), // color del appbar fondo
         actions: [
