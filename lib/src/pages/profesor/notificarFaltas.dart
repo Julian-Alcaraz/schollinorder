@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 
 class CargarFaltasPage extends StatelessWidget {
   final GlobalKey<ScaffoldState> _scaffoldKey = new GlobalKey<ScaffoldState>();
+  String _Nombre;
+  String _Apellido;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -38,9 +40,23 @@ class CargarFaltasPage extends StatelessWidget {
         ],
       ),
       body: Container(
+        decoration: BoxDecoration(color: Colors.blue),
         child: Center(
           child: Column(
             children: [
+              Container(
+                height: 500,
+                width: 500,
+                decoration: BoxDecoration(color: Colors.amber),
+                child: Padding(
+                  padding: EdgeInsets.all(10),
+                  child: Form(
+                    child: Column(
+                      
+                    ),
+                  ),
+                ),
+              ),
               _DatosDeLaFaltas(),
             ],
           ),
