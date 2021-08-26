@@ -31,7 +31,7 @@ final List<Bloque> teoriaTarde = [
   Bloque(
     horaDeCatedra: tercerHoraT,
     profesor: profesor4,
-    asistencia: "P",
+    asistencia: "A",
     materia: "materia",
   ),
   Bloque(
