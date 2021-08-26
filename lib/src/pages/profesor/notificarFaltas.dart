@@ -5,7 +5,7 @@ class CargarFaltasPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-     key: _scaffoldKey,
+      key: _scaffoldKey,
       endDrawer: Drawer(
           child: Column(
         children: [
@@ -17,7 +17,7 @@ class CargarFaltasPage extends StatelessWidget {
           ),
         ],
       )),
-       appBar: AppBar(
+      appBar: AppBar(
         leading: Container(
           width: 50,
           child: FittedBox(
@@ -42,15 +42,34 @@ class CargarFaltasPage extends StatelessWidget {
           child: Column(
             children: [
               _DatosDeLaFaltas(),
-
             ],
           ),
-        ) ,
-      ) ,
-     
+        ),
+      ),
     );
-    }
-  Widget _DatosDeLaFaltas(){
-      return Container();
-    }
+  }
+
+  Widget _DatosDeLaFaltas() {
+    return Container(
+      margin: EdgeInsets.only(top: 30, bottom: 30),
+      padding: EdgeInsets.all(12),
+      height: 60,
+      decoration: BoxDecoration(
+        border: Border.all(
+          color: Colors.indigo.shade200,
+          width: 3,
+        ),
+        borderRadius: BorderRadius.all(Radius.circular(10)),
+        color: Colors.indigo.shade100,
+      ),
+      child: Text(
+        "Datos de la Falta",
+        style: TextStyle(
+          fontSize: 30,
+          color: Colors.black,
+          fontWeight: FontWeight.bold,
+        ),
+      ),
+    );
+  }
 }
