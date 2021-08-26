@@ -13,7 +13,6 @@ class CargarFaltasPage extends StatelessWidget {
           Spacer(),
           ListTile(
             tileColor: Color(0xFF364562),
-            title: Text("Cerrar Sesion"),
             onTap: () {},
           ),
         ],
@@ -38,7 +37,20 @@ class CargarFaltasPage extends StatelessWidget {
           ),
         ],
       ),
+      body: Container(
+        child: Center(
+          child: Column(
+            children: [
+              _DatosDeLaFaltas(),
+
+            ],
+          ),
+        ) ,
+      ) ,
      
     );
-  }
+    }
+  Widget _DatosDeLaFaltas(){
+      return Container();
+    }
 }
