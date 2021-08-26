@@ -18,6 +18,26 @@ class CargarFaltasPage extends StatelessWidget {
           ),
         ],
       )),
+       appBar: AppBar(
+        leading: Container(
+          width: 50,
+          child: FittedBox(
+            fit: BoxFit.contain,
+            child: Image.asset(
+              "assets/logo.jpg",
+            ),
+          ),
+        ),
+        backgroundColor: Color(0xFF364562), // color del appbar fondo
+        actions: [
+          IconButton(
+            icon: Icon(Icons.account_circle_rounded, size: 35),
+            onPressed: () {
+              _scaffoldKey.currentState.openEndDrawer();
+            },
+          ),
+        ],
+      ),
      
     );
   }
