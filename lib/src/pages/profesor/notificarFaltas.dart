@@ -1,9 +1,37 @@
 import 'package:flutter/material.dart';
 
-class CargarFaltasPage extends StatelessWidget {
+class CargarFaltasPage extends StatefulWidget {
+  @override
+  _CargarFaltasPageState createState() => _CargarFaltasPageState();
+}
+
+class _CargarFaltasPageState extends State<CargarFaltasPage> {
   final GlobalKey<ScaffoldState> _scaffoldKey = new GlobalKey<ScaffoldState>();
-  String _Nombre;
-  String _Apellido;
+  var _currenSelecDate;
+  void callDatepicker() async {
+    var selectedDate = await getDatepickerwidget();
+    setState(() {
+      _currenSelecDate = selectedDate;
+    });
+  }
+
+  Future<DateTime> getDatepickerwidget() {
+    return showDatePicker(
+      context: context,
+      initialDate: DateTime.now(),
+      firstDate: DateTime(2018),
+      lastDate: DateTime(2021),
+      builder: (context, child) {
+        return Theme(data: ThemeData.dark(), child: child);
+      },
+    );
+  }
+
+  String nameValue;
+  String lastnameValue;
+
+  final formKey = GlobalKey<FormState>();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -44,6 +72,7 @@ class CargarFaltasPage extends StatelessWidget {
         child: Center(
           child: Column(
             children: [
+              _DatosDeLaFaltas(),
               Container(
                 height: 500,
                 width: 500,
@@ -51,18 +80,78 @@ class CargarFaltasPage extends StatelessWidget {
                 child: Padding(
                   padding: EdgeInsets.all(10),
                   child: Form(
+                    key: formKey,
                     child: Column(
-                      
+                      children: <Widget>[
+                        TextFormField(
+                          decoration: InputDecoration(labelText: "Nombre"),
+                          onSaved: (value) {
+                            lastnameValue = value;
+                          },
+                          validator: (value) {
+                            String ejemplo = "";
+                            if (value.isEmpty) {
+                              ejemplo = "llene este campo";
+                            }
+                            return ejemplo;
+                          },
+                        ),
+                        TextFormField(
+                          decoration: InputDecoration(labelText: "Apellido"),
+                          onSaved: (value) {
+                            nameValue = value;
+                          },
+                          validator: (value) {
+                            String ejemplo = "";
+                            if (value.isEmpty) {
+                              ejemplo = "llene este campo";
+                            }
+                            return ejemplo;
+                          },
+                        ),
+                        TextFormField(
+                          decoration: InputDecoration(labelText: "Motivo"),
+                          onSaved: (value) {
+                            nameValue = value;
+                          },
+                          validator: (value) {
+                            String ejemplo = "";
+
+                            if (value.isEmpty) {
+                              ejemplo = "llene este campo";
+                            }
+                            return ejemplo;
+                          },
+                        ),
+                        TextFormField(
+                          decoration:
+                              InputDecoration(labelText: "Seleccione imagen"),
+                        ),
+                        RaisedButton(
+                          child: Text("enviar a administrador"),
+                          onPressed: () {
+                            _showSecondPsge(context);
+                          },
+                        )
+                      ],
                     ),
                   ),
                 ),
               ),
-              _DatosDeLaFaltas(),
             ],
           ),
         ),
       ),
     );
+  }
+
+  void _showSecondPsge(BuildContext context) {
+    if (formKey.currentState.validate()) {
+      formKey.currentState.save();
+      Navigator.of(context).pushNamed("/second",
+          arguments: CargarFaltasPage(
+              name: this.nameValue, lastname: this.lastnameValue));
+    }
   }
 
   Widget _DatosDeLaFaltas() {
@@ -88,4 +177,18 @@ class CargarFaltasPage extends StatelessWidget {
       ),
     );
   }
+
+  Widget Build (BuildContext context){
+
+return SafeArea(child: Scaffold(
+  body:Column(children: [
+FlatButton(
+  onPressed: callDatepicker,
+  child: Text ("Lanzar nuestro datePicker"),
+)
+  ],)
+  ,));
+
+
+ 
 }
