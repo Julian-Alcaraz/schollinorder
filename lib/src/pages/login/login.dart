@@ -43,10 +43,7 @@ class LoginPage extends StatelessWidget {
                     Navigator.of(context).pushNamed("/CrearCuenta");
                   },
                   child: Text('Crear Cuenta'),
-                  style: ElevatedButton.styleFrom(
-                    primary: Color(0xFF364562),
-                  ),
-                )
+                ),
               ],
             ),
           ),
