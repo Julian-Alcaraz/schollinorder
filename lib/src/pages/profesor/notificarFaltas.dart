@@ -9,7 +9,7 @@ class _CargarFaltasPageState extends State<CargarFaltasPage> {
   final GlobalKey<ScaffoldState> _scaffoldKey = new GlobalKey<ScaffoldState>();
   var _currenSelecDate;
   void callDatepicker() async {
-    var selectedDate = await getDatepickerwidget(); 
+    var selectedDate = await getDatepickerwidget();
     setState(() {
       _currenSelecDate = selectedDate;
     });
@@ -73,67 +73,77 @@ class _CargarFaltasPageState extends State<CargarFaltasPage> {
             children: [
               _datosDeLaFaltas(),
               Padding(
-                padding: const EdgeInsets.all(8.0),
+                padding: const EdgeInsets.all(10.0),
                 child: Container(
-                 
-                  decoration: 
-                  
-                  
-                  BoxDecoration(color: Colors.black12),
-                  
+                  width: 600,
+                  height: 500,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.all(Radius.circular(15)),
+                    border: Border.all(
+                      color: Colors.black,
+                      width: 6,
+                    ),
+                  ),
                   child: Padding(
-                    
-                    padding: EdgeInsets.all(10),
+                    padding: EdgeInsets.all(8),
                     child: Form(
                       key: formKey,
                       child: Column(
                         children: <Widget>[
-                          Row(
-                            children: [
-                              Text("Nombre"),
-                              Container(
-                                height: 40,
-                                width: 150,
-                                margin: EdgeInsets.only(
-                                    bottom: 17, left: 60, right: 135, top: 20),
-                                child: TextFormField(
-                                  decoration: InputDecoration(
-                                    hintText: "Nombre",
-                                    hintStyle: TextStyle(
-                                        color: Colors.black,
-                                        fontSize: 15,
-                                        letterSpacing: 0),
-                                    border: OutlineInputBorder(
-                                      borderRadius:
-                                          BorderRadius.all(Radius.circular(10)),
-                                      borderSide: BorderSide(
-                                          color: Colors.white, width: 1),
-                                    ),
-                                    fillColor: Colors.white,
-                                    filled: true,
-                                  ),
-                                  onSaved: (value) {
-                                    lastnameValue = value;
-                                  },
-                                  validator: (value) {
-                                    String ejemplo = "";
-                                    if (value.isEmpty) {
-                                      ejemplo = "llene este campo";
-                                    }
-                                    return ejemplo;
-                                  },
+                          Center(
+                            child: Row(
+                              children: [
+                                Padding(
+                                  padding: EdgeInsets.only(left: 45),
+                                  child: Text("Nombre"),
                                 ),
-                              ),
-                            ],
+                                Container(
+                                  height: 40,
+                                  width: 150,
+                                   margin: EdgeInsets.only(
+                                    bottom: 17, left: 5, right: 135, top: 20),
+                                  child: TextFormField(
+                                    decoration: InputDecoration(
+                                      hintText: "Nombre",
+                                      hintStyle: TextStyle(
+                                          color: Colors.black,
+                                          fontSize: 15,
+                                          letterSpacing: 0),
+                                      border: OutlineInputBorder(
+                                        borderRadius: BorderRadius.all(
+                                            Radius.circular(10)),
+                                        borderSide: BorderSide(
+                                            color: Colors.white, width: 1),
+                                      ),
+                                      fillColor: Colors.white,
+                                      filled: true,
+                                    ),
+                                    onSaved: (value) {
+                                      lastnameValue = value;
+                                    },
+                                    validator: (value) {
+                                      String ejemplo = "";
+                                      if (value.isEmpty) {
+                                        ejemplo = "llene este campo";
+                                      }
+                                      return ejemplo;
+                                    },
+                                  ),
+                                ),
+                              ],
+                            ),
                           ),
                           Row(
                             children: [
-                              Text("Apellido"),
+                              Padding(
+                                padding: EdgeInsets.only(left: 45),
+                                child: Text("Apellido"),
+                              ),
                               Container(
                                 height: 40,
                                 width: 150,
                                 margin: EdgeInsets.only(
-                                    bottom: 17, left: 60, right: 135, top: 20),
+                                    bottom: 17, left: 5, right: 135, top: 20),
                                 child: TextFormField(
                                   decoration: InputDecoration(
                                     hintText: "Apellido",
@@ -166,12 +176,15 @@ class _CargarFaltasPageState extends State<CargarFaltasPage> {
                           ),
                           Row(
                             children: [
-                              Text("Motivo"),
+                              Padding(
+                                padding: EdgeInsets.only(left: 52),
+                                child: Text("Motivo"),
+                              ),
                               Container(
                                 height: 40,
                                 width: 150,
                                 margin: EdgeInsets.only(
-                                    bottom: 17, left: 70, right: 135, top: 20),
+                                    bottom: 17, left: 5, right: 135, top: 20),
                                 child: TextFormField(
                                   decoration: InputDecoration(
                                     hintText: "Motivo",
@@ -204,12 +217,15 @@ class _CargarFaltasPageState extends State<CargarFaltasPage> {
                           ),
                           Row(
                             children: [
-                              Text("Certificado"),
+                              Padding(
+                                padding: EdgeInsets.only(left: 27),
+                                child: Text("Certificado"),
+                              ),
                               Container(
                                 height: 40,
                                 width: 150,
                                 margin: EdgeInsets.only(
-                                    bottom: 17, left: 45, right: 135, top: 20),
+                                    bottom: 17, left: 5, right: 135, top: 20),
                                 child: TextFormField(
                                   decoration: InputDecoration(
                                     hintText: "Imagen",
