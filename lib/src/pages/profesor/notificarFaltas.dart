@@ -73,10 +73,10 @@ class _CargarFaltasPageState extends State<CargarFaltasPage> {
             children: [
               _datosDeLaFaltas(),
               Padding(
-                padding: const EdgeInsets.all(10.0),
+                padding: const EdgeInsets.all(15.0),
                 child: Container(
-                  width: 600,
-                  height: 500,
+                  width: 500,
+                  height: 520,
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.all(Radius.circular(15)),
                     border: Border.all(
@@ -100,8 +100,8 @@ class _CargarFaltasPageState extends State<CargarFaltasPage> {
                                 Container(
                                   height: 40,
                                   width: 150,
-                                   margin: EdgeInsets.only(
-                                    bottom: 17, left: 5, right: 135, top: 20),
+                                  margin: EdgeInsets.only(
+                                   bottom: 17, left: 5 , top: 8),
                                   child: TextFormField(
                                     decoration: InputDecoration(
                                       hintText: "Nombre",
@@ -143,10 +143,51 @@ class _CargarFaltasPageState extends State<CargarFaltasPage> {
                                 height: 40,
                                 width: 150,
                                 margin: EdgeInsets.only(
-                                    bottom: 17, left: 5, right: 135, top: 20),
+                                    bottom: 17, left:5 ,top: 8),
                                 child: TextFormField(
                                   decoration: InputDecoration(
                                     hintText: "Apellido",
+                                    hintStyle: TextStyle(
+                                        color: Colors.black,
+                                        fontSize: 15,
+                                        letterSpacing: 0),
+                                    border: OutlineInputBorder(
+                                      borderRadius:
+                                          BorderRadius.all(Radius.circular(10)),
+                                      borderSide: BorderSide(
+                                          color: Colors.white, width: 1),
+                                    ),
+                                    fillColor: Colors.white,
+                                    filled: true,
+                                  ),
+                                  onSaved: (value) {
+                                    lastnameValue = value;
+                                  },
+                                  validator: (value) {
+                                    String ejemplo = "";
+                                    if (value.isEmpty) {
+                                      ejemplo = "llene este campo";
+                                    }
+                                    return ejemplo;
+                                  },
+                                ),
+                              ),
+                            ],
+                          ),
+                                  Row(
+                            children: [
+                              Padding(
+                                padding: EdgeInsets.only(left: 70),
+                                child: Text("DNI"),
+                              ),
+                              Container(
+                                height: 40,
+                                width: 150,
+                               margin: EdgeInsets.only(
+                                    bottom: 17, left: 5, top: 8),
+                                child: TextFormField(
+                                  decoration: InputDecoration(
+                                    hintText: "DNI",
                                     hintStyle: TextStyle(
                                         color: Colors.black,
                                         fontSize: 15,
@@ -184,7 +225,7 @@ class _CargarFaltasPageState extends State<CargarFaltasPage> {
                                 height: 40,
                                 width: 150,
                                 margin: EdgeInsets.only(
-                                    bottom: 17, left: 5, right: 135, top: 20),
+                                    bottom: 17, left: 5,  top: 8),
                                 child: TextFormField(
                                   decoration: InputDecoration(
                                     hintText: "Motivo",
@@ -218,17 +259,58 @@ class _CargarFaltasPageState extends State<CargarFaltasPage> {
                           Row(
                             children: [
                               Padding(
-                                padding: EdgeInsets.only(left: 27),
-                                child: Text("Certificado"),
+                                padding: EdgeInsets.only(left: 57),
+                                child: Text("Curso"),
                               ),
                               Container(
                                 height: 40,
                                 width: 150,
                                 margin: EdgeInsets.only(
-                                    bottom: 17, left: 5, right: 135, top: 20),
+                                    bottom: 17, left: 5,  top: 8),
                                 child: TextFormField(
                                   decoration: InputDecoration(
-                                    hintText: "Imagen",
+                                    hintText: "Curso",
+                                    hintStyle: TextStyle(
+                                        color: Colors.black,
+                                        fontSize: 15,
+                                        letterSpacing: 0),
+                                    border: OutlineInputBorder(
+                                      borderRadius:
+                                          BorderRadius.all(Radius.circular(10)),
+                                      borderSide: BorderSide(
+                                          color: Colors.white, width: 1),
+                                    ),
+                                    fillColor: Colors.white,
+                                    filled: true,
+                                  ),
+                                  onSaved: (value) {
+                                    lastnameValue = value;
+                                  },
+                                  validator: (value) {
+                                    String ejemplo = "";
+                                    if (value.isEmpty) {
+                                      ejemplo = "llene este campo";
+                                    }
+                                    return ejemplo;
+                                  },
+                                ),
+                              ),
+                            ],
+                          ),
+                                  Row(
+                            children: [
+                              Padding(
+                                padding: EdgeInsets.only(left: 47),
+                                child: Text("Materia"),
+                              ),
+                              Container(
+                                height: 40,
+                                width: 150,
+                                margin: EdgeInsets.only(
+                                    bottom: 17, left: 5,  top: 8),
+                                child: TextFormField(
+                                  decoration: InputDecoration(
+                                    hintText: "Materia",
                                     hintStyle: TextStyle(
                                         color: Colors.black,
                                         fontSize: 15,
