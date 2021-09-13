@@ -101,7 +101,7 @@ class _CargarFaltasPageState extends State<CargarFaltasPage> {
                                   height: 40,
                                   width: 150,
                                   margin: EdgeInsets.only(
-                                   bottom: 17, left: 5 , top: 8),
+                                      bottom: 17, left: 5, top: 8),
                                   child: TextFormField(
                                     decoration: InputDecoration(
                                       hintText: "Nombre",
@@ -143,7 +143,7 @@ class _CargarFaltasPageState extends State<CargarFaltasPage> {
                                 height: 40,
                                 width: 150,
                                 margin: EdgeInsets.only(
-                                    bottom: 17, left:5 ,top: 8),
+                                    bottom: 17, left: 5, top: 8),
                                 child: TextFormField(
                                   decoration: InputDecoration(
                                     hintText: "Apellido",
@@ -174,7 +174,7 @@ class _CargarFaltasPageState extends State<CargarFaltasPage> {
                               ),
                             ],
                           ),
-                                  Row(
+                          Row(
                             children: [
                               Padding(
                                 padding: EdgeInsets.only(left: 70),
@@ -183,7 +183,7 @@ class _CargarFaltasPageState extends State<CargarFaltasPage> {
                               Container(
                                 height: 40,
                                 width: 150,
-                               margin: EdgeInsets.only(
+                                margin: EdgeInsets.only(
                                     bottom: 17, left: 5, top: 8),
                                 child: TextFormField(
                                   decoration: InputDecoration(
@@ -225,7 +225,7 @@ class _CargarFaltasPageState extends State<CargarFaltasPage> {
                                 height: 40,
                                 width: 150,
                                 margin: EdgeInsets.only(
-                                    bottom: 17, left: 5,  top: 8),
+                                    bottom: 17, left: 5, top: 8),
                                 child: TextFormField(
                                   decoration: InputDecoration(
                                     hintText: "Motivo",
@@ -266,7 +266,7 @@ class _CargarFaltasPageState extends State<CargarFaltasPage> {
                                 height: 40,
                                 width: 150,
                                 margin: EdgeInsets.only(
-                                    bottom: 17, left: 5,  top: 8),
+                                    bottom: 17, left: 5, top: 8),
                                 child: TextFormField(
                                   decoration: InputDecoration(
                                     hintText: "Curso",
@@ -297,7 +297,7 @@ class _CargarFaltasPageState extends State<CargarFaltasPage> {
                               ),
                             ],
                           ),
-                                  Row(
+                          Row(
                             children: [
                               Padding(
                                 padding: EdgeInsets.only(left: 47),
@@ -307,7 +307,7 @@ class _CargarFaltasPageState extends State<CargarFaltasPage> {
                                 height: 40,
                                 width: 150,
                                 margin: EdgeInsets.only(
-                                    bottom: 17, left: 5,  top: 8),
+                                    bottom: 17, left: 5, top: 8),
                                 child: TextFormField(
                                   decoration: InputDecoration(
                                     hintText: "Materia",
