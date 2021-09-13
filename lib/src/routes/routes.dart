@@ -15,6 +15,5 @@ class MyRoutes {
         "/Profesor": (_) => ProfesorPage(),
         "/Administrativos": (_) => AdministrativosPages(),
         "/Login": (_) => LoginPage(),
-        "/CrearCuenta": (_) => CrearCuenta(),
       };
 }
