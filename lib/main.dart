@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:schollinorder/src/routes/routes.dart';
+import 'package:schollinorder/UI/src/routes/routes.dart';
 
 void main() {
   runApp(MyApp());

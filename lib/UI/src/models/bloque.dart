@@ -1,6 +1,7 @@
-import 'package:schollinorder/src/models/curso.dart';
-import 'package:schollinorder/src/models/horaCatedra.dart';
-import 'package:schollinorder/src/models/profesor.dart';
+import 'package:schollinorder/UI/src/models/curso.dart';
+import 'package:schollinorder/UI/src/models/horaCatedra.dart';
+import 'package:schollinorder/UI/src/models/profesor.dart';
+
 class Bloque {
   final HoraCatedra horaDeCatedra;
   final Profesor profesor;
@@ -140,8 +141,6 @@ final bloque = Bloque(
   materia: "materia",
 );
 
-
-
 final List<Bloque> teoriaTardeProfesor = [
   Bloque(
     horaDeCatedra: primerHoraT,
@@ -150,7 +149,7 @@ final List<Bloque> teoriaTardeProfesor = [
   ),
   Bloque(
     horaDeCatedra: segundaHoraT,
-   curso: sextoPrimera,
+    curso: sextoPrimera,
     materia: "Redes",
   ),
   Bloque(
@@ -165,7 +164,7 @@ final List<Bloque> teoriaTardeProfesor = [
   ),
   Bloque(
     horaDeCatedra: quintaHoraT,
-   curso: libre,
+    curso: libre,
     materia: "Libre",
   ),
   Bloque(

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:schollinorder/src/models/bloque.dart';
+import 'package:schollinorder/UI/src/models/bloque.dart';
 
 class ProfesorPage extends StatelessWidget {
   final GlobalKey<ScaffoldState> _scaffoldKey = new GlobalKey<ScaffoldState>();

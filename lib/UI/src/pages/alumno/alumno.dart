@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import 'package:schollinorder/src/models/bloque.dart';
-import 'package:schollinorder/src/models/curso.dart';
+import 'package:schollinorder/UI/src/models/bloque.dart';
+import 'package:schollinorder/UI/src/models/curso.dart';
 
 class AlumnoPage extends StatefulWidget {
   @override
@@ -64,7 +64,7 @@ class _AlumnoPageState extends State<AlumnoPage> {
                     child: ElevatedButton(
                         child: Text("Ir a home"),
                         onPressed: () {
-                          Navigator.of(context).pop("/Home"); 
+                          Navigator.of(context).pop("/Home");
                         }),
                   ),
                 ),
