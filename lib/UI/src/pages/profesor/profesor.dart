@@ -69,8 +69,9 @@ class ProfesorPage extends StatelessWidget {
     return Container(
       height: 370,
       child: ListView.builder(
-          itemCount: lista.length,
-          itemBuilder: (context, index) => _hora(lista[index])),
+        itemCount: lista.length,
+        itemBuilder: (context, index) => _hora(lista[index]),
+      ),
     );
   }
 
