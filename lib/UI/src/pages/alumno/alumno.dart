@@ -117,14 +117,8 @@ class _AlumnoPageState extends State<AlumnoPage> {
             ),
             ListTile(
               focusColor: Colors.amber,
-              title: Text("Perfil"),
-              tileColor: Colors.indigo.shade400,
-              onTap: () {},
-            ),
-            ListTile(
-              focusColor: Colors.amber,
               title: Text("Notificaciones"),
-              tileColor: Colors.indigo.shade500,
+              tileColor: Colors.indigo.shade300,
               onTap: () {},
             ),
             Spacer(),

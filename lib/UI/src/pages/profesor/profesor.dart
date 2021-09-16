@@ -8,18 +8,7 @@ class ProfesorPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       key: _scaffoldKey,
-      endDrawer: Drawer(
-          child: Column(
-        children: [
-          DrawerHeader(child: Text("Bienvenido Profesor")),
-          Spacer(),
-          ListTile(
-            tileColor: Color(0xFF364562),
-            title: Text("Cerrar Sesion"),
-            onTap: () {},
-          ),
-        ],
-      )),
+      endDrawer: drawer(context),
       appBar: AppBar(
         leading: Container(
           width: 50,
@@ -60,6 +49,43 @@ class ProfesorPage extends StatelessWidget {
               ),
             ],
           ),
+        ),
+      ),
+    );
+  }
+
+  Widget drawer(context) {
+    return Drawer(
+      child: Material(
+        color: Colors.indigo.shade100,
+        child: Column(
+          children: [
+            DrawerHeader(
+              child: Center(
+                child: Column(
+                  children: [
+                    CircleAvatar(maxRadius: 60),
+                    Text("Nombre Profesor"),
+                  ],
+                ),
+              ),
+            ),
+            ListTile(
+              focusColor: Colors.amber,
+              title: Text("Notificaciones"),
+              tileColor: Colors.indigo.shade300,
+              onTap: () {},
+            ),
+            Spacer(),
+            ListTile(
+              focusColor: Colors.amber,
+              title: Text("Cerrar Sesion"),
+              tileColor: Color(0xFF364562),
+              onTap: () {
+                Navigator.of(context).pushReplacementNamed("/Login");
+              },
+            ),
+          ],
         ),
       ),
     );
