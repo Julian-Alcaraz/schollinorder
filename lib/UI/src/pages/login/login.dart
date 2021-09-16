@@ -18,13 +18,18 @@ class LoginPage extends StatelessWidget {
           padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 80),
           child: Container(
             decoration: BoxDecoration(
-                color: Colors.white,
-                borderRadius: BorderRadius.all(Radius.circular(40.0)),
-                border: Border.all(color: Colors.black)),
+              color: Colors.white,
+              borderRadius: BorderRadius.all(Radius.circular(40.0)),
+              border: Border.all(color: Colors.black),
+            ),
             child: Center(
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
+                  CircleAvatar(
+                    maxRadius: 70,
+                    backgroundImage: AssetImage("assets/logo.jpg"),
+                  ),
                   campousuario(),
                   campocontrasena(),
                   Padding(
@@ -37,12 +42,14 @@ class LoginPage extends StatelessWidget {
                       ),
                     ),
                   ),
-                  Padding(padding: const EdgeInsets.only(top: 15)),
-                  TextButton(
-                    onPressed: () {
-                      Navigator.of(context).pushNamed("/CrearCuenta");
-                    },
-                    child: Text('Crear Cuenta'),
+                  Padding(
+                    padding: const EdgeInsets.only(top: 15),
+                    child: TextButton(
+                      onPressed: () {
+                        Navigator.of(context).pushNamed("/CrearCuenta");
+                      },
+                      child: Text('Crear Cuenta'),
+                    ),
                   ),
                 ],
               ),
