@@ -36,17 +36,7 @@ class _CargarFaltasPageState extends State<CargarFaltasPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       key: _scaffoldKey,
-      endDrawer: Drawer(
-          child: Column(
-        children: [
-          DrawerHeader(child: Text("Notificador de Faltas")),
-          Spacer(),
-          ListTile(
-            tileColor: Color(0xFF364562),
-            onTap: () {},
-          ),
-        ],
-      )),
+      endDrawer: drawer(),
       appBar: AppBar(
         leading: Container(
           width: 50,
@@ -374,6 +364,43 @@ class _CargarFaltasPageState extends State<CargarFaltasPage> {
             ),
           ),
         ],
+      ),
+    );
+  }
+
+  Widget drawer() {
+    return Drawer(
+      child: Material(
+        color: Colors.indigo.shade100,
+        child: Column(
+          children: [
+            DrawerHeader(
+              child: Center(
+                child: Column(
+                  children: [
+                    CircleAvatar(maxRadius: 60),
+                    Text("Nombre Profesor"),
+                  ],
+                ),
+              ),
+            ),
+            ListTile(
+              focusColor: Colors.amber,
+              title: Text("Notificaciones"),
+              tileColor: Colors.indigo.shade300,
+              onTap: () {},
+            ),
+            Spacer(),
+            ListTile(
+              focusColor: Colors.amber,
+              title: Text("Cerrar Sesion"),
+              tileColor: Color(0xFF364562),
+              onTap: () {
+                Navigator.of(context).pushReplacementNamed("/Login");
+              },
+            ),
+          ],
+        ),
       ),
     );
   }
