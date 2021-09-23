@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:schollinorder/UI/src/pages/administrativos/cargarDatosProfesor.dart';
 import 'package:schollinorder/UI/src/pages/administrativos/cargarFaltasProfesor.dart';
+import 'package:schollinorder/UI/src/pages/administrativos/cargarHorarioCurso.dart';
+import 'package:schollinorder/UI/src/pages/administrativos/informacionDeProfesor.dart';
 import 'package:schollinorder/UI/src/pages/administrativos/modificarHorarioCurso.dart';
 import 'package:schollinorder/UI/src/pages/administrativos/verDatosProfesor.dart';
 import 'package:schollinorder/UI/src/pages/home/home.dart';
@@ -26,5 +28,7 @@ class MyRoutes {
         "/CargarFaltas": (_) => CargarFaltasProfesor(),
         "/ModificarHorario": (_) => ModificarHorarioCurso(),
         "/CargarFaltasPage": (_) => CargarFaltasPage(),
+        "/CargarHorarioCurso": (_) => CargarHorarioCurso(),
+        "/InformacionProfesor": (_) => InformacionProfesor(),
       };
 }
