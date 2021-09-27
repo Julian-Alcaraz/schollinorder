@@ -31,7 +31,45 @@ class CargarDatosProfesor extends StatelessWidget {
         ],
       ),
       body: Center(
-        child: Text("New page"),
+        child: Padding(
+          padding: const EdgeInsets.symmetric(vertical: 130, horizontal: 50),
+          child: Container(
+            decoration: BoxDecoration(
+              color: Color(0xFF364562),
+            ),
+            child: ListView(
+              children: [
+                SizedBox(height: 10),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text(
+                      "Nombre: ",
+                      style: TextStyle(color: Colors.white, fontSize: 25),
+                    ),
+                    Container(
+                      height: 40,
+                      width: 120,
+                      child: TextFormField(
+                        decoration: InputDecoration(
+                          border: OutlineInputBorder(
+                            borderSide:
+                                BorderSide(color: Colors.white, width: 5),
+                            borderRadius: BorderRadius.all(
+                              Radius.circular(10),
+                            ),
+                          ),
+                          fillColor: Colors.white,
+                          filled: true,
+                        ),
+                      ),
+                    ),
+                  ],
+                )
+              ],
+            ),
+          ),
+        ),
       ),
     );
   }
