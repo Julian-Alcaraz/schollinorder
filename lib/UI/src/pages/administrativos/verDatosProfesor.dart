@@ -52,12 +52,25 @@ class _VerDatosProfesorState extends State<VerDatosProfesor> {
               children: [
                 buscar(),
                 verListaProfesores(listaFiltrada),
+                Padding(
+                  padding: const EdgeInsets.only(top: 20),
+                  child: ElevatedButton(
+                      onPressed: () {
+                        resetear();
+                      },
+                      child: Text("Resetear Lista")),
+                )
               ],
             ),
           ),
         ),
       ),
     );
+  }
+
+  void resetear() {
+    listaFiltrada = listaProfesores;
+    setState(() {});
   }
 
   Widget verListaProfesores(List<Profesor> lista) {
