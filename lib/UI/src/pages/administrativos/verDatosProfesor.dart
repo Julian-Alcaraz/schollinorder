@@ -1,9 +1,21 @@
 import 'package:flutter/material.dart';
+import 'package:schollinorder/UI/src/models/profesor.dart';
 
-class VerDatosProfesor extends StatelessWidget {
-  final GlobalKey<ScaffoldState> _scaffoldKey = new GlobalKey<ScaffoldState>();
-
+class VerDatosProfesor extends StatefulWidget {
   @override
+  _VerDatosProfesorState createState() => _VerDatosProfesorState();
+}
+
+class _VerDatosProfesorState extends State<VerDatosProfesor> {
+  final GlobalKey<ScaffoldState> _scaffoldKey = new GlobalKey<ScaffoldState>();
+  final _controller = TextEditingController();
+  List<Profesor> listaFiltrada = [];
+  @override
+  void initState() {
+    listaFiltrada = listaProfesores;
+    super.initState();
+  }
+
   Widget build(BuildContext context) {
     return Scaffold(
       key: _scaffoldKey,
@@ -31,8 +43,99 @@ class VerDatosProfesor extends StatelessWidget {
           ),
         ],
       ),
-      body: Center(
-        child: Text("New page"),
+      body: SingleChildScrollView(
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 50, vertical: 25),
+          child: Container(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                buscar(),
+                verListaProfesores(listaFiltrada),
+              ],
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+
+  Widget verListaProfesores(List<Profesor> lista) {
+    return Padding(
+      padding: const EdgeInsets.only(top: 20),
+      child: Container(
+        height: 500,
+        width: 500,
+        decoration: BoxDecoration(color: Colors.white),
+        child: ListView.builder(
+            itemCount: listaFiltrada.length,
+            scrollDirection: Axis.vertical,
+            itemBuilder: (context, index) {
+              return nombreProfesor(lista[index]);
+            }),
+      ),
+    );
+  }
+
+  Widget nombreProfesor(Profesor profe) {
+    return Padding(
+      padding: const EdgeInsets.all(8.0),
+      child: Container(
+        height: 60,
+        width: 20,
+        decoration: BoxDecoration(
+          color: Color(
+            (0xFF364562),
+          ),
+        ),
+        child: Center(
+          child: Text(
+            "${profe.nombre} ${profe.apellido}",
+            style: TextStyle(color: Colors.white),
+          ),
+        ),
+      ),
+    );
+  }
+
+  void filtroLista() {
+    listaFiltrada = [];
+    for (Profesor item in listaProfesores) {
+      if (item.nombre.toLowerCase().contains(_controller.text.toLowerCase())) {
+        listaFiltrada.add(item);
+      }
+    }
+    setState(() {});
+  }
+
+  Widget buscar() {
+    return Container(
+      child: TextFormField(
+        onFieldSubmitted: (nombreProfe) {
+          filtroLista();
+        },
+        controller: _controller,
+        onChanged: (v) {
+          print(_controller.text);
+        },
+        decoration: InputDecoration(
+          prefixIcon: Icon(
+            Icons.search,
+            color: Colors.black,
+          ),
+          hintText: "Buscar Profesor",
+          hintStyle:
+              TextStyle(color: Colors.black, fontSize: 15, letterSpacing: 0),
+          border: OutlineInputBorder(
+            borderRadius: BorderRadius.all(Radius.circular(10)),
+            borderSide: BorderSide(
+              color: Colors.black,
+              width: 2,
+            ),
+          ),
+          fillColor: Colors.white,
+          filled: true,
+        ),
       ),
     );
   }
