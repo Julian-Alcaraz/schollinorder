@@ -97,7 +97,9 @@ class _VerDatosProfesorState extends State<VerDatosProfesor> {
     return Padding(
       padding: const EdgeInsets.all(0.0),
       child: TextButton(
-        onPressed: () {},
+        onPressed: () {
+          Navigator.of(context).pushNamed("/InformacionProfesor");
+        },
         child: Container(
           height: 60,
           decoration: BoxDecoration(
