@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:schollinorder/UI/src/models/profesor.dart';
 
 class InformacionProfesor extends StatelessWidget {
   @override
@@ -42,7 +43,10 @@ class InformacionProfesor extends StatelessWidget {
                           color: Colors.white,
                           borderRadius: BorderRadius.all(Radius.circular(5))),
                       child: Text(
-                        /* "${profesor.nombre}" */ "valor",
+                        /* if(${profesor.nombre} == ${profe.nombre}  ){
+                          "${profe.nombre}" "valor",
+                        } */
+                        /* "${profe.nombre}", */ "valor",
                         textAlign: TextAlign.center,
                         style: TextStyle(
                           color: Colors.black,

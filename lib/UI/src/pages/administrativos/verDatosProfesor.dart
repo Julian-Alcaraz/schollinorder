@@ -99,8 +99,8 @@ class _VerDatosProfesorState extends State<VerDatosProfesor> {
       padding: const EdgeInsets.all(10.0),
       child: TextButton(
         onPressed: () {
-          Navigator.of(context)
-              .push(MaterialPageRoute(builder: (_) => InformacionProfesor()));
+          Navigator.of(context).push(MaterialPageRoute(
+              builder: (profesores) => InformacionProfesor()));
         },
         child: Container(
           height: 60,
