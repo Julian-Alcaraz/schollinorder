@@ -42,7 +42,7 @@ class InformacionProfesor extends StatelessWidget {
                           color: Colors.white,
                           borderRadius: BorderRadius.all(Radius.circular(5))),
                       child: Text(
-                        "valor",
+                        /* "${profesor.nombre}" */ "valor",
                         textAlign: TextAlign.center,
                         style: TextStyle(
                           color: Colors.black,

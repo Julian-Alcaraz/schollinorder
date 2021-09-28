@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:schollinorder/UI/src/models/profesor.dart';
+import 'package:schollinorder/UI/src/pages/administrativos/informacionDeProfesor.dart';
 
 class VerDatosProfesor extends StatefulWidget {
   @override
@@ -95,10 +96,11 @@ class _VerDatosProfesorState extends State<VerDatosProfesor> {
 
   Widget nombreProfesor(Profesor profe) {
     return Padding(
-      padding: const EdgeInsets.all(0.0),
+      padding: const EdgeInsets.all(10.0),
       child: TextButton(
         onPressed: () {
-          Navigator.of(context).pushNamed("/InformacionProfesor");
+          Navigator.of(context)
+              .push(MaterialPageRoute(builder: (_) => InformacionProfesor()));
         },
         child: Container(
           height: 60,
@@ -141,7 +143,7 @@ class _VerDatosProfesorState extends State<VerDatosProfesor> {
             Icons.search,
             color: Colors.black,
           ),
-          hintText: "Buscar Profesor por",
+          hintText: "Buscar Profesor por Nombre",
           hintStyle:
               TextStyle(color: Colors.black, fontSize: 15, letterSpacing: 0),
           border: OutlineInputBorder(
