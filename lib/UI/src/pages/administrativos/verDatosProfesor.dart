@@ -55,10 +55,14 @@ class _VerDatosProfesorState extends State<VerDatosProfesor> {
                 Padding(
                   padding: const EdgeInsets.only(top: 20),
                   child: ElevatedButton(
-                      onPressed: () {
-                        resetear();
-                      },
-                      child: Text("Resetear Lista")),
+                    onPressed: () {
+                      resetear();
+                    },
+                    child: Text("Resetear Lista"),
+                    style: ElevatedButton.styleFrom(
+                      primary: Color(0xFF364562),
+                    ),
+                  ),
                 )
               ],
             ),
@@ -79,7 +83,6 @@ class _VerDatosProfesorState extends State<VerDatosProfesor> {
       child: Container(
         height: 500,
         width: 500,
-        decoration: BoxDecoration(color: Colors.white),
         child: ListView.builder(
             itemCount: listaFiltrada.length,
             scrollDirection: Axis.vertical,
@@ -92,19 +95,19 @@ class _VerDatosProfesorState extends State<VerDatosProfesor> {
 
   Widget nombreProfesor(Profesor profe) {
     return Padding(
-      padding: const EdgeInsets.all(8.0),
-      child: Container(
-        height: 60,
-        width: 20,
-        decoration: BoxDecoration(
-          color: Color(
-            (0xFF364562),
+      padding: const EdgeInsets.all(0.0),
+      child: TextButton(
+        onPressed: () {},
+        child: Container(
+          height: 60,
+          decoration: BoxDecoration(
+            color: Color((0xFF364562)),
           ),
-        ),
-        child: Center(
-          child: Text(
-            "${profe.nombre} ${profe.apellido}",
-            style: TextStyle(color: Colors.white),
+          child: Center(
+            child: Text(
+              "${profe.nombre} ${profe.apellido}",
+              style: TextStyle(color: Colors.white),
+            ),
           ),
         ),
       ),
@@ -136,7 +139,7 @@ class _VerDatosProfesorState extends State<VerDatosProfesor> {
             Icons.search,
             color: Colors.black,
           ),
-          hintText: "Buscar Profesor",
+          hintText: "Buscar Profesor por",
           hintStyle:
               TextStyle(color: Colors.black, fontSize: 15, letterSpacing: 0),
           border: OutlineInputBorder(
