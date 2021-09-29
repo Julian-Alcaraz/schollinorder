@@ -19,43 +19,38 @@ class InformacionProfesor extends StatelessWidget {
         ),
       ]),
       body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 50, vertical: 100),
+        padding: const EdgeInsets.symmetric(horizontal: 50, vertical: 150),
         child: Container(
           decoration: BoxDecoration(
             color: Color(0xFF364562),
             borderRadius: BorderRadius.all(Radius.circular(20)),
           ),
-          height: 800,
-          width: 400,
           child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Padding(
-                padding: const EdgeInsets.only(top: 50),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Text(
-                      "Nombre: ",
-                      style: TextStyle(fontSize: 25),
-                    ),
-                    Container(
-                      height: 30,
-                      width: 150,
-                      decoration: BoxDecoration(
-                          color: Colors.white,
-                          borderRadius: BorderRadius.all(Radius.circular(5))),
-                      child: Text(
-                        "${profe.nombre}",
-                        //"buensa",
-                        textAlign: TextAlign.center,
-                        style: TextStyle(
-                          color: Colors.black,
-                          fontSize: 25,
-                        ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(
+                    "Nombre: ",
+                    style: TextStyle(fontSize: 25),
+                  ),
+                  Container(
+                    height: 30,
+                    width: 150,
+                    decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.all(Radius.circular(5))),
+                    child: Text(
+                      "${profe.nombre}",
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                        color: Colors.black,
+                        fontSize: 25,
                       ),
                     ),
-                  ],
-                ),
+                  ),
+                ],
               ),
               Padding(
                 padding: const EdgeInsets.only(top: 15),
@@ -74,7 +69,6 @@ class InformacionProfesor extends StatelessWidget {
                           borderRadius: BorderRadius.all(Radius.circular(5))),
                       child: Text(
                         "${profe.apellido}",
-                        //"buenas",
                         textAlign: TextAlign.center,
                         style: TextStyle(
                           color: Colors.black,
