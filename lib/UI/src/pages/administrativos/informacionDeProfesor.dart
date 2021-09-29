@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:schollinorder/UI/src/models/profesor.dart';
 
 class InformacionProfesor extends StatelessWidget {
+  InformacionProfesor({@required this.profe});
+  final Profesor profe;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -17,7 +19,7 @@ class InformacionProfesor extends StatelessWidget {
         ),
       ]),
       body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 70, vertical: 100),
+        padding: const EdgeInsets.symmetric(horizontal: 50, vertical: 100),
         child: Container(
           decoration: BoxDecoration(
             color: Color(0xFF364562),
@@ -38,15 +40,13 @@ class InformacionProfesor extends StatelessWidget {
                     ),
                     Container(
                       height: 30,
-                      width: 120,
+                      width: 150,
                       decoration: BoxDecoration(
                           color: Colors.white,
                           borderRadius: BorderRadius.all(Radius.circular(5))),
                       child: Text(
-                        /* if(${profesor.nombre} == ${profe.nombre}  ){
-                          "${profe.nombre}" "valor",
-                        } */
-                        /* "${profe.nombre}", */ "valor",
+                        "${profe.nombre}",
+                        //"buensa",
                         textAlign: TextAlign.center,
                         style: TextStyle(
                           color: Colors.black,
@@ -68,12 +68,13 @@ class InformacionProfesor extends StatelessWidget {
                     ),
                     Container(
                       height: 30,
-                      width: 120,
+                      width: 150,
                       decoration: BoxDecoration(
                           color: Colors.white,
                           borderRadius: BorderRadius.all(Radius.circular(5))),
                       child: Text(
-                        "valor",
+                        "${profe.apellido}",
+                        //"buenas",
                         textAlign: TextAlign.center,
                         style: TextStyle(
                           color: Colors.black,
@@ -95,12 +96,12 @@ class InformacionProfesor extends StatelessWidget {
                     ),
                     Container(
                       height: 30,
-                      width: 120,
+                      width: 150,
                       decoration: BoxDecoration(
                           color: Colors.white,
                           borderRadius: BorderRadius.all(Radius.circular(5))),
                       child: Text(
-                        "valor",
+                        "${profe.numero}",
                         textAlign: TextAlign.center,
                         style: TextStyle(
                           color: Colors.black,
@@ -122,12 +123,12 @@ class InformacionProfesor extends StatelessWidget {
                     ),
                     Container(
                       height: 30,
-                      width: 120,
+                      width: 150,
                       decoration: BoxDecoration(
                           color: Colors.white,
                           borderRadius: BorderRadius.all(Radius.circular(5))),
                       child: Text(
-                        "valor",
+                        "${profe.dni}",
                         textAlign: TextAlign.center,
                         style: TextStyle(
                           color: Colors.black,
@@ -149,7 +150,7 @@ class InformacionProfesor extends StatelessWidget {
                     ),
                     Container(
                       height: 30,
-                      width: 120,
+                      width: 150,
                       decoration: BoxDecoration(
                           color: Colors.white,
                           borderRadius: BorderRadius.all(Radius.circular(5))),

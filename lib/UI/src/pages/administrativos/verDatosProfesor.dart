@@ -100,7 +100,7 @@ class _VerDatosProfesorState extends State<VerDatosProfesor> {
       child: TextButton(
         onPressed: () {
           Navigator.of(context).push(MaterialPageRoute(
-              builder: (profesores) => InformacionProfesor()));
+              builder: (_) => InformacionProfesor(profe: profe)));
         },
         child: Container(
           height: 60,
