@@ -68,6 +68,7 @@ class _CargarFaltasPageState extends State<CargarFaltasPage> {
               width: 500,
               height: 520,
               decoration: BoxDecoration(
+                color: Colors.indigo.shade300,
                 borderRadius: BorderRadius.all(Radius.circular(15)),
                 border: Border.all(
                   color: Colors.black,
@@ -82,10 +83,11 @@ class _CargarFaltasPageState extends State<CargarFaltasPage> {
                     children: <Widget>[
                       Center(
                         child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            Padding(
-                              padding: EdgeInsets.only(left: 45),
-                              child: Text("Nombre"),
+                            Text(
+                              "Nombre",
+                              style: TextStyle(color: Colors.white),
                             ),
                             Container(
                               height: 40,
@@ -124,10 +126,11 @@ class _CargarFaltasPageState extends State<CargarFaltasPage> {
                         ),
                       ),
                       Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          Padding(
-                            padding: EdgeInsets.only(left: 45),
-                            child: Text("Apellido"),
+                          Text(
+                            "Apellido",
+                            style: TextStyle(color: Colors.white),
                           ),
                           Container(
                             height: 40,
@@ -165,10 +168,11 @@ class _CargarFaltasPageState extends State<CargarFaltasPage> {
                         ],
                       ),
                       Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          Padding(
-                            padding: EdgeInsets.only(left: 70),
-                            child: Text("DNI"),
+                          Text(
+                            "DNI        ",
+                            style: TextStyle(color: Colors.white),
                           ),
                           Container(
                             height: 40,
@@ -206,10 +210,11 @@ class _CargarFaltasPageState extends State<CargarFaltasPage> {
                         ],
                       ),
                       Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          Padding(
-                            padding: EdgeInsets.only(left: 52),
-                            child: Text("Motivo"),
+                          Text(
+                            "Motivo  ",
+                            style: TextStyle(color: Colors.white),
                           ),
                           Container(
                             height: 40,
@@ -247,10 +252,11 @@ class _CargarFaltasPageState extends State<CargarFaltasPage> {
                         ],
                       ),
                       Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          Padding(
-                            padding: EdgeInsets.only(left: 57),
-                            child: Text("Curso"),
+                          Text(
+                            "Curso   ",
+                            style: TextStyle(color: Colors.white),
                           ),
                           Container(
                             height: 40,
@@ -288,16 +294,17 @@ class _CargarFaltasPageState extends State<CargarFaltasPage> {
                         ],
                       ),
                       Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          Padding(
-                            padding: EdgeInsets.only(left: 47),
-                            child: Text("Materia"),
+                          Text(
+                            "Materia",
+                            style: TextStyle(color: Colors.white),
                           ),
                           Container(
                             height: 40,
                             width: 150,
                             margin:
-                                EdgeInsets.only(bottom: 17, left: 5, top: 8),
+                                EdgeInsets.only(bottom: 17, left: 3, top: 8),
                             child: TextFormField(
                               decoration: InputDecoration(
                                 hintText: "Materia",
@@ -330,19 +337,23 @@ class _CargarFaltasPageState extends State<CargarFaltasPage> {
                       ),
                       TextButton(
                           onPressed: callDatepicker,
-                          child: Text("Seleccione fecha de Falta")),
-                      ElevatedButton(
-                        child: Text(
-                          "enviar a administrador",
-                          style: TextStyle(fontSize: 18),
-                        ),
-                        onPressed: () {},
-                        style: ElevatedButton.styleFrom(
-                          primary: Colors.indigo.shade100,
-                          onPrimary: Colors.black,
-                          minimumSize: Size(200, 50),
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(10),
+                          child: Text(
+                            "Seleccione fecha de Falta",
+                          )),
+                      Center(
+                        child: ElevatedButton(
+                          child: Text(
+                            "enviar a administrador",
+                            style: TextStyle(fontSize: 18, color: Colors.white),
+                          ),
+                          onPressed: () {},
+                          style: ElevatedButton.styleFrom(
+                            primary: Colors.indigo.shade100,
+                            onPrimary: Colors.black,
+                            minimumSize: Size(200, 50),
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(10),
+                            ),
                           ),
                         ),
                       ),
