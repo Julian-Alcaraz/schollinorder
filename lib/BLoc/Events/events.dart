@@ -1,29 +1,34 @@
 //importar pagina genera eventoç
 // login al iniciar sesion
-class principalEvent {
+class PrincipalEvent {
   String tipoCuenta;
   String contrasenia;
   String correoElectronico;
-  /* switch(tipoCuenta) {
-          case alumno: {
-            AlumnoEvent(contrasenia, correoElectronico);
-            }
-            break;
+  void tipoDeCuenta() {
+    switch (tipoCuenta) {
+      case 'alumno':
+        {
+          AlumnoEvent(/* contrasenia, correoElectronico */);
+        }
+        break;
+      case 'profesor':
+        {
+          ProfesorEvent(/* contrasenia, correoElectronico */);
+        }
+        break;
 
-          case profesor: {
-            ProfesorEvent(contrasenia, correoElectronico);
-            }
-            break;
+      case 'administradores':
+        {
+          AdministradoresEvent(/* contrasenia, correoElectronico */);
+        }
+        break;
 
-          case administradores: {
-          AdministradoresEvent(contrasenia, correoElectronico);
-          } 
-            break;
-
-          default :{
-            //statment
-          }
-        } */
+      default:
+        {
+          //statment
+        }
+    }
+  }
 }
 
 class AlumnoEvent {}
