@@ -105,7 +105,13 @@ class _ModificarHorarioCursoState extends State<ModificarHorarioCurso> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     ElevatedButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        if (_formKey.currentState.validate()) {
+                          print("anda piola");
+                        } else {
+                          print("no anda piola");
+                        }
+                      },
                       child: Text("cargar horario"),
                     ),
                     SizedBox(width: 10),
@@ -151,7 +157,9 @@ class _ModificarHorarioCursoState extends State<ModificarHorarioCurso> {
               decoration: InputDecoration(
                 hintText: "",
                 hintStyle: TextStyle(
-                    color: Colors.black, fontSize: 15, letterSpacing: 0),
+                  color: Colors.black,
+                  //fontSize: 15,
+                ),
                 border: OutlineInputBorder(
                   borderRadius: BorderRadius.all(Radius.circular(10)),
                   borderSide: BorderSide(color: Colors.white, width: 1),
@@ -159,7 +167,8 @@ class _ModificarHorarioCursoState extends State<ModificarHorarioCurso> {
                 fillColor: Colors.white,
                 filled: true,
               ),
-              validator: (value) => value.isEmpty ? "campo requerido" : null,
+              validator: (value) =>
+                  value.isEmpty ? "Complete este campo" : null,
             ),
           ),
         ),
