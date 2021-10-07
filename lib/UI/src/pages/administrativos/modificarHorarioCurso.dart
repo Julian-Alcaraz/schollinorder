@@ -9,6 +9,7 @@ class ModificarHorarioCurso extends StatefulWidget {
 
 class _ModificarHorarioCursoState extends State<ModificarHorarioCurso> {
   final GlobalKey<ScaffoldState> _scaffoldKey = new GlobalKey<ScaffoldState>();
+  final _formKey = GlobalKey<FormState>();
   List<String> listaDias = [
     "Lunes",
     "Martes",
@@ -22,7 +23,7 @@ class _ModificarHorarioCursoState extends State<ModificarHorarioCurso> {
     "5to 1era",
     "5to 2da",
   ];
-  String valorCurso;
+  String valorCurso = "";
   String valorDia = "";
   List<String> listaTurnos = ["Teoria", "Taller"];
   String valorTurno = "";
@@ -88,10 +89,38 @@ class _ModificarHorarioCursoState extends State<ModificarHorarioCurso> {
               )
             ],
           ),
-          Container(
-            decoration: BoxDecoration(color: Color(0xFF364562)),
-            width: 500,
-            child: tablaCargar(listaDependiendoTurno),
+          Form(
+            key: _formKey,
+            child: Column(
+              children: [
+                Padding(
+                  padding: const EdgeInsets.only(top: 15),
+                  child: Container(
+                    decoration: BoxDecoration(color: Color(0xFF364562)),
+                    width: 500,
+                    child: tablaCargar(listaDependiendoTurno),
+                  ),
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    ElevatedButton(
+                      onPressed: () {},
+                      child: Text("cargar horario"),
+                    ),
+                    SizedBox(width: 10),
+                    ElevatedButton(
+                      onPressed: () {},
+                      child: Text("Modificar horario Temporalmente"),
+                    ),
+                  ],
+                ),
+                ElevatedButton(
+                  onPressed: () {},
+                  child: Text("Modificar horario permanentemente"),
+                ),
+              ],
+            ),
           ),
         ],
       ),
@@ -112,32 +141,26 @@ class _ModificarHorarioCursoState extends State<ModificarHorarioCurso> {
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         Text("${bloque.horaDeCatedra.horas}"),
-        Container(
-          height: 40,
-          width: 150,
-          margin: EdgeInsets.only(bottom: 8, left: 5, top: 8),
-          child: TextFormField(
-            decoration: InputDecoration(
-              hintText: "",
-              hintStyle: TextStyle(
-                  color: Colors.black, fontSize: 15, letterSpacing: 0),
-              border: OutlineInputBorder(
-                borderRadius: BorderRadius.all(Radius.circular(10)),
-                borderSide: BorderSide(color: Colors.white, width: 1),
+        Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Container(
+            height: 40,
+            width: 150,
+            //margin: EdgeInsets.only(bottom: 8, left: 5, top: 8),
+            child: TextFormField(
+              decoration: InputDecoration(
+                hintText: "",
+                hintStyle: TextStyle(
+                    color: Colors.black, fontSize: 15, letterSpacing: 0),
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.all(Radius.circular(10)),
+                  borderSide: BorderSide(color: Colors.white, width: 1),
+                ),
+                fillColor: Colors.white,
+                filled: true,
               ),
-              fillColor: Colors.white,
-              filled: true,
+              validator: (value) => value.isEmpty ? "campo requerido" : null,
             ),
-            onSaved: (value) {
-              //lastnameValue = value;
-            },
-            validator: (value) {
-              String ejemplo = "";
-              if (value.isEmpty) {
-                ejemplo = "llene este campo";
-              }
-              return ejemplo;
-            },
           ),
         ),
       ],
