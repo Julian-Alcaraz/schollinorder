@@ -39,33 +39,171 @@ class CargarDatosProfesor extends StatelessWidget {
             ),
             child: ListView(
               children: [
-                SizedBox(height: 10),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Text(
-                      "Nombre: ",
-                      style: TextStyle(color: Colors.white, fontSize: 25),
-                    ),
-                    Container(
-                      height: 40,
-                      width: 120,
-                      child: TextFormField(
-                        decoration: InputDecoration(
-                          border: OutlineInputBorder(
-                            borderSide:
-                                BorderSide(color: Colors.white, width: 5),
-                            borderRadius: BorderRadius.all(
-                              Radius.circular(10),
+                Padding(
+                  padding: const EdgeInsets.only(top: 15),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text(
+                        "Nombre: ",
+                        style: TextStyle(color: Colors.white, fontSize: 25),
+                      ),
+                      Container(
+                        height: 40,
+                        width: 120,
+                        child: TextFormField(
+                          decoration: InputDecoration(
+                            hintText: "",
+                            hintStyle: TextStyle(
+                              fontSize: 40,
                             ),
+                            border: OutlineInputBorder(
+                              borderSide:
+                                  BorderSide(color: Colors.white, width: 5),
+                              borderRadius: BorderRadius.all(
+                                Radius.circular(10),
+                              ),
+                            ),
+                            fillColor: Colors.white,
+                            filled: true,
                           ),
-                          fillColor: Colors.white,
-                          filled: true,
                         ),
                       ),
-                    ),
-                  ],
-                )
+                    ],
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(top: 15),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text(
+                        "Apellido: ",
+                        style: TextStyle(color: Colors.white, fontSize: 25),
+                      ),
+                      Container(
+                        height: 40,
+                        width: 120,
+                        child: TextFormField(
+                          decoration: InputDecoration(
+                            hintText: "",
+                            hintStyle: TextStyle(
+                              fontSize: 40,
+                            ),
+                            border: OutlineInputBorder(
+                              borderSide:
+                                  BorderSide(color: Colors.white, width: 5),
+                              borderRadius: BorderRadius.all(
+                                Radius.circular(10),
+                              ),
+                            ),
+                            fillColor: Colors.white,
+                            filled: true,
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(top: 15),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text(
+                        "Telefono: ",
+                        style: TextStyle(color: Colors.white, fontSize: 25),
+                      ),
+                      Container(
+                        height: 40,
+                        width: 120,
+                        child: TextFormField(
+                          decoration: InputDecoration(
+                            hintText: "",
+                            hintStyle: TextStyle(
+                              fontSize: 40,
+                            ),
+                            border: OutlineInputBorder(
+                              borderSide:
+                                  BorderSide(color: Colors.white, width: 5),
+                              borderRadius: BorderRadius.all(
+                                Radius.circular(10),
+                              ),
+                            ),
+                            fillColor: Colors.white,
+                            filled: true,
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(top: 15),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text(
+                        "Materia: ",
+                        style: TextStyle(color: Colors.white, fontSize: 25),
+                      ),
+                      Container(
+                        height: 40,
+                        width: 120,
+                        child: TextFormField(
+                          decoration: InputDecoration(
+                            hintText: "",
+                            hintStyle: TextStyle(
+                              fontSize: 40,
+                            ),
+                            border: OutlineInputBorder(
+                              borderSide:
+                                  BorderSide(color: Colors.white, width: 5),
+                              borderRadius: BorderRadius.all(
+                                Radius.circular(10),
+                              ),
+                            ),
+                            fillColor: Colors.white,
+                            filled: true,
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(top: 15),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text(
+                        "DNI: ",
+                        style: TextStyle(color: Colors.white, fontSize: 25),
+                      ),
+                      Container(
+                        height: 40,
+                        width: 120,
+                        child: TextFormField(
+                          decoration: InputDecoration(
+                            hintText: "",
+                            hintStyle: TextStyle(
+                              fontSize: 40,
+                            ),
+                            border: OutlineInputBorder(
+                              borderSide:
+                                  BorderSide(color: Colors.white, width: 5),
+                              borderRadius: BorderRadius.all(
+                                Radius.circular(10),
+                              ),
+                            ),
+                            fillColor: Colors.white,
+                            filled: true,
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
               ],
             ),
           ),
