@@ -19,8 +19,6 @@ class PrincipalEvent {
         break;
 
       default:
-      //statment
-
     }
   }
 }
@@ -41,11 +39,21 @@ class LoadedAdminEvent extends AdministradoresEvent {}
 class LoadedProfesorEvent extends ProfesorEvent {}
 // evento de no cargado de las 3 variables
 
-class DenegadoAlumnoEvent extends AlumnoEvent {}
+class NotLoadedAlumnoEvent extends AlumnoEvent {
+  final int position;
 
-class DenegadoAdministradoresEvent extends AdministradoresEvent {}
+  NotLoadedAlumnoEvent(this.position);
+}
 
-class DenegadoProfesoresEvent extends ProfesorEvent {}
+class NotLoadedAdministradoresEvent extends AdministradoresEvent {
+  final int position;
+  NotLoadedAdministradoresEvent(this.position);
+}
+
+class NotLoadedProfesoresEvent extends ProfesorEvent {
+  final int position;
+  NotLoadedProfesoresEvent(this.position);
+}
 
 //evento de errores de las 3 variables
 
