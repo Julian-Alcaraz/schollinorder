@@ -31,6 +31,13 @@ class CrearCuenta extends StatelessWidget {
                   campocurso(),
                   campocontrasena(),
                   campoconfirmacioncontrasena(),
+                  ElevatedButton(
+                    onPressed: () {},
+                    child: Text('Registrarse'),
+                    style: ElevatedButton.styleFrom(
+                      primary: Color(0xFF364562),
+                    ),
+                  )
                 ],
               ),
             ),
@@ -123,7 +130,7 @@ Widget campoconfirmacioncontrasena() {
     padding: EdgeInsets.symmetric(horizontal: 50, vertical: 10),
     child: TextField(
       decoration: InputDecoration(
-        hintText: "Ingrese nuevamente su contraseña",
+        hintText: "Ingresela de nuevo",
       ),
     ),
   );
