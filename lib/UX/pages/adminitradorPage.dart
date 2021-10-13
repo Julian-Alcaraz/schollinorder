@@ -2,25 +2,27 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:schollinorder/BLoc/bloc.dart';
 
-class AlumnosPage extends StatefulWidget {
-  AlumnosPage({/* required */ Key key}) : super(key: key);
+class AdministradoresPage extends StatefulWidget {
+  AdministradoresPage({/* required */ Key key}) : super(key: key);
+
   @override
-  _AlumnosPageState createState() => _AlumnosPageState();
+  _AdministradorPageState createState() => _AdministradorPageState();
 }
 
-class _AlumnosPageState extends State<AlumnosPage> {
-  final AlumnosBloc _alumnosBloc = AlumnosBloc(bool, AlumnosBloc);
+class _AdministradorPageState extends State<AdministradoresPage> {
+  final AdministradoresBloc _administradoresBloc =
+      AdministradoresBloc(bool, AdministradoresBloc);
 
   @override
   void dispose() {
     super.dispose();
-    _alumnosBloc.close();
+    _administradoresBloc.close();
   }
 
   Widget build(BuildContext context) {
     print("estoy en el home");
     return BlocProvider.value(
-      value: _alumnosBloc,
+      value: _administradoresBloc,
       child: Scaffold(
         body: Container(
           width: double.infinity,

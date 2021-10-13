@@ -15,7 +15,7 @@ class PrincipalEvent {
         break;
 
       case 'administradores':
-        AdministradoresEvent(/* contrasenia, correoElectronico */);
+        AdministradorEvent(/* contrasenia, correoElectronico */);
         break;
 
       default:
@@ -26,7 +26,7 @@ class PrincipalEvent {
 //-------------dependiendo el tipo de cuenta se disapar un estado-------------
 class AlumnoEvent {}
 
-class AdministradoresEvent {}
+class AdministradorEvent {}
 
 class ProfesorEvent {}
 
@@ -34,7 +34,7 @@ class ProfesorEvent {}
 // eventos de cargaod exitoso de las 3 variables
 class LoadedAlumnoEvent extends AlumnoEvent {}
 
-class LoadedAdminEvent extends AdministradoresEvent {}
+class LoadedAdministradorEvent extends AdministradorEvent {}
 
 class LoadedProfesorEvent extends ProfesorEvent {}
 // evento de no cargado de las 3 variables
@@ -45,21 +45,21 @@ class NotLoadedAlumnoEvent extends AlumnoEvent {
   NotLoadedAlumnoEvent(this.position);
 }
 
-class NotLoadedAdministradoresEvent extends AdministradoresEvent {
+class NotLoadedAdministradorEvent extends AdministradorEvent {
   final int position;
-  NotLoadedAdministradoresEvent(this.position);
+  NotLoadedAdministradorEvent(this.position);
 }
 
-class NotLoadedProfesoresEvent extends ProfesorEvent {
+class NotLoadedProfesorEvent extends ProfesorEvent {
   final int position;
-  NotLoadedProfesoresEvent(this.position);
+  NotLoadedProfesorEvent(this.position);
 }
 
 //evento de errores de las 3 variables
 
 class ErrorAlumnoEvent extends AlumnoEvent {}
 
-class ErrorAdministradoresEvent extends AdministradoresEvent {}
+class ErrorAdministradorEvent extends AdministradorEvent {}
 
 class ErrorProfesorEvent extends ProfesorEvent {}
 
