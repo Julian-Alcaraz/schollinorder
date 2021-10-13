@@ -64,20 +64,29 @@ class LoginPage extends StatelessWidget {
 Widget campousuario() {
   return Container(
     padding: EdgeInsets.symmetric(horizontal: 50, vertical: 10),
-    child: TextField(
-        decoration: InputDecoration(
-      hintText: "Usuario/Email",
-    )),
+    child: TextFormField(
+      decoration: InputDecoration(
+        hintText: "Usuario/Email",
+        border: OutlineInputBorder(
+          borderRadius: BorderRadius.all(Radius.circular(10)),
+        ),
+      ),
+      validator: (value) => value.isEmpty ? "Campo requerido" : null,
+    ),
   );
 }
 
 Widget campocontrasena() {
   return Container(
     padding: EdgeInsets.symmetric(horizontal: 50, vertical: 10),
-    child: TextField(
-        obscureText: true,
-        decoration: InputDecoration(
+    child: TextFormField(
+      obscureText: true,
+      decoration: InputDecoration(
           hintText: "Contraseña",
-        )),
+          border: OutlineInputBorder(
+            borderRadius: BorderRadius.all(Radius.circular(10)),
+          )),
+      validator: (value) => value.isEmpty ? "Campo requerido" : null,
+    ),
   );
 }

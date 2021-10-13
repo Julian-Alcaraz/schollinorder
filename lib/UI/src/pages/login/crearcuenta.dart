@@ -50,88 +50,112 @@ class CrearCuenta extends StatelessWidget {
 
 Widget campoemail() {
   return Container(
-    padding: EdgeInsets.symmetric(horizontal: 50, vertical: 10),
-    child: TextField(
-      decoration: InputDecoration(
-        hintText: "Email",
-      ),
-    ),
-  );
+      padding: EdgeInsets.symmetric(horizontal: 50, vertical: 10),
+      child: TextFormField(
+        decoration: InputDecoration(
+          hintText: "Email",
+          border: OutlineInputBorder(
+            borderRadius: BorderRadius.all(Radius.circular(10)),
+          ),
+        ),
+        validator: (value) => value.isEmpty ? "Campo requerido" : null,
+      ));
 }
 
 Widget camponombre() {
   return Container(
-    padding: EdgeInsets.symmetric(horizontal: 50, vertical: 10),
-    child: TextField(
-      decoration: InputDecoration(
-        hintText: "Nombre",
-      ),
-    ),
-  );
+      padding: EdgeInsets.symmetric(horizontal: 50, vertical: 10),
+      child: TextFormField(
+        decoration: InputDecoration(
+          hintText: "Nombre",
+          border: OutlineInputBorder(
+            borderRadius: BorderRadius.all(Radius.circular(10)),
+          ),
+        ),
+        validator: (value) => value.isEmpty ? "Campo requerido" : null,
+      ));
 }
 
 Widget campoapellido() {
   return Container(
-    padding: EdgeInsets.symmetric(horizontal: 50, vertical: 10),
-    child: TextField(
-      decoration: InputDecoration(
-        hintText: "Apellido",
-      ),
-    ),
-  );
+      padding: EdgeInsets.symmetric(horizontal: 50, vertical: 10),
+      child: TextFormField(
+        decoration: InputDecoration(
+          hintText: "Apellido",
+          border: OutlineInputBorder(
+            borderRadius: BorderRadius.all(Radius.circular(10)),
+          ),
+        ),
+        validator: (value) => value.isEmpty ? "Campo requerido" : null,
+      ));
 }
 
 Widget campodni() {
   return Container(
-    padding: EdgeInsets.symmetric(horizontal: 50, vertical: 10),
-    child: TextField(
-      decoration: InputDecoration(
-        hintText: "DNI",
-      ),
-    ),
-  );
+      padding: EdgeInsets.symmetric(horizontal: 50, vertical: 10),
+      child: TextFormField(
+        decoration: InputDecoration(
+          hintText: "DNI",
+          border: OutlineInputBorder(
+            borderRadius: BorderRadius.all(Radius.circular(10)),
+          ),
+        ),
+        validator: (value) => value.isEmpty ? "Campo requerido" : null,
+      ));
 }
 
 Widget campotipocuenta() {
   return Container(
-    padding: EdgeInsets.symmetric(horizontal: 50, vertical: 10),
-    child: TextField(
-      decoration: InputDecoration(
-        hintText: "Tipo Cuenta",
-      ),
-    ),
-  );
+      padding: EdgeInsets.symmetric(horizontal: 50, vertical: 10),
+      child: TextFormField(
+        decoration: InputDecoration(
+          hintText: "Tipo Cuenta",
+          border: OutlineInputBorder(
+            borderRadius: BorderRadius.all(Radius.circular(10)),
+          ),
+        ),
+        validator: (value) => value.isEmpty ? "Campo requerido" : null,
+      ));
 }
 
 Widget campocurso() {
   return Container(
-    padding: EdgeInsets.symmetric(horizontal: 50, vertical: 10),
-    child: TextField(
-      decoration: InputDecoration(
-        hintText: "Curso",
-      ),
-    ),
-  );
+      padding: EdgeInsets.symmetric(horizontal: 50, vertical: 10),
+      child: TextFormField(
+        decoration: InputDecoration(
+          hintText: "Curso",
+          border: OutlineInputBorder(
+            borderRadius: BorderRadius.all(Radius.circular(10)),
+          ),
+        ),
+        validator: (value) => value.isEmpty ? "Campo requerido" : null,
+      ));
 }
 
 Widget campocontrasena() {
   return Container(
-    padding: EdgeInsets.symmetric(horizontal: 50, vertical: 10),
-    child: TextField(
-      decoration: InputDecoration(
-        hintText: "Ingrese su contraseña",
-      ),
-    ),
-  );
+      padding: EdgeInsets.symmetric(horizontal: 50, vertical: 10),
+      child: TextFormField(
+        decoration: InputDecoration(
+          hintText: "Ingrese su contraseña",
+          border: OutlineInputBorder(
+            borderRadius: BorderRadius.all(Radius.circular(10)),
+          ),
+        ),
+        validator: (value) => value.isEmpty ? "Campo requerido" : null,
+      ));
 }
 
 Widget campoconfirmacioncontrasena() {
   return Container(
-    padding: EdgeInsets.symmetric(horizontal: 50, vertical: 10),
-    child: TextField(
-      decoration: InputDecoration(
-        hintText: "Ingresela de nuevo",
-      ),
-    ),
-  );
+      padding: EdgeInsets.symmetric(horizontal: 50, vertical: 10),
+      child: TextFormField(
+        decoration: InputDecoration(
+          hintText: "Ingresela de nuevo",
+          border: OutlineInputBorder(
+            borderRadius: BorderRadius.all(Radius.circular(10)),
+          ),
+        ),
+        validator: (value) => value.isEmpty ? "Campo requerido" : null,
+      ));
 }
