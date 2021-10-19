@@ -143,36 +143,24 @@ class _ModificarHorarioCursoState extends State<ModificarHorarioCurso> {
   }
 
   Widget _botonHora(Bloque bloque) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        Text("${bloque.horaDeCatedra.horas}"),
-        Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: Container(
-            height: 40,
-            width: 150,
-            //margin: EdgeInsets.only(bottom: 8, left: 5, top: 8),
-            child: TextFormField(
-              decoration: InputDecoration(
-                hintText: "",
-                hintStyle: TextStyle(
-                  color: Colors.black,
-                  //fontSize: 15,
-                ),
-                border: OutlineInputBorder(
-                  borderRadius: BorderRadius.all(Radius.circular(10)),
-                  borderSide: BorderSide(color: Colors.white, width: 1),
-                ),
-                fillColor: Colors.white,
-                filled: true,
-              ),
-              validator: (value) =>
-                  value.isEmpty ? "Complete este campo" : null,
-            ),
+    return Padding(
+      padding: const EdgeInsets.all(8.0),
+      child: TextFormField(
+        decoration: InputDecoration(
+          hintText: "${bloque.horaDeCatedra.horas}",
+          hintStyle: TextStyle(
+            color: Colors.black,
+            //fontSize: 15,
           ),
+          border: OutlineInputBorder(
+            borderRadius: BorderRadius.all(Radius.circular(10)),
+            borderSide: BorderSide(color: Colors.white, width: 1),
+          ),
+          fillColor: Colors.white,
+          filled: true,
         ),
-      ],
+        validator: (value) => value.isEmpty ? "Complete este campo" : null,
+      ),
     );
   }
 
