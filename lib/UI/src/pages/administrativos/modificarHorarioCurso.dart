@@ -93,11 +93,31 @@ class _ModificarHorarioCursoState extends State<ModificarHorarioCurso> {
             key: _formKey,
             child: Column(
               children: [
+                SizedBox(height: 10),
+                Container(
+                  decoration: BoxDecoration(
+                    color: Colors.indigo.shade100,
+                    borderRadius: BorderRadius.all(Radius.circular(15)),
+                    border: Border.all(color: Colors.indigo.shade200, width: 3),
+                  ),
+                  child: Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Text(
+                      "Complete el formulario para poder cargar el horario",
+                      style: TextStyle(fontSize: 15, color: Colors.black),
+                    ),
+                  ),
+                ),
                 Padding(
                   padding: const EdgeInsets.only(top: 15),
                   child: Container(
-                    decoration: BoxDecoration(color: Color(0xFF364562)),
-                    width: 500,
+                    decoration: BoxDecoration(
+                      color: Colors.indigo.shade100,
+                      borderRadius: BorderRadius.all(Radius.circular(15)),
+                      border:
+                          Border.all(color: Colors.indigo.shade200, width: 3),
+                    ),
+                    width: 300,
                     child: tablaCargar(listaDependiendoTurno),
                   ),
                 ),
@@ -105,24 +125,45 @@ class _ModificarHorarioCursoState extends State<ModificarHorarioCurso> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                        primary: Color(0xFF364562),
+                      ),
                       onPressed: () {
                         if (_formKey.currentState.validate()) {
-                          print("anda piola");
+                          print("Carga Horario completo bien");
                         } else {
-                          print("no anda piola");
+                          print("no carga el horario");
                         }
                       },
-                      child: Text("cargar horario"),
+                      child: Text("Cargar horario"),
                     ),
                     SizedBox(width: 10),
                     ElevatedButton(
-                      onPressed: () {},
+                      style: ElevatedButton.styleFrom(
+                        primary: Color(0xFF364562),
+                      ),
+                      onPressed: () {
+                        if (_formKey.currentState.validate()) {
+                          print("Modifica temporalmente");
+                        } else {
+                          print("no modifica temporalmente");
+                        }
+                      },
                       child: Text("Modificar horario Temporalmente"),
                     ),
                   ],
                 ),
                 ElevatedButton(
-                  onPressed: () {},
+                  style: ElevatedButton.styleFrom(
+                    primary: Color(0xFF364562),
+                  ),
+                  onPressed: () {
+                    if (_formKey.currentState.validate()) {
+                      print("Modifica permanentemente");
+                    } else {
+                      print("No modificapermanentemente");
+                    }
+                  },
                   child: Text("Modificar horario permanentemente"),
                 ),
               ],
@@ -150,11 +191,10 @@ class _ModificarHorarioCursoState extends State<ModificarHorarioCurso> {
           hintText: "${bloque.horaDeCatedra.horas}",
           hintStyle: TextStyle(
             color: Colors.black,
-            //fontSize: 15,
           ),
           border: OutlineInputBorder(
             borderRadius: BorderRadius.all(Radius.circular(10)),
-            borderSide: BorderSide(color: Colors.white, width: 1),
+            borderSide: BorderSide(color: Colors.black, width: 2),
           ),
           fillColor: Colors.white,
           filled: true,
