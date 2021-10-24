@@ -1,3 +1,5 @@
+import 'dart:ffi';
+
 import 'package:flutter/material.dart';
 
 class CargarFaltasPage extends StatefulWidget {
@@ -7,30 +9,38 @@ class CargarFaltasPage extends StatefulWidget {
 
 class _CargarFaltasPageState extends State<CargarFaltasPage> {
   final GlobalKey<ScaffoldState> _scaffoldKey = new GlobalKey<ScaffoldState>();
-  var _currenSelecDate;
-  void callDatepicker() async {
-    var selectedDate = await getDatepickerwidget();
+  var _currentSelectedDate;
+
+  void callDatePicker() async {
+    var selectDate = await getDatePickerWiget();
     setState(() {
-      _currenSelecDate = selectedDate;
+      _currentSelectedDate = selectDate;
     });
   }
 
-  Future<DateTime> getDatepickerwidget() {
+  Future<DateTime> getDatePickerWiget() {
     return showDatePicker(
       context: context,
       initialDate: DateTime.now(),
       firstDate: DateTime(2018),
-      lastDate: DateTime(2021),
+      lastDate: DateTime(2023),
       builder: (context, child) {
         return Theme(data: ThemeData.dark(), child: child);
       },
     );
   }
 
+  Widget textbox(String description) {
+    return TextFormField(
+      validator: (value) => value.isEmpty ? "campo requerido" : null,
+      decoration: InputDecoration(hintText: description),
+    );
+  }
+
   String nameValue;
   String lastnameValue;
 
-  final formKey = GlobalKey<FormState>();
+  final _formKey = GlobalKey<FormState>();
 
   @override
   Widget build(BuildContext context) {
@@ -66,283 +76,190 @@ class _CargarFaltasPageState extends State<CargarFaltasPage> {
             padding: const EdgeInsets.all(15.0),
             child: Container(
               width: 500,
-              height: 520,
+              height: 550,
               decoration: BoxDecoration(
+                color: Color(0xFF364562),
                 borderRadius: BorderRadius.all(Radius.circular(15)),
                 border: Border.all(
                   color: Colors.black,
-                  width: 6,
+                  width: 3,
                 ),
               ),
               child: Padding(
                 padding: EdgeInsets.all(8),
                 child: Form(
-                  key: formKey,
-                  child: Column(
+                  key: _formKey,
+                  child: ListView(
                     children: <Widget>[
+                      Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 20),
+                        child: TextFormField(
+                          decoration: InputDecoration(
+                            hintText: "Nombre",
+                            hintStyle: TextStyle(
+                                color: Colors.black,
+                                fontSize: 15,
+                                letterSpacing: 0),
+                            border: OutlineInputBorder(
+                              borderRadius:
+                                  BorderRadius.all(Radius.circular(10)),
+                              borderSide:
+                                  BorderSide(color: Colors.white, width: 1),
+                            ),
+                            fillColor: Colors.white,
+                            filled: true,
+                          ),
+                          validator: (value) =>
+                              value.isEmpty ? "campo requerido" : null,
+                        ),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 20),
+                        child: TextFormField(
+                          decoration: InputDecoration(
+                            hintText: "Apellido",
+                            hintStyle: TextStyle(
+                                color: Colors.black,
+                                fontSize: 15,
+                                letterSpacing: 0),
+                            border: OutlineInputBorder(
+                              borderRadius:
+                                  BorderRadius.all(Radius.circular(10)),
+                              borderSide:
+                                  BorderSide(color: Colors.white, width: 1),
+                            ),
+                            fillColor: Colors.white,
+                            filled: true,
+                          ),
+                          validator: (value) =>
+                              value.isEmpty ? "campo requerido" : null,
+                        ),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 20),
+                        child: TextFormField(
+                          decoration: InputDecoration(
+                            hintText: "DNI",
+                            hintStyle: TextStyle(
+                                color: Colors.black,
+                                fontSize: 15,
+                                letterSpacing: 0),
+                            border: OutlineInputBorder(
+                              borderRadius:
+                                  BorderRadius.all(Radius.circular(10)),
+                              borderSide:
+                                  BorderSide(color: Colors.white, width: 1),
+                            ),
+                            fillColor: Colors.white,
+                            filled: true,
+                          ),
+                          validator: (value) =>
+                              value.isEmpty ? "campo requerido" : null,
+                        ),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 20),
+                        child: TextFormField(
+                          decoration: InputDecoration(
+                            hintText: "Motivo",
+                            hintStyle: TextStyle(
+                                color: Colors.black,
+                                fontSize: 15,
+                                letterSpacing: 0),
+                            border: OutlineInputBorder(
+                              borderRadius:
+                                  BorderRadius.all(Radius.circular(10)),
+                              borderSide:
+                                  BorderSide(color: Colors.white, width: 1),
+                            ),
+                            fillColor: Colors.white,
+                            filled: true,
+                          ),
+                          validator: (value) =>
+                              value.isEmpty ? "campo requerido" : null,
+                        ),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 20),
+                        child: TextFormField(
+                          decoration: InputDecoration(
+                            hintText: "Curso",
+                            hintStyle: TextStyle(
+                                color: Colors.black,
+                                fontSize: 15,
+                                letterSpacing: 0),
+                            border: OutlineInputBorder(
+                              borderRadius:
+                                  BorderRadius.all(Radius.circular(10)),
+                              borderSide:
+                                  BorderSide(color: Colors.white, width: 1),
+                            ),
+                            fillColor: Colors.white,
+                            filled: true,
+                          ),
+                          validator: (value) =>
+                              value.isEmpty ? "campo requerido" : null,
+                        ),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 20), 
+                       
+                        child: TextFormField(
+                          decoration: InputDecoration(
+                            hintText: "Materia",
+                            hintStyle: TextStyle(
+                                color: Colors.black,
+                                fontSize: 15,
+                                letterSpacing: 0),
+                            border: OutlineInputBorder(
+                              borderRadius:
+                                  BorderRadius.all(Radius.circular(10)),
+                              borderSide:
+                                  BorderSide(color: Colors.white, width: 1),
+                            ),
+                            fillColor: Colors.white,
+                            filled: true,
+                          ),
+                          validator: (value) =>
+                              value.isEmpty ? "campo requerido" : null,
+                        ),
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          ElevatedButton(
+                            onPressed: callDatePicker,
+                            style: ElevatedButton.styleFrom(
+                              primary: Colors.black,
+                              onPrimary: Colors.black,
+                            ),
+                            child: Text(
+                              "Seleccione fecha",
+                              style: TextStyle(color: Colors.white),
+                            ),
+                          ),
+                        ],
+                      ),
                       Center(
-                        child: Row(
-                          children: [
-                            Padding(
-                              padding: EdgeInsets.only(left: 45),
-                              child: Text("Nombre"),
+                        child: ElevatedButton(
+                          child: Text(
+                            "enviar a administrador",
+                            style: TextStyle(fontSize: 18, color: Colors.white),
+                          ),
+                          onPressed: () {
+                            if (_formKey.currentState.validate()) {
+                              print("muy bien notificar faltas");
+                            } else {
+                              print("erro");
+                            }
+                          },
+                          style: ElevatedButton.styleFrom(
+                            primary: Colors.indigo.shade100,
+                            onPrimary: Colors.black,
+                            minimumSize: Size(200, 50),
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(10),
                             ),
-                            Container(
-                              height: 40,
-                              width: 150,
-                              margin:
-                                  EdgeInsets.only(bottom: 17, left: 5, top: 8),
-                              child: TextFormField(
-                                decoration: InputDecoration(
-                                  hintText: "Nombre",
-                                  hintStyle: TextStyle(
-                                      color: Colors.black,
-                                      fontSize: 15,
-                                      letterSpacing: 0),
-                                  border: OutlineInputBorder(
-                                    borderRadius:
-                                        BorderRadius.all(Radius.circular(10)),
-                                    borderSide: BorderSide(
-                                        color: Colors.white, width: 1),
-                                  ),
-                                  fillColor: Colors.white,
-                                  filled: true,
-                                ),
-                                onSaved: (value) {
-                                  lastnameValue = value;
-                                },
-                                validator: (value) {
-                                  String ejemplo = "";
-                                  if (value.isEmpty) {
-                                    ejemplo = "llene este campo";
-                                  }
-                                  return ejemplo;
-                                },
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                      Row(
-                        children: [
-                          Padding(
-                            padding: EdgeInsets.only(left: 45),
-                            child: Text("Apellido"),
-                          ),
-                          Container(
-                            height: 40,
-                            width: 150,
-                            margin:
-                                EdgeInsets.only(bottom: 17, left: 5, top: 8),
-                            child: TextFormField(
-                              decoration: InputDecoration(
-                                hintText: "Apellido",
-                                hintStyle: TextStyle(
-                                    color: Colors.black,
-                                    fontSize: 15,
-                                    letterSpacing: 0),
-                                border: OutlineInputBorder(
-                                  borderRadius:
-                                      BorderRadius.all(Radius.circular(10)),
-                                  borderSide:
-                                      BorderSide(color: Colors.white, width: 1),
-                                ),
-                                fillColor: Colors.white,
-                                filled: true,
-                              ),
-                              onSaved: (value) {
-                                lastnameValue = value;
-                              },
-                              validator: (value) {
-                                String ejemplo = "";
-                                if (value.isEmpty) {
-                                  ejemplo = "llene este campo";
-                                }
-                                return ejemplo;
-                              },
-                            ),
-                          ),
-                        ],
-                      ),
-                      Row(
-                        children: [
-                          Padding(
-                            padding: EdgeInsets.only(left: 70),
-                            child: Text("DNI"),
-                          ),
-                          Container(
-                            height: 40,
-                            width: 150,
-                            margin:
-                                EdgeInsets.only(bottom: 17, left: 5, top: 8),
-                            child: TextFormField(
-                              decoration: InputDecoration(
-                                hintText: "DNI",
-                                hintStyle: TextStyle(
-                                    color: Colors.black,
-                                    fontSize: 15,
-                                    letterSpacing: 0),
-                                border: OutlineInputBorder(
-                                  borderRadius:
-                                      BorderRadius.all(Radius.circular(10)),
-                                  borderSide:
-                                      BorderSide(color: Colors.white, width: 1),
-                                ),
-                                fillColor: Colors.white,
-                                filled: true,
-                              ),
-                              onSaved: (value) {
-                                lastnameValue = value;
-                              },
-                              validator: (value) {
-                                String ejemplo = "";
-                                if (value.isEmpty) {
-                                  ejemplo = "llene este campo";
-                                }
-                                return ejemplo;
-                              },
-                            ),
-                          ),
-                        ],
-                      ),
-                      Row(
-                        children: [
-                          Padding(
-                            padding: EdgeInsets.only(left: 52),
-                            child: Text("Motivo"),
-                          ),
-                          Container(
-                            height: 40,
-                            width: 150,
-                            margin:
-                                EdgeInsets.only(bottom: 17, left: 5, top: 8),
-                            child: TextFormField(
-                              decoration: InputDecoration(
-                                hintText: "Motivo",
-                                hintStyle: TextStyle(
-                                    color: Colors.black,
-                                    fontSize: 15,
-                                    letterSpacing: 0),
-                                border: OutlineInputBorder(
-                                  borderRadius:
-                                      BorderRadius.all(Radius.circular(10)),
-                                  borderSide:
-                                      BorderSide(color: Colors.white, width: 1),
-                                ),
-                                fillColor: Colors.white,
-                                filled: true,
-                              ),
-                              onSaved: (value) {
-                                lastnameValue = value;
-                              },
-                              validator: (value) {
-                                String ejemplo = "";
-                                if (value.isEmpty) {
-                                  ejemplo = "llene este campo";
-                                }
-                                return ejemplo;
-                              },
-                            ),
-                          ),
-                        ],
-                      ),
-                      Row(
-                        children: [
-                          Padding(
-                            padding: EdgeInsets.only(left: 57),
-                            child: Text("Curso"),
-                          ),
-                          Container(
-                            height: 40,
-                            width: 150,
-                            margin:
-                                EdgeInsets.only(bottom: 17, left: 5, top: 8),
-                            child: TextFormField(
-                              decoration: InputDecoration(
-                                hintText: "Curso",
-                                hintStyle: TextStyle(
-                                    color: Colors.black,
-                                    fontSize: 15,
-                                    letterSpacing: 0),
-                                border: OutlineInputBorder(
-                                  borderRadius:
-                                      BorderRadius.all(Radius.circular(10)),
-                                  borderSide:
-                                      BorderSide(color: Colors.white, width: 1),
-                                ),
-                                fillColor: Colors.white,
-                                filled: true,
-                              ),
-                              onSaved: (value) {
-                                lastnameValue = value;
-                              },
-                              validator: (value) {
-                                String ejemplo = "";
-                                if (value.isEmpty) {
-                                  ejemplo = "llene este campo";
-                                }
-                                return ejemplo;
-                              },
-                            ),
-                          ),
-                        ],
-                      ),
-                      Row(
-                        children: [
-                          Padding(
-                            padding: EdgeInsets.only(left: 47),
-                            child: Text("Materia"),
-                          ),
-                          Container(
-                            height: 40,
-                            width: 150,
-                            margin:
-                                EdgeInsets.only(bottom: 17, left: 5, top: 8),
-                            child: TextFormField(
-                              decoration: InputDecoration(
-                                hintText: "Materia",
-                                hintStyle: TextStyle(
-                                    color: Colors.black,
-                                    fontSize: 15,
-                                    letterSpacing: 0),
-                                border: OutlineInputBorder(
-                                  borderRadius:
-                                      BorderRadius.all(Radius.circular(10)),
-                                  borderSide:
-                                      BorderSide(color: Colors.white, width: 1),
-                                ),
-                                fillColor: Colors.white,
-                                filled: true,
-                              ),
-                              onSaved: (value) {
-                                lastnameValue = value;
-                              },
-                              validator: (value) {
-                                String ejemplo = "";
-                                if (value.isEmpty) {
-                                  ejemplo = "llene este campo";
-                                }
-                                return ejemplo;
-                              },
-                            ),
-                          ),
-                        ],
-                      ),
-                      TextButton(
-                          onPressed: callDatepicker,
-                          child: Text("Seleccione fecha de Falta")),
-                      ElevatedButton(
-                        child: Text(
-                          "enviar a administrador",
-                          style: TextStyle(fontSize: 18),
-                        ),
-                        onPressed: () {},
-                        style: ElevatedButton.styleFrom(
-                          primary: Colors.indigo.shade100,
-                          onPrimary: Colors.black,
-                          minimumSize: Size(200, 50),
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(10),
                           ),
                         ),
                       ),
@@ -352,7 +269,7 @@ class _CargarFaltasPageState extends State<CargarFaltasPage> {
               ),
             ),
           ),
-          Spacer(),
+          //Spacer(),
           Container(
             //boton ir home
             child: Center(
