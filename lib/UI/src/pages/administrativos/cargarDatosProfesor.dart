@@ -1,7 +1,14 @@
 import 'package:flutter/material.dart';
 
-class CargarDatosProfesor extends StatelessWidget {
+class CargarDatosProfesor extends StatefulWidget {
+  @override
+  _CargarDatosProfesorState createState() => _CargarDatosProfesorState();
+}
+
+class _CargarDatosProfesorState extends State<CargarDatosProfesor> {
   final GlobalKey<ScaffoldState> _scaffoldKey = new GlobalKey<ScaffoldState>();
+  final _formKey = GlobalKey<FormState>();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -32,179 +39,147 @@ class CargarDatosProfesor extends StatelessWidget {
       ),
       body: Center(
         child: Padding(
-          padding: const EdgeInsets.symmetric(vertical: 130, horizontal: 50),
+          padding: const EdgeInsets.symmetric(vertical: 100, horizontal: 40),
           child: Container(
             decoration: BoxDecoration(
               color: Color(0xFF364562),
+              borderRadius: BorderRadius.all(Radius.circular(20)),
+              border: Border.all(color: Colors.black, width: 3),
             ),
-            child: ListView(
-              children: [
-                Padding(
-                  padding: const EdgeInsets.only(top: 15),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Text(
-                        "Nombre: ",
-                        style: TextStyle(color: Colors.white, fontSize: 25),
-                      ),
-                      Container(
-                        height: 40,
-                        width: 120,
-                        child: TextFormField(
-                          decoration: InputDecoration(
-                            hintText: "",
-                            hintStyle: TextStyle(
-                              fontSize: 40,
-                            ),
-                            border: OutlineInputBorder(
-                              borderSide:
-                                  BorderSide(color: Colors.white, width: 5),
-                              borderRadius: BorderRadius.all(
-                                Radius.circular(10),
-                              ),
-                            ),
-                            fillColor: Colors.white,
-                            filled: true,
+            child: Form(
+              key: _formKey,
+              child: ListView(
+                children: [
+                  Padding(
+                    padding:
+                        const EdgeInsets.only(left: 15, right: 15, top: 10),
+                    child: TextFormField(
+                      decoration: InputDecoration(
+                        hintText: "Nombre",
+                        hintStyle: TextStyle(
+                          color: Colors.black,
+                        ),
+                        border: OutlineInputBorder(
+                          borderSide: BorderSide(color: Colors.white, width: 5),
+                          borderRadius: BorderRadius.all(
+                            Radius.circular(10),
                           ),
                         ),
+                        fillColor: Colors.white,
+                        filled: true,
                       ),
-                    ],
+                      validator: (value) =>
+                          value.isEmpty ? "campo requerido" : null,
+                    ),
                   ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.only(top: 15),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Text(
-                        "Apellido: ",
-                        style: TextStyle(color: Colors.white, fontSize: 25),
-                      ),
-                      Container(
-                        height: 40,
-                        width: 120,
-                        child: TextFormField(
-                          decoration: InputDecoration(
-                            hintText: "",
-                            hintStyle: TextStyle(
-                              fontSize: 40,
-                            ),
-                            border: OutlineInputBorder(
-                              borderSide:
-                                  BorderSide(color: Colors.white, width: 5),
-                              borderRadius: BorderRadius.all(
-                                Radius.circular(10),
-                              ),
-                            ),
-                            fillColor: Colors.white,
-                            filled: true,
+                  Padding(
+                    padding:
+                        const EdgeInsets.only(left: 15, right: 15, top: 10),
+                    child: TextFormField(
+                      decoration: InputDecoration(
+                        hintText: "Apellido",
+                        hintStyle: TextStyle(
+                          color: Colors.black,
+                        ),
+                        border: OutlineInputBorder(
+                          borderSide: BorderSide(color: Colors.white, width: 5),
+                          borderRadius: BorderRadius.all(
+                            Radius.circular(10),
                           ),
                         ),
+                        fillColor: Colors.white,
+                        filled: true,
                       ),
-                    ],
+                      validator: (value) =>
+                          value.isEmpty ? "campo requerido" : null,
+                    ),
                   ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.only(top: 15),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Text(
-                        "Telefono: ",
-                        style: TextStyle(color: Colors.white, fontSize: 25),
-                      ),
-                      Container(
-                        height: 40,
-                        width: 120,
-                        child: TextFormField(
-                          decoration: InputDecoration(
-                            hintText: "",
-                            hintStyle: TextStyle(
-                              fontSize: 40,
-                            ),
-                            border: OutlineInputBorder(
-                              borderSide:
-                                  BorderSide(color: Colors.white, width: 5),
-                              borderRadius: BorderRadius.all(
-                                Radius.circular(10),
-                              ),
-                            ),
-                            fillColor: Colors.white,
-                            filled: true,
+                  Padding(
+                    padding:
+                        const EdgeInsets.only(left: 15, right: 15, top: 10),
+                    child: TextFormField(
+                      decoration: InputDecoration(
+                        hintText: "Telefono",
+                        hintStyle: TextStyle(
+                          color: Colors.black,
+                        ),
+                        border: OutlineInputBorder(
+                          borderSide: BorderSide(color: Colors.white, width: 5),
+                          borderRadius: BorderRadius.all(
+                            Radius.circular(10),
                           ),
                         ),
+                        fillColor: Colors.white,
+                        filled: true,
                       ),
-                    ],
+                      validator: (value) =>
+                          value.isEmpty ? "campo requerido" : null,
+                    ),
                   ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.only(top: 15),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Text(
-                        "Materia: ",
-                        style: TextStyle(color: Colors.white, fontSize: 25),
-                      ),
-                      Container(
-                        height: 40,
-                        width: 120,
-                        child: TextFormField(
-                          decoration: InputDecoration(
-                            hintText: "",
-                            hintStyle: TextStyle(
-                              fontSize: 40,
-                            ),
-                            border: OutlineInputBorder(
-                              borderSide:
-                                  BorderSide(color: Colors.white, width: 5),
-                              borderRadius: BorderRadius.all(
-                                Radius.circular(10),
-                              ),
-                            ),
-                            fillColor: Colors.white,
-                            filled: true,
+                  Padding(
+                    padding:
+                        const EdgeInsets.only(left: 15, right: 15, top: 10),
+                    child: TextFormField(
+                      decoration: InputDecoration(
+                        hintText: "Materia",
+                        hintStyle: TextStyle(
+                          color: Colors.black,
+                        ),
+                        border: OutlineInputBorder(
+                          borderSide: BorderSide(color: Colors.white, width: 5),
+                          borderRadius: BorderRadius.all(
+                            Radius.circular(10),
                           ),
                         ),
+                        fillColor: Colors.white,
+                        filled: true,
                       ),
-                    ],
+                      validator: (value) =>
+                          value.isEmpty ? "campo requerido" : null,
+                    ),
                   ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.only(top: 15),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Text(
-                        "DNI: ",
-                        style: TextStyle(color: Colors.white, fontSize: 25),
-                      ),
-                      Container(
-                        height: 40,
-                        width: 120,
-                        child: TextFormField(
-                          decoration: InputDecoration(
-                            hintText: "",
-                            hintStyle: TextStyle(
-                              fontSize: 40,
-                            ),
-                            border: OutlineInputBorder(
-                              borderSide:
-                                  BorderSide(color: Colors.white, width: 5),
-                              borderRadius: BorderRadius.all(
-                                Radius.circular(10),
-                              ),
-                            ),
-                            fillColor: Colors.white,
-                            filled: true,
+                  Padding(
+                    padding:
+                        const EdgeInsets.only(left: 15, right: 15, top: 10),
+                    child: TextFormField(
+                      decoration: InputDecoration(
+                        hintText: "DNI",
+                        hintStyle: TextStyle(
+                          color: Colors.black,
+                        ),
+                        border: OutlineInputBorder(
+                          borderSide: BorderSide(color: Colors.white, width: 5),
+                          borderRadius: BorderRadius.all(
+                            Radius.circular(10),
                           ),
                         ),
+                        fillColor: Colors.white,
+                        filled: true,
                       ),
-                    ],
+                      validator: (value) =>
+                          value.isEmpty ? "campo requerido" : null,
+                    ),
                   ),
-                ),
-              ],
+                  Center(
+                    child: TextButton(
+                      onPressed: () {
+                        if (_formKey.currentState.validate()) {
+                          print("muy bien cargo el profesor");
+                        } else {
+                          print("erro");
+                        }
+                      },
+                      child: Text(
+                        "Cargar Datos",
+                        style: TextStyle(color: Colors.black),
+                      ),
+                      style: TextButton.styleFrom(
+                          elevation: 1,
+                          backgroundColor: Colors.indigo.shade300),
+                    ),
+                  )
+                ],
+              ),
             ),
           ),
         ),
