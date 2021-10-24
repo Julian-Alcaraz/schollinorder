@@ -45,7 +45,7 @@ class _AlumnoPageState extends State<AlumnoPage> {
                 //Botones Desplegables
                 Container(
                   height: 110,
-                  decoration: BoxDecoration(color: Colors.white),
+                  //decoration: BoxDecoration(color: Colors.white),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [

@@ -1,58 +1,73 @@
 //importar pagina genera eventoç
 // login al iniciar sesion
-class principalEvent {
+//--------------------- al inicar sesion se dispara este evento-----------------
+class PrincipalEvent {
   String tipoCuenta;
   String contrasenia;
   String correoElectronico;
-  /* switch(tipoCuenta) {
-          case alumno: {
-            AlumnoEvent(contrasenia, correoElectronico);
-            }
-            break;
+  void tipoDeCuenta() {
+    switch (tipoCuenta) {
+      case 'alumno':
+        AlumnoEvent(/* contrasenia, correoElectronico */);
+        break;
+      case 'profesor':
+        ProfesorEvent(/* contrasenia, correoElectronico */);
+        break;
 
-          case profesor: {
-            ProfesorEvent(contrasenia, correoElectronico);
-            }
-            break;
+      case 'administradores':
+        AdministradorEvent(/* contrasenia, correoElectronico */);
+        break;
 
-          case administradores: {
-          AdministradoresEvent(contrasenia, correoElectronico);
-          } 
-            break;
-
-          default :{
-            //statment
-          }
-        } */
+      default:
+    }
+  }
 }
 
+//-------------dependiendo el tipo de cuenta se disapar un estado-------------
 class AlumnoEvent {}
 
-class AdministradoresEvent {}
+class AdministradorEvent {}
 
 class ProfesorEvent {}
 
+//--------- una vez sabemos que tipo de  cuenta es ejecutamos el evento correspondiente---------------------
+// eventos de cargaod exitoso de las 3 variables
 class LoadedAlumnoEvent extends AlumnoEvent {}
 
-class LoadedAdminEvent extends AdministradoresEvent {}
+class LoadedAdministradorEvent extends AdministradorEvent {}
 
 class LoadedProfesorEvent extends ProfesorEvent {}
+// evento de no cargado de las 3 variables
 
-class DenegadoAlumnoEvent extends AlumnoEvent {}
+class NotLoadedAlumnoEvent extends AlumnoEvent {
+  final int position;
 
-class DenegadoAdministradoresEvent extends AdministradoresEvent {}
+  NotLoadedAlumnoEvent(this.position);
+}
 
-class DenegadoProfesoresEvent extends ProfesorEvent {}
+class NotLoadedAdministradorEvent extends AdministradorEvent {
+  final int position;
+  NotLoadedAdministradorEvent(this.position);
+}
+
+class NotLoadedProfesorEvent extends ProfesorEvent {
+  final int position;
+  NotLoadedProfesorEvent(this.position);
+}
+
+//evento de errores de las 3 variables
 
 class ErrorAlumnoEvent extends AlumnoEvent {}
 
-class ErrorAdministradoresEvent extends AdministradoresEvent {}
+class ErrorAdministradorEvent extends AdministradorEvent {}
 
 class ErrorProfesorEvent extends ProfesorEvent {}
 
-//CrearCuenta
+//------ Evento de registrar una CrearCuenta--------------
 class LoginEvent {}
 
+//------ acepta la cuenta
 class AceptadaEvent extends LoginEvent {}
 
+//------ existe la cuenta
 class ExisteEvent extends LoginEvent {}
