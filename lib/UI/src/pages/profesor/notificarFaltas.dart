@@ -73,7 +73,7 @@ class _CargarFaltasPageState extends State<CargarFaltasPage> {
             child: _datosDeLaFaltas(),
           ),
           Padding(
-            padding: const EdgeInsets.all(15.0),
+            padding: const EdgeInsets.symmetric(horizontal: 15),
             child: Container(
               width: 500,
               height: 550,
@@ -92,7 +92,8 @@ class _CargarFaltasPageState extends State<CargarFaltasPage> {
                   child: ListView(
                     children: <Widget>[
                       Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 20),
+                        padding:
+                            const EdgeInsets.only(top: 10, right: 20, left: 20),
                         child: TextFormField(
                           decoration: InputDecoration(
                             hintText: "Nombre",
@@ -114,7 +115,8 @@ class _CargarFaltasPageState extends State<CargarFaltasPage> {
                         ),
                       ),
                       Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 20),
+                        padding:
+                            const EdgeInsets.only(top: 10, right: 20, left: 20),
                         child: TextFormField(
                           decoration: InputDecoration(
                             hintText: "Apellido",
@@ -136,7 +138,8 @@ class _CargarFaltasPageState extends State<CargarFaltasPage> {
                         ),
                       ),
                       Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 20),
+                        padding:
+                            const EdgeInsets.only(top: 10, right: 20, left: 20),
                         child: TextFormField(
                           decoration: InputDecoration(
                             hintText: "DNI",
@@ -158,7 +161,8 @@ class _CargarFaltasPageState extends State<CargarFaltasPage> {
                         ),
                       ),
                       Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 20),
+                        padding:
+                            const EdgeInsets.only(top: 10, right: 20, left: 20),
                         child: TextFormField(
                           decoration: InputDecoration(
                             hintText: "Motivo",
@@ -180,7 +184,8 @@ class _CargarFaltasPageState extends State<CargarFaltasPage> {
                         ),
                       ),
                       Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 20),
+                        padding:
+                            const EdgeInsets.only(top: 10, right: 20, left: 20),
                         child: TextFormField(
                           decoration: InputDecoration(
                             hintText: "Curso",
@@ -202,8 +207,8 @@ class _CargarFaltasPageState extends State<CargarFaltasPage> {
                         ),
                       ),
                       Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 20), 
-                       
+                        padding:
+                            const EdgeInsets.only(top: 10, right: 20, left: 20),
                         child: TextFormField(
                           decoration: InputDecoration(
                             hintText: "Materia",
@@ -323,24 +328,27 @@ class _CargarFaltasPageState extends State<CargarFaltasPage> {
   }
 
   Widget _datosDeLaFaltas() {
-    return Container(
-      margin: EdgeInsets.only(top: 30, bottom: 30),
-      padding: EdgeInsets.all(12),
-      height: 60,
-      decoration: BoxDecoration(
-        border: Border.all(
-          color: Colors.indigo.shade200,
-          width: 3,
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 20),
+      child: Container(
+        height: 60,
+        decoration: BoxDecoration(
+          border: Border.all(
+            color: Colors.indigo.shade200,
+            width: 3,
+          ),
+          borderRadius: BorderRadius.all(Radius.circular(10)),
+          color: Colors.indigo.shade100,
         ),
-        borderRadius: BorderRadius.all(Radius.circular(10)),
-        color: Colors.indigo.shade100,
-      ),
-      child: Text(
-        "Datos de la Falta",
-        style: TextStyle(
-          fontSize: 30,
-          color: Colors.black,
-          fontWeight: FontWeight.bold,
+        child: Center(
+          child: Text(
+            "Datos de la Falta",
+            style: TextStyle(
+              fontSize: 30,
+              color: Colors.black,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
         ),
       ),
     );
