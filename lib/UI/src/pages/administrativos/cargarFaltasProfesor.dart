@@ -299,7 +299,7 @@ class _CargarFaltasProfesorState extends State<CargarFaltasProfesor> {
                 child: Column(
                   children: [
                     CircleAvatar(maxRadius: 60),
-                    Text("Nombre Profesor"),
+                    Text("Nombre Adminstrador"),
                   ],
                 ),
               ),
