@@ -43,7 +43,13 @@ class _LoginPageState extends State<LoginPage> {
                     Padding(
                       padding: const EdgeInsets.only(top: 10),
                       child: ElevatedButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          if (_formKey.currentState.validate()) {
+                            print("Cuenta creada");
+                          } else {
+                            print("Error");
+                          }
+                        },
                         child: Text('Iniciar Sesion'),
                         style: ElevatedButton.styleFrom(
                           primary: Color(0xFF364562),
@@ -54,11 +60,6 @@ class _LoginPageState extends State<LoginPage> {
                       padding: const EdgeInsets.only(top: 15),
                       child: TextButton(
                           onPressed: () {
-                            if (_formKey.currentState.validate()) {
-                              print("Cuenta creada");
-                            } else {
-                              print("Error");
-                            }
                             Navigator.of(context).pushNamed("/CrearCuenta");
                           },
                           child: Text('Crear Cuenta'),
@@ -80,24 +81,32 @@ class _LoginPageState extends State<LoginPage> {
 Widget campousuario() {
   return Container(
     padding: EdgeInsets.symmetric(horizontal: 50, vertical: 10),
-    child: TextField(
-        decoration: InputDecoration(
-      hintText: "Usuario/Email",
-      border: OutlineInputBorder(
-        borderRadius: BorderRadius.all(Radius.circular(10)),
-        borderSide: BorderSide(color: Colors.white, width: 1),
+    child: TextFormField(
+      decoration: InputDecoration(
+        hintText: "Usuario/Email",
+        border: OutlineInputBorder(
+          borderRadius: BorderRadius.all(Radius.circular(10)),
+          borderSide: BorderSide(color: Colors.white, width: 1),
+        ),
       ),
-    )),
+      validator: (value) => value.isEmpty ? "Campo requerido" : null,
+    ),
   );
 }
 
 Widget campocontrasena() {
   return Container(
     padding: EdgeInsets.symmetric(horizontal: 50, vertical: 10),
-    child: TextField(
-        obscureText: true,
-        decoration: InputDecoration(
-          hintText: "Contraseña",
-        )),
+    child: TextFormField(
+      obscureText: true,
+      decoration: InputDecoration(
+        hintText: "Contraseña",
+        border: OutlineInputBorder(
+          borderRadius: BorderRadius.all(Radius.circular(10)),
+          borderSide: BorderSide(color: Colors.white, width: 1),
+        ),
+      ),
+      validator: (value) => value.isEmpty ? "Campo requerido" : null,
+    ),
   );
 }
