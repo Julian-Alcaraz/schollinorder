@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:schollinorder/UI/src/models/bloque.dart';
-import 'package:schollinorder/UI/src/models/horaCatedra.dart';
 
 class CargarHorarioCurso extends StatefulWidget {
   @override

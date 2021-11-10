@@ -1,4 +1,4 @@
-//importar pagina genera eventoç
+/* //importar pagina genera eventoç
 // login al iniciar sesion
 //--------------------- al inicar sesion se dispara este evento-----------------
 class PrincipalEvent {
@@ -71,3 +71,4 @@ class AceptadaEvent extends LoginEvent {}
 
 //------ existe la cuenta
 class ExisteEvent extends LoginEvent {}
+ */

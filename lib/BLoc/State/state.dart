@@ -1,4 +1,4 @@
-import 'package:schollinorder/BLoc/bloc.dart';
+/* import 'package:schollinorder/BLoc/bloc.dart';
 import 'package:equatable/equatable.dart';
 
 class AlumnoState extends Equatable {
@@ -52,3 +52,4 @@ class ProfesorState extends Equatable {
   @override
   List<Object> get props => [this.loading, this.algoNuevo];
 }
+ */

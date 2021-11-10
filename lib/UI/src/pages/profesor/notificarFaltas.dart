@@ -9,6 +9,7 @@ class CargarFaltasPage extends StatefulWidget {
 
 class _CargarFaltasPageState extends State<CargarFaltasPage> {
   final GlobalKey<ScaffoldState> _scaffoldKey = new GlobalKey<ScaffoldState>();
+  // ignore: unused_field
   var _currentSelectedDate;
 
   void callDatePicker() async {
