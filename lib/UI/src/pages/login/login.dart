@@ -1,6 +1,10 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:get/get.dart';
+import 'package:schollinorder/UI/src/pages/login/event_google.dart';
+import 'package:schollinorder/main.dart';
 
 class LoginPage extends StatefulWidget {
   @override
@@ -63,7 +67,7 @@ class _LoginPageState extends State<LoginPage> {
                           ),
                         ),
                         Padding(
-                          padding: const EdgeInsets.only(top: 15),
+                          padding: const EdgeInsets.only(top: 15, bottom: 10),
                           child: TextButton(
                             onPressed: () {
                               Navigator.of(context).pushNamed("/CrearCuenta");
@@ -78,9 +82,66 @@ class _LoginPageState extends State<LoginPage> {
               ),
             ),
           ),
+          _GoogleSignIn()
         ],
       ),
     );
+  }
+}
+
+class _GoogleSignIn extends StatelessWidget {
+  final controller = Get.put(Controller());
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      margin: EdgeInsets.all(25),
+      decoration: BoxDecoration(borderRadius: BorderRadius.circular(50)),
+      child: Obx(() {
+        if (controller.googleAccount.value == null)
+          return buildLoginButton();
+        else
+          return buildProfileView();
+      }),
+    );
+  }
+
+  FloatingActionButton buildLoginButton() {
+    return FloatingActionButton.extended(
+      backgroundColor: Colors.deepPurple[300],
+      icon: FaIcon(FontAwesomeIcons.google, color: Colors.black),
+      label: Text('Iniciar sesion con google'),
+      onPressed: () {
+        controller.login();
+      },
+    );
+  }
+
+  Column buildProfileView() {
+    return Column(mainAxisSize: MainAxisSize.min, children: <Widget>[
+      CircleAvatar(
+        backgroundImage:
+            Image.network(controller.googleAccount.value.photoUrl ?? '').image,
+        radius: 100,
+      ),
+      Text(controller.googleAccount.value.displayName ?? '',
+          style: Get.textTheme.headline3),
+      Text(controller.googleAccount.value.email ?? '',
+          style: Get.textTheme.bodyText1),
+      SizedBox(height: 16),
+      ActionChip(
+        avatar: Icon(Icons.logout),
+        label: Text('Salir'),
+        onPressed: () {
+          controller.logut();
+        },
+      ),
+      ActionChip(
+        avatar: Icon(Icons.arrow_forward),
+        label: Text('Entrar'),
+        onPressed: () => Navigator.of(controller.login())
+            .push(MaterialPageRoute(builder: (_) => MyApp())),
+      ),
+    ]);
   }
 }
 
