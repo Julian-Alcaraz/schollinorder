@@ -3,7 +3,9 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
+import 'package:schollinorder/UI/src/pages/login/authentication/google_sing_in_button.dart';
 import 'package:schollinorder/UI/src/pages/login/event_google.dart';
+import 'package:schollinorder/UI/src/pages/login/utils/g_authentication.dart';
 import 'package:schollinorder/main.dart';
 
 class LoginPage extends StatefulWidget {
@@ -82,7 +84,18 @@ class _LoginPageState extends State<LoginPage> {
               ),
             ),
           ),
-          _GoogleSignIn()
+          FutureBuilder(
+            future: GAuthentication.initializeFirebase(context: context),
+            builder: (context, snapshot) {
+              if (snapshot.hasError) {
+                return Text('Error initializing Firebase');
+              } else if (snapshot.connectionState == ConnectionState.done) {
+                return GoogleSignInButton();
+              }
+              return CircularProgressIndicator(color: Colors.amber);
+            },
+          ),
+          _GoogleSignIn(),
         ],
       ),
     );
