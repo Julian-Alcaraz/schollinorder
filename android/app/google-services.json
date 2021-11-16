@@ -14,6 +14,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "586207043251-doje05mg5q4502rv0vjd8rve1m2emsee.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.schollinorder",
+            "certificate_hash": "72345838b75b0ff8506f6e759bc49cceb8f2a033"
+          }
+        },
+        {
           "client_id": "586207043251-obj3bi36uv9stg4o5lt8tspfqrit7vtp.apps.googleusercontent.com",
           "client_type": 3
         }

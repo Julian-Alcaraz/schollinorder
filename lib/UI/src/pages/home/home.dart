@@ -1,6 +1,11 @@
 import 'package:flutter/material.dart';
 
-class HomePage extends StatelessWidget {
+class HomePage extends StatefulWidget {
+  @override
+  State<HomePage> createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -26,7 +31,7 @@ class HomePage extends StatelessWidget {
               SizedBox(height: 20),
               _botonAdministrativo(context),
               SizedBox(height: 20),
-              _botonLogin(context),
+              //_botonLogin(context),
             ],
           ),
         ));
@@ -47,7 +52,7 @@ Widget _botonAlumno(context) {
   );
 }
 
-Widget _botonLogin(context) {
+/* Widget _botonLogin(context) {
   return Container(
     child: ElevatedButton(
       child: Text("Login"),
@@ -59,7 +64,7 @@ Widget _botonLogin(context) {
       ),
     ),
   );
-}
+} */
 
 Widget _botonProfesor(context) {
   return Container(

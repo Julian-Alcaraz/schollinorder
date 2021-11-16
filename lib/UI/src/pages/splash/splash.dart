@@ -18,7 +18,7 @@ class _SplashPageState extends State<SplashPage> {
     final _duration = Duration(seconds: 4);
     //trear/cargar lo necesario
     Timer(_duration, () async {
-      Navigator.of(context).pushReplacementNamed("/Home");
+      Navigator.of(context).pushReplacementNamed("/Login");
     });
   }
 

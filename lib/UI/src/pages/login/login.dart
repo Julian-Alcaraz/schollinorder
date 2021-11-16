@@ -3,9 +3,7 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
-import 'package:schollinorder/UI/src/pages/login/authentication/google_sing_in_button.dart';
 import 'package:schollinorder/UI/src/pages/login/event_google.dart';
-import 'package:schollinorder/UI/src/pages/login/utils/g_authentication.dart';
 import 'package:schollinorder/main.dart';
 
 class LoginPage extends StatefulWidget {
@@ -84,7 +82,7 @@ class _LoginPageState extends State<LoginPage> {
               ),
             ),
           ),
-          FutureBuilder(
+          /* FutureBuilder(
             future: GAuthentication.initializeFirebase(context: context),
             builder: (context, snapshot) {
               if (snapshot.hasError) {
@@ -94,7 +92,7 @@ class _LoginPageState extends State<LoginPage> {
               }
               return CircularProgressIndicator(color: Colors.amber);
             },
-          ),
+          ), */
           _GoogleSignIn(),
         ],
       ),
@@ -113,7 +111,7 @@ class _GoogleSignIn extends StatelessWidget {
         if (controller.googleAccount.value == null)
           return buildLoginButton();
         else
-          return buildProfileView();
+          return buildProfileView(context);
       }),
     );
   }
@@ -129,9 +127,26 @@ class _GoogleSignIn extends StatelessWidget {
     );
   }
 
-  Column buildProfileView() {
+  Column buildProfileView(context) {
     return Column(mainAxisSize: MainAxisSize.min, children: <Widget>[
-      CircleAvatar(
+      Text("Ya Iniciaste Sesion!"),
+      Text("Pulsa el boton para Ingresar"),
+      ActionChip(
+        avatar: Icon(Icons.logout),
+        label: Text('Ingresar'),
+        onPressed: () {
+          Navigator.of(context).pushNamed("/Home");
+        },
+      ),
+      ActionChip(
+        avatar: Icon(Icons.logout),
+        label: Text('Salir'),
+        onPressed: () {
+          controller.logut();
+        },
+      ),
+
+      /*  CircleAvatar(
         backgroundImage:
             Image.network(controller.googleAccount.value.photoUrl ?? '').image,
         radius: 100,
@@ -147,13 +162,7 @@ class _GoogleSignIn extends StatelessWidget {
         onPressed: () {
           controller.logut();
         },
-      ),
-      ActionChip(
-        avatar: Icon(Icons.arrow_forward),
-        label: Text('Entrar'),
-        onPressed: () => Navigator.of(controller.login())
-            .push(MaterialPageRoute(builder: (_) => MyApp())),
-      ),
+      ), */
     ]);
   }
 }

@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:schollinorder/UI/src/pages/login/event_google.dart';
 
 class AdministrativosPages extends StatelessWidget {
+  final controller = Get.put(Controller());
+
   final GlobalKey<ScaffoldState> _scaffoldKey = new GlobalKey<ScaffoldState>();
   @override
   Widget build(BuildContext context) {
@@ -117,17 +121,25 @@ class AdministrativosPages extends StatelessWidget {
               child: Center(
                 child: Column(
                   children: [
-                    CircleAvatar(maxRadius: 60),
-                    Text("Nombre Administrador"),
+                    CircleAvatar(
+                      maxRadius: 60,
+                      backgroundImage: Image.network(
+                              controller.googleAccount.value.photoUrl ?? '')
+                          .image,
+                    ),
+                    Text(controller.googleAccount.value.displayName ?? '',
+                        style: Get.textTheme.headline3),
                   ],
                 ),
               ),
             ),
             ListTile(
               focusColor: Colors.amber,
-              title: Text("Notificaciones"),
+              title: Text("Datos Personales"),
               tileColor: Colors.indigo.shade300,
-              onTap: () {},
+              onTap: () {
+                Navigator.of(context).pushReplacementNamed("/DatosPersonales");
+              },
             ),
             Spacer(),
             ListTile(

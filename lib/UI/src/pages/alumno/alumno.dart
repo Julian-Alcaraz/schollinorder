@@ -34,7 +34,7 @@ class _AlumnoPageState extends State<AlumnoPage> {
     return Scaffold(
       key: _scaffoldKey,
       endDrawer: drawer(),
-      appBar: appBar(),
+      appBar: appBar(), 
       body: SingleChildScrollView(
         child: Container(
           child: Center(
