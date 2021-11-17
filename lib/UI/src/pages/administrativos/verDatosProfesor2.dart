@@ -1,19 +1,21 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:schollinorder/UI/src/models/profesor.dart';
 import 'package:schollinorder/UI/src/pages/administrativos/informacionDeProfesor.dart';
 import 'package:schollinorder/UI/src/pages/login/event_google.dart';
 
-class VerDatosProfesor extends StatefulWidget {
+class VerDatosProfesor2 extends StatefulWidget {
   @override
   _VerDatosProfesorState createState() => _VerDatosProfesorState();
 }
 
-class _VerDatosProfesorState extends State<VerDatosProfesor> {
+class _VerDatosProfesorState extends State<VerDatosProfesor2> {
   final GlobalKey<ScaffoldState> _scaffoldKey = new GlobalKey<ScaffoldState>();
   final _controller = TextEditingController();
   List<Profesor> listaFiltrada = [];
   final controller = Get.put(Controller());
+  final firebase = FirebaseFirestore.instance;
 
   @override
   void initState() {
@@ -55,9 +57,29 @@ class _VerDatosProfesorState extends State<VerDatosProfesor> {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
-                buscar(),
-                verListaProfesores(listaFiltrada),
-                Padding(
+                //buscar(),
+                //verListaProfesores(listaFiltrada),
+                SizedBox(height: 20),
+                StreamBuilder<QuerySnapshot>(
+                    stream: firebase.collection("profesores").snapshots(),
+                    builder: (context, snapshot) {
+                      if (snapshot.hasData) {
+                        return ListView.builder(
+                            shrinkWrap: true,
+                            physics: ScrollPhysics(),
+                            itemCount: snapshot.data.docs.length,
+                            itemBuilder: (context, i) {
+                              QueryDocumentSnapshot x = snapshot.data.docs[i];
+                              //return Text(x["nombre"]);
+                              return nombreProfesor(x);
+                            });
+                      } else {
+                        return Center(
+                          child: CircularProgressIndicator(),
+                        );
+                      }
+                    }),
+                /* Padding(
                   padding: const EdgeInsets.only(top: 20),
                   child: ElevatedButton(
                     onPressed: () {
@@ -68,7 +90,7 @@ class _VerDatosProfesorState extends State<VerDatosProfesor> {
                       primary: Color(0xFF364562),
                     ),
                   ),
-                )
+                ) */
               ],
             ),
           ),
@@ -82,7 +104,7 @@ class _VerDatosProfesorState extends State<VerDatosProfesor> {
     setState(() {});
   }
 
-  Widget verListaProfesores(List<Profesor> lista) {
+  /* Widget verListaProfesores(List<Profesor> lista) {
     return Padding(
       padding: const EdgeInsets.only(top: 20),
       child: Container(
@@ -96,15 +118,15 @@ class _VerDatosProfesorState extends State<VerDatosProfesor> {
             }),
       ),
     );
-  }
+  } */
 
-  Widget nombreProfesor(Profesor profe) {
+  Widget nombreProfesor(QueryDocumentSnapshot profe) {
     return Padding(
       padding: const EdgeInsets.all(10.0),
       child: TextButton(
         onPressed: () {
-          /* Navigator.of(context).push(MaterialPageRoute(
-              builder: (_) => InformacionProfesor(profe: profe))); */
+          Navigator.of(context).push(MaterialPageRoute(
+              builder: (_) => InformacionProfesor(profe: profe,)));
         },
         child: Container(
           height: 60,
@@ -113,7 +135,7 @@ class _VerDatosProfesorState extends State<VerDatosProfesor> {
           ),
           child: Center(
             child: Text(
-              "${profe.nombre} ${profe.apellido}",
+              profe["nombre"],
               style: TextStyle(color: Colors.white),
             ),
           ),

@@ -1,5 +1,8 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:schollinorder/UI/src/consultas/consultas.dart';
 import 'package:schollinorder/UI/src/pages/login/event_google.dart';
 
 class CargarDatosProfesor extends StatefulWidget {
@@ -11,6 +14,41 @@ class _CargarDatosProfesorState extends State<CargarDatosProfesor> {
   final GlobalKey<ScaffoldState> _scaffoldKey = new GlobalKey<ScaffoldState>();
   final _formKey = GlobalKey<FormState>();
   final controller = Get.put(Controller());
+  TextEditingController nombre = TextEditingController();
+  TextEditingController apellido = TextEditingController();
+  TextEditingController telefono = TextEditingController();
+  TextEditingController dni = TextEditingController();
+  TextEditingController materia1 = TextEditingController();
+  TextEditingController materia2 = TextEditingController();
+
+  final firebase = FirebaseFirestore.instance;
+  crearProfesor() async {
+    try {
+      //si quiero asignar el nombre del documento en .doc(poner nombre.text)
+      await firebase.collection("profesores").doc().set({
+        "nombre": nombre.text,
+        "apellido": apellido.text,
+        "telefono": telefono.text,
+        "dni": dni.text,
+        "materia1": materia1.text,
+        "materia2": materia2.text,
+      });
+    } catch (e) {
+      print(e);
+    }
+  }
+
+  editarProfesor() {
+    try {} catch (e) {
+      print(e);
+    }
+  }
+
+  elimiarProfesor() {
+    try {} catch (e) {
+      print(e);
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -49,14 +87,14 @@ class _CargarDatosProfesorState extends State<CargarDatosProfesor> {
               borderRadius: BorderRadius.all(Radius.circular(20)),
               border: Border.all(color: Colors.black, width: 3),
             ),
-            child: Form(
-              key: _formKey,
-              child: ListView(
-                children: [
-                  Padding(
-                    padding:
-                        const EdgeInsets.only(left: 15, right: 15, top: 10),
-                    child: TextFormField(
+            child: Padding(
+              padding: const EdgeInsets.all(15),
+              child: Form(
+                key: _formKey,
+                child: ListView(
+                  children: [
+                    TextFormField(
+                      controller: nombre,
                       decoration: InputDecoration(
                         hintText: "Nombre",
                         hintStyle: TextStyle(
@@ -74,11 +112,9 @@ class _CargarDatosProfesorState extends State<CargarDatosProfesor> {
                       validator: (value) =>
                           value.isEmpty ? "campo requerido" : null,
                     ),
-                  ),
-                  Padding(
-                    padding:
-                        const EdgeInsets.only(left: 15, right: 15, top: 10),
-                    child: TextFormField(
+                    SizedBox(height: 10),
+                    TextFormField(
+                      controller: apellido,
                       decoration: InputDecoration(
                         hintText: "Apellido",
                         hintStyle: TextStyle(
@@ -96,11 +132,9 @@ class _CargarDatosProfesorState extends State<CargarDatosProfesor> {
                       validator: (value) =>
                           value.isEmpty ? "campo requerido" : null,
                     ),
-                  ),
-                  Padding(
-                    padding:
-                        const EdgeInsets.only(left: 15, right: 15, top: 10),
-                    child: TextFormField(
+                    SizedBox(height: 10),
+                    TextFormField(
+                      controller: telefono,
                       decoration: InputDecoration(
                         hintText: "Telefono",
                         hintStyle: TextStyle(
@@ -118,33 +152,9 @@ class _CargarDatosProfesorState extends State<CargarDatosProfesor> {
                       validator: (value) =>
                           value.isEmpty ? "campo requerido" : null,
                     ),
-                  ),
-                  Padding(
-                    padding:
-                        const EdgeInsets.only(left: 15, right: 15, top: 10),
-                    child: TextFormField(
-                      decoration: InputDecoration(
-                        hintText: "Materia",
-                        hintStyle: TextStyle(
-                          color: Colors.black,
-                        ),
-                        border: OutlineInputBorder(
-                          borderSide: BorderSide(color: Colors.white, width: 5),
-                          borderRadius: BorderRadius.all(
-                            Radius.circular(10),
-                          ),
-                        ),
-                        fillColor: Colors.white,
-                        filled: true,
-                      ),
-                      validator: (value) =>
-                          value.isEmpty ? "campo requerido" : null,
-                    ),
-                  ),
-                  Padding(
-                    padding:
-                        const EdgeInsets.only(left: 15, right: 15, top: 10),
-                    child: TextFormField(
+                    SizedBox(height: 10),
+                    TextFormField(
+                      controller: dni,
                       decoration: InputDecoration(
                         hintText: "DNI",
                         hintStyle: TextStyle(
@@ -162,26 +172,74 @@ class _CargarDatosProfesorState extends State<CargarDatosProfesor> {
                       validator: (value) =>
                           value.isEmpty ? "campo requerido" : null,
                     ),
-                  ),
-                  Center(
-                    child: TextButton(
-                      onPressed: () {
-                        if (_formKey.currentState.validate()) {
-                          print("muy bien cargo el profesor");
-                        } else {
-                          print("erro");
-                        }
-                      },
-                      child: Text(
-                        "Cargar Datos",
-                        style: TextStyle(color: Colors.black),
+                    SizedBox(height: 10),
+                    TextFormField(
+                      controller: materia1,
+                      decoration: InputDecoration(
+                        hintText: "Materia 1",
+                        hintStyle: TextStyle(
+                          color: Colors.black,
+                        ),
+                        border: OutlineInputBorder(
+                          borderSide: BorderSide(color: Colors.white, width: 5),
+                          borderRadius: BorderRadius.all(
+                            Radius.circular(10),
+                          ),
+                        ),
+                        fillColor: Colors.white,
+                        filled: true,
                       ),
-                      style: TextButton.styleFrom(
-                          elevation: 1,
-                          backgroundColor: Colors.indigo.shade300),
+                      validator: (value) =>
+                          value.isEmpty ? "campo requerido" : null,
                     ),
-                  )
-                ],
+                    SizedBox(height: 10),
+                    TextFormField(
+                      controller: materia2,
+                      decoration: InputDecoration(
+                        hintText: "Materia 2",
+                        hintStyle: TextStyle(
+                          color: Colors.black,
+                        ),
+                        border: OutlineInputBorder(
+                          borderSide: BorderSide(color: Colors.white, width: 5),
+                          borderRadius: BorderRadius.all(
+                            Radius.circular(10),
+                          ),
+                        ),
+                        fillColor: Colors.white,
+                        filled: true,
+                      ),
+                      validator: (value) =>
+                          value.isEmpty ? "campo requerido" : null,
+                    ),
+                    SizedBox(height: 10),
+                    Center(
+                      child: TextButton(
+                        onPressed: () {
+                          crearProfesor();
+                          if (_formKey.currentState.validate()) {
+                            print("muy bien cargo el profesor");
+                          } else {
+                            print("erro");
+                          }
+                          nombre.clear();
+                          apellido.clear();
+                          telefono.clear();
+                          dni.clear();
+                          materia1.clear();
+                          materia2.clear();
+                        },
+                        child: Text(
+                          "Cargar Datos",
+                          style: TextStyle(color: Colors.black),
+                        ),
+                        style: TextButton.styleFrom(
+                            elevation: 1,
+                            backgroundColor: Colors.indigo.shade300),
+                      ),
+                    )
+                  ],
+                ),
               ),
             ),
           ),

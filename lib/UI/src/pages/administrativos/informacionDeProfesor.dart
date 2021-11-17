@@ -1,9 +1,10 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:schollinorder/UI/src/models/profesor.dart';
 
 class InformacionProfesor extends StatelessWidget {
   InformacionProfesor({@required this.profe});
-  final Profesor profe;
+  final firebase = FirebaseFirestore.instance;
+  final QueryDocumentSnapshot profe;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -19,145 +20,140 @@ class InformacionProfesor extends StatelessWidget {
         ),
       ]),
       body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 50, vertical: 150),
+        padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 100),
         child: Container(
+          width: 500,
           decoration: BoxDecoration(
             color: Color(0xFF364562),
             borderRadius: BorderRadius.all(Radius.circular(20)),
+            border: Border.all(color: Colors.black, width: 3),
           ),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Text(
-                    "Nombre: ",
-                    style: TextStyle(fontSize: 25),
+              Text(
+                "Nombre: ",
+                style: TextStyle(fontSize: 25, color: Colors.white),
+              ),
+              SizedBox(height: 8),
+              Container(
+                height: 35,
+                width: 280,
+                decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.all(Radius.circular(5))),
+                child: Text(
+                  profe["nombre"],
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                    color: Colors.black,
+                    fontSize: 25,
                   ),
-                  Container(
-                    height: 30,
-                    width: 150,
-                    decoration: BoxDecoration(
-                        color: Colors.white,
-                        borderRadius: BorderRadius.all(Radius.circular(5))),
-                    child: Text(
-                      "${profe.nombre}",
-                      textAlign: TextAlign.center,
-                      style: TextStyle(
-                        color: Colors.black,
-                        fontSize: 25,
-                      ),
-                    ),
+                ),
+              ),
+              SizedBox(height: 8),
+              Text(
+                "Apellido:",
+                style: TextStyle(fontSize: 25, color: Colors.white),
+              ),
+              SizedBox(height: 8),
+              Container(
+                height: 35,
+                width: 280,
+                decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.all(Radius.circular(5))),
+                child: Text(
+                  profe["apellido"],
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                    color: Colors.black,
+                    fontSize: 25,
                   ),
-                ],
-              ),
-              Padding(
-                padding: const EdgeInsets.only(top: 15),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Text(
-                      "Apellido: ",
-                      style: TextStyle(fontSize: 25),
-                    ),
-                    Container(
-                      height: 30,
-                      width: 150,
-                      decoration: BoxDecoration(
-                          color: Colors.white,
-                          borderRadius: BorderRadius.all(Radius.circular(5))),
-                      child: Text(
-                        "${profe.apellido}",
-                        textAlign: TextAlign.center,
-                        style: TextStyle(
-                          color: Colors.black,
-                          fontSize: 25,
-                        ),
-                      ),
-                    ),
-                  ],
                 ),
               ),
-              Padding(
-                padding: const EdgeInsets.only(top: 15),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Text(
-                      "Numero: ",
-                      style: TextStyle(fontSize: 25),
-                    ),
-                    Container(
-                      height: 30,
-                      width: 150,
-                      decoration: BoxDecoration(
-                          color: Colors.white,
-                          borderRadius: BorderRadius.all(Radius.circular(5))),
-                      child: Text(
-                        "${profe.numero}",
-                        textAlign: TextAlign.center,
-                        style: TextStyle(
-                          color: Colors.black,
-                          fontSize: 25,
-                        ),
-                      ),
-                    ),
-                  ],
+              SizedBox(height: 8),
+              Text(
+                "Numero:",
+                style: TextStyle(fontSize: 25),
+              ),
+              SizedBox(height: 8),
+              Container(
+                height: 35,
+                width: 280,
+                decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.all(Radius.circular(5))),
+                child: Text(
+                  profe["telefono"],
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                    color: Colors.black,
+                    fontSize: 25,
+                  ),
                 ),
               ),
-              Padding(
-                padding: const EdgeInsets.only(top: 15),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Text(
-                      "DNI:         ",
-                      style: TextStyle(fontSize: 25),
-                    ),
-                    Container(
-                      height: 30,
-                      width: 150,
-                      decoration: BoxDecoration(
-                          color: Colors.white,
-                          borderRadius: BorderRadius.all(Radius.circular(5))),
-                      child: Text(
-                        "${profe.dni}",
-                        textAlign: TextAlign.center,
-                        style: TextStyle(
-                          color: Colors.black,
-                          fontSize: 25,
-                        ),
-                      ),
-                    ),
-                  ],
+              SizedBox(height: 8),
+              Text(
+                "DNI:",
+                style: TextStyle(fontSize: 25),
+              ),
+              SizedBox(height: 8),
+              Container(
+                height: 35,
+                width: 280,
+                decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.all(Radius.circular(5))),
+                child: Text(
+                  profe["dni"],
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                    color: Colors.black,
+                    fontSize: 25,
+                  ),
                 ),
               ),
-              Padding(
-                padding: const EdgeInsets.only(top: 15),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Text(
-                      "Materia:  ",
-                      style: TextStyle(fontSize: 25),
-                    ),
-                    Container(
-                      height: 30,
-                      width: 150,
-                      decoration: BoxDecoration(
-                          color: Colors.white,
-                          borderRadius: BorderRadius.all(Radius.circular(5))),
-                      child: Text(
-                        "valor",
-                        textAlign: TextAlign.center,
-                        style: TextStyle(
-                          color: Colors.black,
-                          fontSize: 25,
-                        ),
-                      ),
-                    ),
-                  ],
+              SizedBox(height: 8),
+              Text(
+                "Materia 1:",
+                style: TextStyle(fontSize: 25),
+              ),
+              SizedBox(height: 8),
+              Container(
+                height: 35,
+                width: 280,
+                decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.all(Radius.circular(5))),
+                child: Text(
+                  profe["materia1"],
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                    color: Colors.black,
+                    fontSize: 25,
+                  ),
+                ),
+              ),
+              SizedBox(height: 8),
+              Text(
+                "Materia 2:",
+                style: TextStyle(fontSize: 25),
+              ),
+              SizedBox(height: 8),
+              Container(
+                height: 35,
+                width: 280,
+                decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.all(Radius.circular(5))),
+                child: Text(
+                  profe["materia2"],
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                    color: Colors.black,
+                    fontSize: 25,
+                  ),
                 ),
               ),
             ],

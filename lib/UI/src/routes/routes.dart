@@ -3,6 +3,7 @@ import 'package:schollinorder/UI/src/pages/administrativos/cargarDatosProfesor.d
 import 'package:schollinorder/UI/src/pages/administrativos/cargarFaltasProfesor.dart';
 import 'package:schollinorder/UI/src/pages/administrativos/cargarHorarioCurso.dart';
 import 'package:schollinorder/UI/src/pages/administrativos/verDatosProfesor.dart';
+import 'package:schollinorder/UI/src/pages/administrativos/verDatosProfesor2.dart';
 import 'package:schollinorder/UI/src/pages/datosPersonales/datosPersonales.dart';
 import 'package:schollinorder/UI/src/pages/home/home.dart';
 import 'package:schollinorder/UI/src/pages/alumno/alumno.dart';
@@ -24,6 +25,7 @@ class MyRoutes {
         "/CrearCuenta": (_) => CrearCuenta(),
         "/CargarDatos": (_) => CargarDatosProfesor(),
         "/VerDatos": (_) => VerDatosProfesor(),
+        "/VerDatos2": (_) => VerDatosProfesor2(),
         "/CargarFaltas": (_) => CargarFaltasProfesor(),
         "/CargarFaltasPage": (_) => CargarFaltasPage(),
         "/CargarHorarioCurso": (_) => CargarHorarioCurso(),

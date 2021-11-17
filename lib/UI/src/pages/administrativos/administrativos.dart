@@ -58,7 +58,7 @@ class AdministrativosPages extends StatelessWidget {
               padding: EdgeInsets.symmetric(vertical: 20, horizontal: 25),
               child: ElevatedButton(
                 onPressed: () {
-                  Navigator.of(context).pushNamed("/VerDatos");
+                  Navigator.of(context).pushNamed("/VerDatos2");
                 },
                 style: ElevatedButton.styleFrom(
                     primary: Color(0xFF364562), minimumSize: Size(200, 95)),
@@ -156,7 +156,8 @@ class AdministrativosPages extends StatelessWidget {
                       TextButton(
                           onPressed: () {
                             controller.logut();
-                            Navigator.of(context).pushReplacementNamed("/Login");
+                            Navigator.of(context)
+                                .pushReplacementNamed("/Login");
                           },
                           child: Text("Si")),
                       TextButton(
