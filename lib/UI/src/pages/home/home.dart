@@ -52,20 +52,6 @@ Widget _botonAlumno(context) {
   );
 }
 
-/* Widget _botonLogin(context) {
-  return Container(
-    child: ElevatedButton(
-      child: Text("Login"),
-      onPressed: () {
-        Navigator.of(context).pushNamed("/Login");
-      },
-      style: ElevatedButton.styleFrom(
-        primary: Color(0xFF364562),
-      ),
-    ),
-  );
-} */
-
 Widget _botonProfesor(context) {
   return Container(
     decoration: BoxDecoration(),

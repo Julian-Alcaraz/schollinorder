@@ -19,7 +19,7 @@ class _DatosPersonalesState extends State<DatosPersonales> {
             "assets/logo.jpg",
           ),
           title: Text(
-            "Pagina de redireccionamiento",
+            "Datos Personales",
             style: TextStyle(
                 color: Colors.white, fontSize: 20, fontWeight: FontWeight.bold),
           ),

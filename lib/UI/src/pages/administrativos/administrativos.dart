@@ -122,7 +122,7 @@ class AdministrativosPages extends StatelessWidget {
                 child: Column(
                   children: [
                     CircleAvatar(
-                      maxRadius: 60,
+                      maxRadius: 58,
                       backgroundImage: Image.network(
                               controller.googleAccount.value.photoUrl ?? '')
                           .image,
@@ -147,7 +147,27 @@ class AdministrativosPages extends StatelessWidget {
               title: Text("Cerrar Sesion"),
               tileColor: Color(0xFF364562),
               onTap: () {
-                Navigator.of(context).pushReplacementNamed("/Login");
+                showDialog(
+                  context: context,
+                  builder: (context) => AlertDialog(
+                    title: Text("Cerrar Sesion"),
+                    content: Text("¿Seguro que desea cerrar la sesion?"),
+                    actions: [
+                      TextButton(
+                          onPressed: () {
+                            controller.logut();
+                            Navigator.of(context)
+                                .pushReplacementNamed("/Login");
+                          },
+                          child: Text("Si")),
+                      TextButton(
+                          onPressed: () {
+                            Navigator.of(context).pop();
+                          },
+                          child: Text("No")),
+                    ],
+                  ),
+                );
               },
             ),
           ],

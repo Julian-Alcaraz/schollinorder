@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
 import 'package:schollinorder/UI/src/pages/login/event_google.dart';
-import 'package:schollinorder/main.dart';
 
 class LoginPage extends StatefulWidget {
   @override
@@ -27,7 +26,8 @@ class _LoginPageState extends State<LoginPage> {
         children: [
           Center(
             child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 80),
+              padding: const EdgeInsets.only(
+                  top: 80, left: 20, right: 20, bottom: 20),
               child: Container(
                 decoration: BoxDecoration(
                   color: Colors.white,
@@ -82,17 +82,6 @@ class _LoginPageState extends State<LoginPage> {
               ),
             ),
           ),
-          /* FutureBuilder(
-            future: GAuthentication.initializeFirebase(context: context),
-            builder: (context, snapshot) {
-              if (snapshot.hasError) {
-                return Text('Error initializing Firebase');
-              } else if (snapshot.connectionState == ConnectionState.done) {
-                return GoogleSignInButton();
-              }
-              return CircularProgressIndicator(color: Colors.amber);
-            },
-          ), */
           _GoogleSignIn(),
         ],
       ),
@@ -129,40 +118,23 @@ class _GoogleSignIn extends StatelessWidget {
 
   Column buildProfileView(context) {
     return Column(mainAxisSize: MainAxisSize.min, children: <Widget>[
-      Text("Ya Iniciaste Sesion!"),
-      Text("Pulsa el boton para Ingresar"),
+      Text(
+        "Ya Iniciaste Sesion!",
+        style: TextStyle(fontSize: 25, color: Colors.green),
+      ),
+      Text(
+        "Pulsa el boton para Ingresar",
+      ),
       ActionChip(
         avatar: Icon(Icons.logout),
-        label: Text('Ingresar'),
+        label: Text(
+          'Ingresar',
+          style: TextStyle(fontSize: 20),
+        ),
         onPressed: () {
           Navigator.of(context).pushNamed("/Home");
         },
       ),
-      ActionChip(
-        avatar: Icon(Icons.logout),
-        label: Text('Salir'),
-        onPressed: () {
-          controller.logut();
-        },
-      ),
-
-      /*  CircleAvatar(
-        backgroundImage:
-            Image.network(controller.googleAccount.value.photoUrl ?? '').image,
-        radius: 100,
-      ),
-      Text(controller.googleAccount.value.displayName ?? '',
-          style: Get.textTheme.headline3),
-      Text(controller.googleAccount.value.email ?? '',
-          style: Get.textTheme.bodyText1),
-      SizedBox(height: 16),
-      ActionChip(
-        avatar: Icon(Icons.logout),
-        label: Text('Salir'),
-        onPressed: () {
-          controller.logut();
-        },
-      ), */
     ]);
   }
 }
