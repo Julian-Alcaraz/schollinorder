@@ -156,8 +156,7 @@ class AdministrativosPages extends StatelessWidget {
                       TextButton(
                           onPressed: () {
                             controller.logut();
-                            Navigator.of(context)
-                                .pushReplacementNamed("/Login");
+                            Navigator.of(context).pushReplacementNamed("/Login");
                           },
                           child: Text("Si")),
                       TextButton(

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:schollinorder/UI/src/models/bloque.dart';
+import 'package:schollinorder/UI/src/pages/login/event_google.dart';
 
 class CargarHorarioCurso extends StatefulWidget {
   @override
@@ -27,6 +29,7 @@ class _CargarHorarioCursoState extends State<CargarHorarioCurso> {
   List<String> listaTurnos = ["Teoria", "Taller"];
   String valorTurno = "";
   List<Bloque> listaDependiendoTurno = [];
+  final controller = Get.put(Controller());
 
   @override
   void initState() {
@@ -41,7 +44,7 @@ class _CargarHorarioCursoState extends State<CargarHorarioCurso> {
   Widget build(BuildContext context) {
     return Scaffold(
       key: _scaffoldKey,
-      endDrawer: drawer(),
+      endDrawer: drawer(context),
       appBar: appBar(),
       body: ListView(
         children: [
@@ -346,7 +349,7 @@ class _CargarHorarioCursoState extends State<CargarHorarioCurso> {
     );
   }
 
-  Widget drawer() {
+  Widget drawer(context) {
     return Drawer(
       child: Material(
         color: Colors.indigo.shade100,
@@ -356,17 +359,25 @@ class _CargarHorarioCursoState extends State<CargarHorarioCurso> {
               child: Center(
                 child: Column(
                   children: [
-                    CircleAvatar(maxRadius: 60),
-                    Text("Nombre Alumno"),
+                    CircleAvatar(
+                      maxRadius: 58,
+                      backgroundImage: Image.network(
+                              controller.googleAccount.value.photoUrl ?? '')
+                          .image,
+                    ),
+                    Text(controller.googleAccount.value.displayName ?? '',
+                        style: Get.textTheme.headline3),
                   ],
                 ),
               ),
             ),
             ListTile(
               focusColor: Colors.amber,
-              title: Text("Notificaciones"),
+              title: Text("Datos Personales"),
               tileColor: Colors.indigo.shade300,
-              onTap: () {},
+              onTap: () {
+                Navigator.of(context).pushReplacementNamed("/DatosPersonales");
+              },
             ),
             Spacer(),
             ListTile(
@@ -374,7 +385,27 @@ class _CargarHorarioCursoState extends State<CargarHorarioCurso> {
               title: Text("Cerrar Sesion"),
               tileColor: Color(0xFF364562),
               onTap: () {
-                Navigator.of(context).pushReplacementNamed("/Login");
+                showDialog(
+                  context: context,
+                  builder: (context) => AlertDialog(
+                    title: Text("Cerrar Sesion"),
+                    content: Text("¿Seguro que desea cerrar la sesion?"),
+                    actions: [
+                      TextButton(
+                          onPressed: () {
+                            controller.logut();
+                            Navigator.of(context)
+                                .pushReplacementNamed("/Login");
+                          },
+                          child: Text("Si")),
+                      TextButton(
+                          onPressed: () {
+                            Navigator.of(context).pop();
+                          },
+                          child: Text("No")),
+                    ],
+                  ),
+                );
               },
             ),
           ],

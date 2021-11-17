@@ -1,6 +1,8 @@
 // ignore_for_file: unused_field
 
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:schollinorder/UI/src/pages/login/event_google.dart';
 
 class CargarFaltasProfesor extends StatefulWidget {
   @override
@@ -41,12 +43,13 @@ class _CargarFaltasProfesorState extends State<CargarFaltasProfesor> {
   String lastnameValue;
 
   final _formKey = GlobalKey<FormState>();
+  final controller = Get.put(Controller());
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       key: _scaffoldKey,
-      endDrawer: drawer(),
+      endDrawer: drawer(context),
       appBar: AppBar(
         leading: Container(
           width: 50,
@@ -290,7 +293,7 @@ class _CargarFaltasProfesorState extends State<CargarFaltasProfesor> {
     );
   }
 
-  Widget drawer() {
+  Widget drawer(context) {
     return Drawer(
       child: Material(
         color: Colors.indigo.shade100,
@@ -300,17 +303,25 @@ class _CargarFaltasProfesorState extends State<CargarFaltasProfesor> {
               child: Center(
                 child: Column(
                   children: [
-                    CircleAvatar(maxRadius: 60),
-                    Text("Nombre Adminstrador"),
+                    CircleAvatar(
+                      maxRadius: 58,
+                      backgroundImage: Image.network(
+                              controller.googleAccount.value.photoUrl ?? '')
+                          .image,
+                    ),
+                    Text(controller.googleAccount.value.displayName ?? '',
+                        style: Get.textTheme.headline3),
                   ],
                 ),
               ),
             ),
             ListTile(
               focusColor: Colors.amber,
-              title: Text("Notificaciones"),
+              title: Text("Datos Personales"),
               tileColor: Colors.indigo.shade300,
-              onTap: () {},
+              onTap: () {
+                Navigator.of(context).pushReplacementNamed("/DatosPersonales");
+              },
             ),
             Spacer(),
             ListTile(
@@ -318,7 +329,27 @@ class _CargarFaltasProfesorState extends State<CargarFaltasProfesor> {
               title: Text("Cerrar Sesion"),
               tileColor: Color(0xFF364562),
               onTap: () {
-                Navigator.of(context).pushReplacementNamed("/Login");
+                showDialog(
+                  context: context,
+                  builder: (context) => AlertDialog(
+                    title: Text("Cerrar Sesion"),
+                    content: Text("¿Seguro que desea cerrar la sesion?"),
+                    actions: [
+                      TextButton(
+                          onPressed: () {
+                            controller.logut();
+                            Navigator.of(context)
+                                .pushReplacementNamed("/Login");
+                          },
+                          child: Text("Si")),
+                      TextButton(
+                          onPressed: () {
+                            Navigator.of(context).pop();
+                          },
+                          child: Text("No")),
+                    ],
+                  ),
+                );
               },
             ),
           ],

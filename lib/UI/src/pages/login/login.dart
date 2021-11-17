@@ -57,7 +57,7 @@ class _LoginPageState extends State<LoginPage> {
                                 print("muy bien inicio valido");
                                 Navigator.of(context).pushNamed("/Home");
                               } else {
-                                print("erro");
+                                print("error");
                               }
                             },
                             child: Text('Iniciar Sesion'),
@@ -132,7 +132,7 @@ class _GoogleSignIn extends StatelessWidget {
           style: TextStyle(fontSize: 20),
         ),
         onPressed: () {
-          Navigator.of(context).pushNamed("/Home");
+          Navigator.of(context).pushReplacementNamed("/Home");
         },
       ),
     ]);
