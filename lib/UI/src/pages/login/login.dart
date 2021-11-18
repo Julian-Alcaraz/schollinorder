@@ -1,5 +1,3 @@
-import 'dart:ui';
-
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
@@ -91,6 +89,7 @@ class _LoginPageState extends State<LoginPage> {
 
 class _GoogleSignIn extends StatelessWidget {
   final controller = Get.put(Controller());
+
   @override
   Widget build(BuildContext context) {
     return Container(

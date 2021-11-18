@@ -12,7 +12,7 @@ class VerDatosProfesor2 extends StatefulWidget {
 
 class _VerDatosProfesorState extends State<VerDatosProfesor2> {
   final GlobalKey<ScaffoldState> _scaffoldKey = new GlobalKey<ScaffoldState>();
-  final _controller = TextEditingController();
+  //final _controller = TextEditingController();
   List<Profesor> listaFiltrada = [];
   final controller = Get.put(Controller());
   final firebase = FirebaseFirestore.instance;
@@ -78,7 +78,7 @@ class _VerDatosProfesorState extends State<VerDatosProfesor2> {
                         );
                       }
                     }),
-                
+
                 /* Padding(
                   padding: const EdgeInsets.only(top: 20),
                   child: ElevatedButton(
@@ -94,95 +94,6 @@ class _VerDatosProfesorState extends State<VerDatosProfesor2> {
               ],
             ),
           ),
-        ),
-      ),
-    );
-  }
-
-  void resetear() {
-    listaFiltrada = listaProfesores;
-    setState(() {});
-  }
-
-  /* Widget verListaProfesores(List<Profesor> lista) {
-    return Padding(
-      padding: const EdgeInsets.only(top: 20),
-      child: Container(
-        height: 500,
-        width: 500,
-        child: ListView.builder(
-            itemCount: listaFiltrada.length,
-            scrollDirection: Axis.vertical,
-            itemBuilder: (context, index) {
-              return nombreProfesor(lista[index]);
-            }),
-      ),
-    );
-  } */
-
-  Widget nombreProfesor(QueryDocumentSnapshot profe) {
-    return Padding(
-      padding: const EdgeInsets.all(10.0),
-      child: TextButton(
-        onPressed: () {
-          Navigator.of(context).push(MaterialPageRoute(
-              builder: (_) => InformacionProfesor(
-                    profe: profe,
-                  )));
-        },
-        child: Container(
-          height: 60,
-          decoration: BoxDecoration(
-            color: Color((0xFF364562)),
-          ),
-          child: Center(
-            child: Text(
-              profe["nombre"],
-              style: TextStyle(color: Colors.white),
-            ),
-          ),
-        ),
-      ),
-    );
-  }
-
-  void filtroLista() {
-    listaFiltrada = [];
-    for (Profesor item in listaProfesores) {
-      if (item.nombre.toLowerCase().contains(_controller.text.toLowerCase())) {
-        listaFiltrada.add(item);
-      }
-    }
-    setState(() {});
-  }
-
-  Widget buscar() {
-    return Container(
-      child: TextFormField(
-        onFieldSubmitted: (nombreProfe) {
-          filtroLista();
-        },
-        controller: _controller,
-        onChanged: (v) {
-          print(_controller.text);
-        },
-        decoration: InputDecoration(
-          prefixIcon: Icon(
-            Icons.search,
-            color: Colors.black,
-          ),
-          hintText: "Buscar Profesor por Nombre",
-          hintStyle:
-              TextStyle(color: Colors.black, fontSize: 15, letterSpacing: 0),
-          border: OutlineInputBorder(
-            borderRadius: BorderRadius.all(Radius.circular(10)),
-            borderSide: BorderSide(
-              color: Colors.black,
-              width: 2,
-            ),
-          ),
-          fillColor: Colors.white,
-          filled: true,
         ),
       ),
     );
@@ -252,4 +163,93 @@ class _VerDatosProfesorState extends State<VerDatosProfesor2> {
       ),
     );
   }
+
+  Widget nombreProfesor(QueryDocumentSnapshot profe) {
+    return Padding(
+      padding: const EdgeInsets.all(10.0),
+      child: TextButton(
+        onPressed: () {
+          Navigator.of(context).push(MaterialPageRoute(
+              builder: (_) => InformacionProfesor(
+                    profe: profe,
+                  )));
+        },
+        child: Container(
+          height: 60,
+          decoration: BoxDecoration(
+            color: Color((0xFF364562)),
+          ),
+          child: Center(
+            child: Text(
+              profe["nombre"],
+              style: TextStyle(color: Colors.white),
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+  /*  void resetear() {
+    listaFiltrada = listaProfesores;
+    setState(() {});
+  } */
+
+  /* Widget verListaProfesores(List<Profesor> lista) {
+    return Padding(
+      padding: const EdgeInsets.only(top: 20),
+      child: Container(
+        height: 500,
+        width: 500,
+        child: ListView.builder(
+            itemCount: listaFiltrada.length,
+            scrollDirection: Axis.vertical,
+            itemBuilder: (context, index) {
+              return nombreProfesor(lista[index]);
+            }),
+      ),
+    );
+  } */
+
+  /*  void filtroLista() {
+    listaFiltrada = [];
+    for (Profesor item in listaProfesores) {
+      if (item.nombre.toLowerCase().contains(_controller.text.toLowerCase())) {
+        listaFiltrada.add(item);
+      }
+    }
+    setState(() {});
+  } */
+
+  /*  Widget buscar() {
+    return Container(
+      child: TextFormField(
+        onFieldSubmitted: (nombreProfe) {
+          filtroLista();
+        },
+        controller: _controller,
+        onChanged: (v) {
+          print(_controller.text);
+        },
+        decoration: InputDecoration(
+          prefixIcon: Icon(
+            Icons.search,
+            color: Colors.black,
+          ),
+          hintText: "Buscar Profesor por Nombre",
+          hintStyle:
+              TextStyle(color: Colors.black, fontSize: 15, letterSpacing: 0),
+          border: OutlineInputBorder(
+            borderRadius: BorderRadius.all(Radius.circular(10)),
+            borderSide: BorderSide(
+              color: Colors.black,
+              width: 2,
+            ),
+          ),
+          fillColor: Colors.white,
+          filled: true,
+        ),
+      ),
+    );
+  } */
+
 }
