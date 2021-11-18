@@ -3,14 +3,17 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:schollinorder/UI/src/pages/login/event_google.dart';
 
-class CargarDatosProfesor extends StatefulWidget {
-  
+class EditarDatosProfesor extends StatefulWidget {
+  EditarDatosProfesor({@required this.profe});
+  final QueryDocumentSnapshot profe;
   @override
-  _CargarDatosProfesorState createState() =>
-      _CargarDatosProfesorState();
+  _EditarDatosProfesorState createState() =>
+      _EditarDatosProfesorState(profe: profe);
 }
 
-class _CargarDatosProfesorState extends State<CargarDatosProfesor> {
+class _EditarDatosProfesorState extends State<EditarDatosProfesor> {
+  _EditarDatosProfesorState({@required this.profe});
+  final QueryDocumentSnapshot profe;
   final GlobalKey<ScaffoldState> _scaffoldKey = new GlobalKey<ScaffoldState>();
   final _formKey = GlobalKey<FormState>();
   final controller = Get.put(Controller());
@@ -23,40 +26,26 @@ class _CargarDatosProfesorState extends State<CargarDatosProfesor> {
   TextEditingController materia2 = TextEditingController();
 
   final firebase = FirebaseFirestore.instance;
-  crearProfesor() async {
+
+  editarProfesor() {
     try {
-      //si quiero asignar el nombre del documento en .doc(poner nombre.text)
-      await firebase.collection("profesores").doc().set({
-        "nombre": nombre.text,
-        "apellido": apellido.text,
-        "telefono": telefono.text,
-        "dni": dni.text,
-        "materia1": materia1.text,
-        "materia2": materia2.text,
+      firebase.collection("profesores").doc(profe.id).update({
+        'nombre': nombre.text,
+        'apellido': apellido.text,
+        'telefono': telefono.text,
+        'dni': dni.text,
+        'materia1': materia1.text,
+        'materia2': materia2.text
       });
     } catch (e) {
       print(e);
     }
   }
 
-  editarProfesor() {
-    try {} catch (e) {
-      print(e);
-    }
-  }
-
-  elimiarProfesor() {
-    try {} catch (e) {
-      print(e);
-    }
-  }
-
   @override
-
   Widget build(BuildContext context) {
     return Scaffold(
       key: _scaffoldKey,
-      endDrawer: drawer(context),
       appBar: AppBar(
         backgroundColor: Color(0xFF364562),
         leading: Container(
@@ -68,17 +57,6 @@ class _CargarDatosProfesorState extends State<CargarDatosProfesor> {
             ),
           ),
         ),
-        actions: [
-          IconButton(
-            icon: Icon(
-              Icons.account_circle_rounded,
-              size: 35,
-            ),
-            onPressed: () {
-              _scaffoldKey.currentState.openEndDrawer();
-            },
-          ),
-        ],
       ),
       body: Center(
         child: Padding(
@@ -90,13 +68,46 @@ class _CargarDatosProfesorState extends State<CargarDatosProfesor> {
               border: Border.all(color: Colors.black, width: 3),
             ),
             child: Padding(
-              padding: const EdgeInsets.all(15),
+              padding: const EdgeInsets.all(10),
               child: Form(
                 key: _formKey,
                 child: ListView(
                   children: [
-                    TextFormField( 
+                    Center(
+                      child: Text(
+                        "Actulizando los datos de:",
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 20,
+                        ),
+                      ),
+                    ),
+                    Center(
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Text(
+                            profe["nombre"],
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 20,
+                            ),
+                          ),
+                          SizedBox(width: 5),
+                          Text(
+                            profe["apellido"],
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 20,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                    SizedBox(height: 5),
+                    TextFormField(
                       controller: nombre,
+                      onChanged: (v) {},
                       decoration: InputDecoration(
                         hintText: "Nombre",
                         hintStyle: TextStyle(
@@ -218,98 +229,56 @@ class _CargarDatosProfesorState extends State<CargarDatosProfesor> {
                     Center(
                       child: TextButton(
                         onPressed: () {
-                          crearProfesor();
                           if (_formKey.currentState.validate()) {
                             print("muy bien cargo el profesor");
                           } else {
-                            print("erro");
+                            print("error");
                           }
-                          nombre.clear();
-                          apellido.clear();
-                          telefono.clear();
-                          dni.clear();
-                          materia1.clear();
-                          materia2.clear();
+
+                          showDialog(
+                            context: context,
+                            builder: (context) => AlertDialog(
+                              title: Text("Editar Profesor"),
+                              content: Text(
+                                  "¿Seguro que desea editar este profesor?"),
+                              actions: [
+                                TextButton(
+                                    onPressed: () {
+                                      editarProfesor();
+                                      nombre.clear();
+                                      apellido.clear();
+                                      telefono.clear();
+                                      dni.clear();
+                                      materia1.clear();
+                                      materia2.clear();
+                                      Navigator.of(context)
+                                          .pushReplacementNamed(
+                                              "/Administrativos");
+                                    },
+                                    child: Text("Si")),
+                                TextButton(
+                                    onPressed: () {
+                                      Navigator.of(context).pop();
+                                    },
+                                    child: Text("No")),
+                              ],
+                            ),
+                          );
                         },
                         child: Text(
-                          "Cargar Datos",
+                          "Actualiza Los datos",
                           style: TextStyle(color: Colors.black),
                         ),
                         style: TextButton.styleFrom(
                             elevation: 1,
                             backgroundColor: Colors.indigo.shade300),
                       ),
-                    )
+                    ),
                   ],
                 ),
               ),
             ),
           ),
-        ),
-      ),
-    );
-  }
-
-  Widget drawer(context) {
-    return Drawer(
-      child: Material(
-        color: Colors.indigo.shade100,
-        child: Column(
-          children: [
-            DrawerHeader(
-              child: Center(
-                child: Column(
-                  children: [
-                    CircleAvatar(
-                      maxRadius: 58,
-                      backgroundImage: Image.network(
-                              controller.googleAccount.value.photoUrl ?? '')
-                          .image,
-                    ),
-                    Text(controller.googleAccount.value.displayName ?? '',
-                        style: Get.textTheme.headline3),
-                  ],
-                ),
-              ),
-            ),
-            ListTile(
-              focusColor: Colors.amber,
-              title: Text("Datos Personales"),
-              tileColor: Colors.indigo.shade300,
-              onTap: () {
-                Navigator.of(context).pushReplacementNamed("/DatosPersonales");
-              },
-            ),
-            Spacer(),
-            ListTile(
-              focusColor: Colors.amber,
-              title: Text("Cerrar Sesion"),
-              tileColor: Color(0xFF364562),
-              onTap: () {
-                showDialog(
-                  context: context,
-                  builder: (context) => AlertDialog(
-                    title: Text("Cerrar Sesion"),
-                    content: Text("¿Seguro que desea cerrar la sesion?"),
-                    actions: [
-                      TextButton(
-                          onPressed: () {
-                            controller.logut();
-                            Navigator.of(context)
-                                .pushReplacementNamed("/Login");
-                          },
-                          child: Text("Si")),
-                      TextButton(
-                          onPressed: () {
-                            Navigator.of(context).pop();
-                          },
-                          child: Text("No")),
-                    ],
-                  ),
-                );
-              },
-            ),
-          ],
         ),
       ),
     );

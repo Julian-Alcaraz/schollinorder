@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:schollinorder/UI/src/models/profesor.dart';
-import 'package:schollinorder/UI/src/pages/administrativos/informacionDeProfesor.dart';
 import 'package:schollinorder/UI/src/pages/login/event_google.dart';
 
 class VerDatosProfesor extends StatefulWidget {

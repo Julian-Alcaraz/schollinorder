@@ -1,10 +1,20 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:schollinorder/UI/src/pages/administrativos/editarProfesor.dart';
 
 class InformacionProfesor extends StatelessWidget {
   InformacionProfesor({@required this.profe});
   final firebase = FirebaseFirestore.instance;
   final QueryDocumentSnapshot profe;
+
+  elimiarProfesor() {
+    try {
+      firebase.collection("profesores").doc(profe.id).delete();
+    } catch (e) {
+      print(e);
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -75,7 +85,7 @@ class InformacionProfesor extends StatelessWidget {
               SizedBox(height: 8),
               Text(
                 "Numero:",
-                style: TextStyle(fontSize: 25),
+                style: TextStyle(fontSize: 25, color: Colors.white),
               ),
               SizedBox(height: 8),
               Container(
@@ -96,7 +106,7 @@ class InformacionProfesor extends StatelessWidget {
               SizedBox(height: 8),
               Text(
                 "DNI:",
-                style: TextStyle(fontSize: 25),
+                style: TextStyle(fontSize: 25, color: Colors.white),
               ),
               SizedBox(height: 8),
               Container(
@@ -117,7 +127,7 @@ class InformacionProfesor extends StatelessWidget {
               SizedBox(height: 8),
               Text(
                 "Materia 1:",
-                style: TextStyle(fontSize: 25),
+                style: TextStyle(fontSize: 25, color: Colors.white),
               ),
               SizedBox(height: 8),
               Container(
@@ -138,7 +148,7 @@ class InformacionProfesor extends StatelessWidget {
               SizedBox(height: 8),
               Text(
                 "Materia 2:",
-                style: TextStyle(fontSize: 25),
+                style: TextStyle(fontSize: 25, color: Colors.white),
               ),
               SizedBox(height: 8),
               Container(
@@ -155,6 +165,58 @@ class InformacionProfesor extends StatelessWidget {
                     fontSize: 25,
                   ),
                 ),
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  TextButton(
+                    onPressed: () {
+                      Navigator.of(context).push(MaterialPageRoute(
+                          builder: (_) => EditarDatosProfesor(
+                                profe: profe,
+                              )));
+                    },
+                    child: Text(
+                      "Editar",
+                      style: TextStyle(color: Colors.black),
+                    ),
+                    style: TextButton.styleFrom(
+                        elevation: 1, backgroundColor: Colors.indigo.shade300),
+                  ),
+                  SizedBox(width: 15),
+                  TextButton(
+                    onPressed: () {
+                      showDialog(
+                        context: context,
+                        builder: (context) => AlertDialog(
+                          title: Text("Editar Profesor"),
+                          content:
+                              Text("¿Seguro que desea editar este profesor?"),
+                          actions: [
+                            TextButton(
+                                onPressed: () {
+                                  elimiarProfesor();
+                                  Navigator.of(context)
+                                      .pushReplacementNamed("/Administrativos");
+                                },
+                                child: Text("Si")),
+                            TextButton(
+                                onPressed: () {
+                                  Navigator.of(context).pop();
+                                },
+                                child: Text("No")),
+                          ],
+                        ),
+                      );
+                    },
+                    child: Text(
+                      "Eliminar",
+                      style: TextStyle(color: Colors.black),
+                    ),
+                    style: TextButton.styleFrom(
+                        elevation: 1, backgroundColor: Colors.indigo.shade300),
+                  ),
+                ],
               ),
             ],
           ),

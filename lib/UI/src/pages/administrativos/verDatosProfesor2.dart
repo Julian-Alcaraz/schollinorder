@@ -57,8 +57,8 @@ class _VerDatosProfesorState extends State<VerDatosProfesor2> {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
+                SizedBox(height: 20),
                 //buscar(),
-                //verListaProfesores(listaFiltrada),
                 SizedBox(height: 20),
                 StreamBuilder<QuerySnapshot>(
                     stream: firebase.collection("profesores").snapshots(),
@@ -70,7 +70,6 @@ class _VerDatosProfesorState extends State<VerDatosProfesor2> {
                             itemCount: snapshot.data.docs.length,
                             itemBuilder: (context, i) {
                               QueryDocumentSnapshot x = snapshot.data.docs[i];
-                              //return Text(x["nombre"]);
                               return nombreProfesor(x);
                             });
                       } else {
@@ -79,6 +78,7 @@ class _VerDatosProfesorState extends State<VerDatosProfesor2> {
                         );
                       }
                     }),
+                
                 /* Padding(
                   padding: const EdgeInsets.only(top: 20),
                   child: ElevatedButton(
@@ -126,7 +126,9 @@ class _VerDatosProfesorState extends State<VerDatosProfesor2> {
       child: TextButton(
         onPressed: () {
           Navigator.of(context).push(MaterialPageRoute(
-              builder: (_) => InformacionProfesor(profe: profe,)));
+              builder: (_) => InformacionProfesor(
+                    profe: profe,
+                  )));
         },
         child: Container(
           height: 60,
