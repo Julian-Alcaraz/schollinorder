@@ -4,10 +4,8 @@ import 'package:get/get.dart';
 import 'package:schollinorder/UI/src/pages/login/event_google.dart';
 
 class CargarDatosProfesor extends StatefulWidget {
-  
   @override
-  _CargarDatosProfesorState createState() =>
-      _CargarDatosProfesorState();
+  _CargarDatosProfesorState createState() => _CargarDatosProfesorState();
 }
 
 class _CargarDatosProfesorState extends State<CargarDatosProfesor> {
@@ -39,20 +37,7 @@ class _CargarDatosProfesorState extends State<CargarDatosProfesor> {
     }
   }
 
-  editarProfesor() {
-    try {} catch (e) {
-      print(e);
-    }
-  }
-
-  elimiarProfesor() {
-    try {} catch (e) {
-      print(e);
-    }
-  }
-
   @override
-
   Widget build(BuildContext context) {
     return Scaffold(
       key: _scaffoldKey,
@@ -95,7 +80,7 @@ class _CargarDatosProfesorState extends State<CargarDatosProfesor> {
                 key: _formKey,
                 child: ListView(
                   children: [
-                    TextFormField( 
+                    TextFormField(
                       controller: nombre,
                       decoration: InputDecoration(
                         hintText: "Nombre",
@@ -218,18 +203,18 @@ class _CargarDatosProfesorState extends State<CargarDatosProfesor> {
                     Center(
                       child: TextButton(
                         onPressed: () {
-                          crearProfesor();
                           if (_formKey.currentState.validate()) {
                             print("muy bien cargo el profesor");
+                            crearProfesor();
+                            nombre.clear();
+                            apellido.clear();
+                            telefono.clear();
+                            dni.clear();
+                            materia1.clear();
+                            materia2.clear();
                           } else {
                             print("erro");
                           }
-                          nombre.clear();
-                          apellido.clear();
-                          telefono.clear();
-                          dni.clear();
-                          materia1.clear();
-                          materia2.clear();
                         },
                         child: Text(
                           "Cargar Datos",

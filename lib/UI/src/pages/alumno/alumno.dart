@@ -37,7 +37,7 @@ class _AlumnoPageState extends State<AlumnoPage> {
     return Scaffold(
       key: _scaffoldKey,
       endDrawer: drawer(context),
-      appBar: appBar(), 
+      appBar: appBar(),
       body: SingleChildScrollView(
         child: Container(
           child: Center(
@@ -171,7 +171,7 @@ class _AlumnoPageState extends State<AlumnoPage> {
     return Container(
       margin: EdgeInsets.only(top: 30, bottom: 30),
       padding: EdgeInsets.all(12),
-      height: 60,
+      height: 65,
       decoration: BoxDecoration(
         border: Border.all(
           color: Colors.indigo.shade200,

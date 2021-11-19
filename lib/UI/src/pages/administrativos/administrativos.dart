@@ -71,6 +71,23 @@ class AdministrativosPages extends StatelessWidget {
                 ),
               ),
             ),
+             Padding(
+              padding: EdgeInsets.symmetric(vertical: 20, horizontal: 25),
+              child: ElevatedButton(
+                onPressed: () {
+                  Navigator.of(context).pushNamed("/CargarCursos");
+                },
+                style: ElevatedButton.styleFrom(
+                    primary: Color(0xFF364562), minimumSize: Size(200, 95)),
+                child: Text(
+                  "Cargar Curso ",
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: (20),
+                  ),
+                ),
+              ),
+            ),
             Padding(
               padding: EdgeInsets.symmetric(vertical: 20, horizontal: 25),
               child: ElevatedButton(

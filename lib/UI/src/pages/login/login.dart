@@ -9,7 +9,7 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
-  final _keyForm = GlobalKey<FormState>();
+  //final _keyForm = GlobalKey<FormState>();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -22,7 +22,7 @@ class _LoginPageState extends State<LoginPage> {
       ),
       body: ListView(
         children: [
-          Center(
+          /* Center(
             child: Padding(
               padding: const EdgeInsets.only(
                   top: 80, left: 20, right: 20, bottom: 20),
@@ -79,8 +79,11 @@ class _LoginPageState extends State<LoginPage> {
                 ),
               ),
             ),
+          ), */
+          Padding(
+            padding: const EdgeInsets.symmetric(vertical: 300),
+            child: Center(child: _GoogleSignIn()),
           ),
-          _GoogleSignIn(),
         ],
       ),
     );
