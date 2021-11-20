@@ -20,7 +20,8 @@ class _LoginPageState extends State<LoginPage> {
         centerTitle: true,
         elevation: 8,
       ),
-      body: ListView(
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
         children: [
           /* Center(
             child: Padding(
@@ -80,10 +81,7 @@ class _LoginPageState extends State<LoginPage> {
               ),
             ),
           ), */
-          Padding(
-            padding: const EdgeInsets.symmetric(vertical: 300),
-            child: Center(child: _GoogleSignIn()),
-          ),
+          Center(child: _GoogleSignIn()),
         ],
       ),
     );
