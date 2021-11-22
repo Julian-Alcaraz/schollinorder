@@ -61,12 +61,14 @@ class _VerDatosProfesorState extends State<VerDatosProfesor2> {
                 //buscar(),
                 SizedBox(height: 20),
                 StreamBuilder<QuerySnapshot>(
+                    //stream escucha
                     stream: firebase.collection("profesores").snapshots(),
                     builder: (context, snapshot) {
                       if (snapshot.hasData) {
                         return ListView.builder(
                             shrinkWrap: true,
                             physics: ScrollPhysics(),
+                            // cuenta la cant de docuc q hay
                             itemCount: snapshot.data.docs.length,
                             itemBuilder: (context, i) {
                               QueryDocumentSnapshot x = snapshot.data.docs[i];
@@ -127,7 +129,7 @@ class _VerDatosProfesorState extends State<VerDatosProfesor2> {
               tileColor: Colors.indigo.shade300,
               onTap: () {
                 Navigator.of(context).pushReplacementNamed("/DatosPersonales");
-              },
+              }
             ),
             Spacer(),
             ListTile(
@@ -164,15 +166,15 @@ class _VerDatosProfesorState extends State<VerDatosProfesor2> {
     );
   }
 
+  // cuando lo llama crea el boton con el nombre del profe correspondiente
   Widget nombreProfesor(QueryDocumentSnapshot profe) {
     return Padding(
       padding: const EdgeInsets.all(10.0),
       child: TextButton(
         onPressed: () {
           Navigator.of(context).push(MaterialPageRoute(
-              builder: (_) => InformacionProfesor(
-                    profe: profe,
-                  )));
+              //
+              builder: (_) => InformacionProfesor(profe: profe)));
         },
         child: Container(
           height: 60,

@@ -13,13 +13,15 @@ class _CargarCursosState extends State<CargarCursos> {
   final GlobalKey<ScaffoldState> _scaffoldKey = new GlobalKey<ScaffoldState>();
   final _formKey = GlobalKey<FormState>();
   final controller = Get.put(Controller());
-
+//Se define año y division como controladores.
   TextEditingController anio = TextEditingController();
   TextEditingController division = TextEditingController();
 
   final firebase = FirebaseFirestore.instance;
+
   crearCurso() async {
     try {
+      //Creando la coleccion cursos y un documento con los datos año y division 
       //si quiero asignar el nombre del documento en .doc(poner nombre.text)
       await firebase.collection("cursos").doc().set({
         "anio": anio.text,
@@ -29,7 +31,7 @@ class _CargarCursosState extends State<CargarCursos> {
       print(e);
     }
   }
-
+//Elimina los datos de la coleccion curso, con la Id del curso.
   elimiarCurso(curso) {
     try {
       firebase.collection("cursos").doc(curso.id).delete();
@@ -128,6 +130,7 @@ class _CargarCursosState extends State<CargarCursos> {
                       Center(
                         child: TextButton(
                           onPressed: () {
+                            //Valida si año y division tienen valores
                             if (_formKey.currentState.validate()) {
                               print("muy bien cargo el profesor");
                               crearCurso();
@@ -180,13 +183,14 @@ class _CargarCursosState extends State<CargarCursos> {
       child: ListView(
         children: [
           StreamBuilder<QuerySnapshot>(
+          //Escucha los datos de la coleccion cursos de la base de datos 
               stream: firebase.collection("cursos").snapshots(),
-              builder: (context, snapshot) {
-                if (snapshot.hasData) {
+              builder: (context, snapshot) {//constructor
+                if (snapshot.hasData) {//si tiene informacion
                   return ListView.builder(
                       shrinkWrap: true,
                       physics: ScrollPhysics(),
-                      itemCount: snapshot.data.docs.length,
+                      itemCount: snapshot.data.docs.length,//cuenta los documentos de cursos
                       itemBuilder: (context, i) {
                         QueryDocumentSnapshot x = snapshot.data.docs[i];
                         return muestroCurso(x);

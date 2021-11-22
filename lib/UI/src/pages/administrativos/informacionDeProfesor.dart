@@ -189,9 +189,9 @@ class InformacionProfesor extends StatelessWidget {
                       showDialog(
                         context: context,
                         builder: (context) => AlertDialog(
-                          title: Text("Editar Profesor"),
+                          title: Text("Eliminar Profesor"),
                           content:
-                              Text("¿Seguro que desea editar este profesor?"),
+                              Text("¿Seguro que desea Eliminar este profesor?"),
                           actions: [
                             TextButton(
                                 onPressed: () {

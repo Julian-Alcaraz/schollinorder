@@ -26,7 +26,7 @@ class _EditarDatosProfesorState extends State<EditarDatosProfesor> {
   TextEditingController materia2 = TextEditingController();
 
   final firebase = FirebaseFirestore.instance;
-
+  //aca actualiza los datos del profe segun su id correspond
   editarProfesor() {
     try {
       firebase.collection("profesores").doc(profe.id).update({
@@ -234,7 +234,6 @@ class _EditarDatosProfesorState extends State<EditarDatosProfesor> {
                           } else {
                             print("error");
                           }
-
                           showDialog(
                             context: context,
                             builder: (context) => AlertDialog(

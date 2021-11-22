@@ -14,6 +14,7 @@ class _CargarDatosProfesorState extends State<CargarDatosProfesor> {
   final _formKey = GlobalKey<FormState>();
   final controller = Get.put(Controller());
 
+  //variables controller
   TextEditingController nombre = TextEditingController();
   TextEditingController apellido = TextEditingController();
   TextEditingController telefono = TextEditingController();
@@ -25,6 +26,7 @@ class _CargarDatosProfesorState extends State<CargarDatosProfesor> {
   crearProfesor() async {
     try {
       //si quiero asignar el nombre del documento en .doc(poner nombre.text)
+       //crea la coleccion profesores y un documento con los siguiente datos
       await firebase.collection("profesores").doc().set({
         "nombre": nombre.text,
         "apellido": apellido.text,
@@ -82,7 +84,7 @@ class _CargarDatosProfesorState extends State<CargarDatosProfesor> {
                 child: ListView(
                   children: [
                     TextFormField(
-                      controller: nombre,
+                      controller: nombre,//va estar controlado por el cotroller
                       decoration: InputDecoration(
                         hintText: "Nombre",
                         hintStyle: TextStyle(
@@ -203,9 +205,10 @@ class _CargarDatosProfesorState extends State<CargarDatosProfesor> {
                     SizedBox(height: 10),
                     Center(
                       child: TextButton(
-                        onPressed: () {
+                        onPressed: () {//ve que ningun capom sea nulo
                           if (_formKey.currentState.validate()) {
                             print("muy bien cargo el profesor");
+                            //llama ala funcion crearr profesor
                             crearProfesor();
                             nombre.clear();
                             apellido.clear();

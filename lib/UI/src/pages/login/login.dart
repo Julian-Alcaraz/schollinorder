@@ -122,9 +122,7 @@ class _GoogleSignIn extends StatelessWidget {
         "Ya Iniciaste Sesion!",
         style: TextStyle(fontSize: 25, color: Colors.green),
       ),
-      Text(
-        "Pulsa el boton para Ingresar",
-      ),
+      Text("Pulsa el boton para Ingresar"),
       ActionChip(
         avatar: Icon(Icons.logout),
         label: Text(
